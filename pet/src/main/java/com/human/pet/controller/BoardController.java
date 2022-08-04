@@ -52,24 +52,26 @@ public class BoardController {
 
         //title_array.size()로 게시판 글이 1개이상일 경우에만 model에 데이터 입력하여
         //[클라이언트]에 전달
-        for (int i = 1; i <= 10; i++) {
-            //Board 클래스로 board인스턴스 생성
-            Board board = new Board();
-            //롬북으로 자동생성된 seter 메서드로 데이터 입력
-            board.setSeq(new Long(i));
-            //매개변수 title_array.get(i)은
-            //BoardController의 필드인
-            //title_array, writer_array, content_array의
-            //값을 순회하여 출력 (get(i));
-            //board.setter를 통해서 board객체에 데이터 입력
-            board.setTitle("게시판 테스트");
-            board.setWriter("지성진");
-            board.setContent("게시판 프로그램 테스트입니다.");
-            //내장 클래스인 java.util.Date 객체로 시간 데이터 출력
-            board.setCreateDate(new Date());
-            board.setCnt(0L);
-            //boardList배열에 board객체 넣기(for문 10번 도니까 board객체 10개 넣기)
-            boardList.add(board);
+        if (title_array.size() > 0) {
+            for (int i = 0; i < title_array.size(); i++) {
+                //Board 클래스로 board인스턴스 생성
+                Board board = new Board();
+                //롬북으로 자동생성된 seter 메서드로 데이터 입력
+                board.setSeq(new Long(i) + 1);
+                //매개변수 title_array.get(i)은
+                //BoardController의 필드인
+                //title_array, writer_array, content_array의
+                //값을 순회하여 출력 (get(i));
+                //board.setter를 통해서 board객체에 데이터 입력
+                board.setTitle(title_array.get(i));
+                board.setWriter(writer_array.get(i));
+                board.setContent(content_array.get(i));
+                //내장 클래스인 java.util.Date 객체로 시간 데이터 출력
+                board.setCreateDate(new Date());
+                board.setCnt(0L);
+                //boardList배열에 board객체 넣기(for문 10번 도니까 board객체 10개 넣기)
+                boardList.add(board);
+            }
         }
 
         //model 객체에 boardList(arrayList)를 boardList key값으로 넣음
@@ -124,6 +126,12 @@ public class BoardController {
         return "redirect:getBoardList";
     }
 
+    @PostMapping("deleteBoard")
+    public String deleteBoard(){
+
+        return "deleteBoard";
+    }
+
     //@어노테이션은 메서드 혹은 클래스에 속성, 정의를 해서 스프링이나 자바에서 찾기 쉽도록 해주는 선언부
     //예) @Override 은 부모 메서드를 재정의하여 사용한다고 자바나 스프링에게 속성 명시
     //@RequestParam : [클라이언트]에서 string문자열을 [서버]에 전달하는 매개변수 선언
@@ -147,4 +155,8 @@ public class BoardController {
                     model.addAttribute("userRole", userRole);
                     return "getBoard";
         }
+
+
+
+
     }

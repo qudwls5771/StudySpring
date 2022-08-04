@@ -32,6 +32,10 @@
         <td bgcolor="orange" th:text="조회수"></td>
         <td th:text="${cnt}"></td>
     </tr>
+    <tr>
+        <td bgcolor="orange" th:text="삭제">삭제</td>
+        <td><input type="submit" value="삭제"></td>
+    </tr>
 </table>
 <a th:href="@{/getBoardList}">글목록</a>
 </body>
