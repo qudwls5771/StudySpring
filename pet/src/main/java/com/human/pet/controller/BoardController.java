@@ -18,7 +18,11 @@ import java.util.List;
 @Controller
 public class BoardController {
 
-    //step1. 일반 문자열 변수 사용
+    //CRUD
+    //중복코드 처리리
+
+
+   //step1. 일반 문자열 변수 사용
     static String title_string_static = "";
     static String writer_string_static = "";
     static String content_string_static = "";
@@ -52,6 +56,8 @@ public class BoardController {
 
         //title_array.size()로 게시판 글이 1개이상일 경우에만 model에 데이터 입력하여
         //[클라이언트]에 전달
+
+        //매개변수를 넣어서 간결하게 만든다.
         if (board_array.size() > 0) {
             for (int i = 0; i < board_array.size(); i++) {
                 //Board 클래스로 board인스턴스 생성
@@ -89,6 +95,8 @@ public class BoardController {
     //RequestMapping의 기능을 모두 쓸 수 있다
     //자식클래스 어노테이션이 아닌 부모클래스 어노테이션을 쓰는 이유는 기능의 한정을 통해서
     //서버의 리소스 감소 및 보안을 위해서 이다
+
+    //Create
     @GetMapping("/insertBoard")
     public String insertBoard() {
         return "insertBoard";
@@ -112,6 +120,9 @@ public class BoardController {
         content_array.add(content);
 
         count++;
+
+
+        //클래스나 메소드로 만든다.
         Board board = new Board();
 
         board.setSeq((long) count);
@@ -133,6 +144,8 @@ public class BoardController {
     //@RequestParam : [클라이언트]에서 string문자열을 [서버]에 전달하는 매개변수 선언
     //@RequestParam("title")String title에서 ("title")은 [클라이언트]의 name이라는 속성로써
     //key값을 매개변수를 전달
+
+    //Read = Select
     @GetMapping("/getBoard")
     public String getBoard(
             @RequestParam("seq") String seq,
@@ -144,6 +157,7 @@ public class BoardController {
             @RequestParam("createDate") String createDate,
             @RequestParam("cnt") String cnt,
             Model model) {
+        //클래스나 메소드로 만든다.
         model.addAttribute("seq", seq);
         model.addAttribute("title", title);
         model.addAttribute("writer", writer);
@@ -155,6 +169,7 @@ public class BoardController {
         return "getBoard";
     }
 
+    //Delete
     @GetMapping("/deleteBoard")
     public String deleteBoard(@RequestParam("seq") String seq) {
         //seq매개변수 (getBoard.html에서 받아옴)로 board_array 배열에서
@@ -176,13 +191,25 @@ public class BoardController {
         }
         return "redirect:getBoardList";
     }
+
+
+
+
+
+    //update
+    //Post 방식으로 [클라이언트]에서 [서버]로 Mapping
     @PostMapping("/updateBoard")
-    public String updateBoard(@RequestParam("seq") String seq,
+    public String updateBoard(
+            //Html에서 name속성을 가진 값을 매개변수 String seq에 할당 = @RequestParam("seq")
+                              @RequestParam("seq") String seq,
                               @RequestParam("title") String title,
-                              @RequestParam("content") String content,
-                              Model model){
+                              @RequestParam("content") String content
+                              ){
+        System.out.println("Update Board Access");
+        //board_array배열을 순회하여 board객체의 seq필드값을 매개변수 seq와 비교하여 true값 찾기
         for (int i = 0; i < board_array.size(); i++) {
             if (Long.toString(board_array.get(i).getSeq()).equals(seq)) {
+                //setTitle과 같은 setter로 데이터 변경
                 board_array.get(i).setTitle(title);
                 board_array.get(i).setContent(content);
             }

@@ -8,6 +8,7 @@
 <h1>게시글 상세</h1>
 
 <form th:action="@{updateBoard}" method="Post">
+    <!--name이 있으면 실행이 되지 않음 / name으로 지정한 키값을 기준으로 실행!-->
     <input type="hidden" name="seq" th:value="${seq}"/>
     <table th:align="center" border="1" th:cellpadding="0" th:cellspacing="0">
         <tr>
