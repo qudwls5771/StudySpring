@@ -177,11 +177,10 @@ public class BoardController {
         return "redirect:getBoardList";
     }
     @GetMapping("/updateBoard")
-    public String updateBoard(
-            @RequestParam("seq") String seq,
-            @RequestParam("title") String title,
-            @RequestParam("content") String content,
-            Model model){
+    public String updateBoard(@RequestParam("seq") String seq,
+                              @RequestParam("title") String title,
+                              @RequestParam("content") String content,
+                              Model model){
         for (int i = 0; i < board_array.size(); i++) {
             if (Long.toString(board_array.get(i).getSeq()).equals(seq)) {
                 board_array.get(i).setTitle(title);
