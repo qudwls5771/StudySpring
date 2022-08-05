@@ -7,7 +7,7 @@
 <body th:align="center">
 <h1>게시글 상세</h1>
 
-<form th:action="@{updateBoard}" method="get">
+<form th:action="@{updateBoard}" method="Post">
     <input type="hidden" name="seq" th:value="${seq}"/>
     <table th:align="center" border="1" th:cellpadding="0" th:cellspacing="0">
         <tr>

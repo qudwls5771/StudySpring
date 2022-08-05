@@ -176,7 +176,7 @@ public class BoardController {
         }
         return "redirect:getBoardList";
     }
-    @GetMapping("/updateBoard")
+    @PostMapping("/updateBoard")
     public String updateBoard(@RequestParam("seq") String seq,
                               @RequestParam("title") String title,
                               @RequestParam("content") String content,
