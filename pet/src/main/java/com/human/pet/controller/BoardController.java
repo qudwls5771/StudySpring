@@ -188,6 +188,7 @@ public class BoardController {
             }
         }
         return "redirect:getBoardList";
+        
     }
 
 
