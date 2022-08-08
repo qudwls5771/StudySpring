@@ -3,6 +3,7 @@ package com.human.pet.controller;
 //외장 라이브러리 호출(import), gradle로 설치한 라이브러리
 
 import com.human.pet.domain.Board;
+import com.human.pet.domain.Comment;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,14 +28,25 @@ public class BoardController {
     static String writer_string_static = "";
     static String content_string_static = "";
 
+
+
     //step2. 배열 객체 사용
     static ArrayList<String> title_array = new ArrayList<String>();
     static ArrayList<String> writer_array = new ArrayList<String>();
     static ArrayList<String> content_array = new ArrayList<String>();
 
+
+
     //step3. 사용자 생성 객체 사용
     static ArrayList<Board> board_array = new ArrayList<Board>();
     static int count = 0;
+
+
+    //코멘트
+    static ArrayList<Comment> comment_array = new ArrayList<Comment>();
+    static ArrayList<String> contents_Comment = new ArrayList<String>();
+    static String content_Comments = "";
+
 
 //    @RequestMapping은 서버에서 디스페처서블릿을 통해 html의 action태그의 주소와 동일한
 //    문자열을 찾는 매핑기능(연결)이 실행되고 하단에 메서드가 실행
@@ -215,5 +227,29 @@ public class BoardController {
         }
         return  "redirect:getBoardList";
     }
+    @PostMapping("/getBoard")
+    public String selectComments(@RequestParam("contents") String contents,
+                                 Model model){
 
+        model.addAttribute("contents", contents);
+        return "getBoard";
+    }
+
+    @PostMapping("/insertComment")
+    public String insertComment(@RequestParam("Comments") String comments,
+                                @RequestParam("seq") String seq,
+                                Model model){
+        List<Comment> commentList = new ArrayList<Comment>();
+        for(int i = 0; i< board_array.size(); i++){
+            if(Long.toString(board_array.get(i).getSeq()).equals(seq)){
+                content_Comments = comments;
+                contents_Comment.add(comments);
+                count++;
+                Comment comment = new Comment();
+                comment.setComments(comments);
+                comment_array.add(comment);
+            }
+        }
+        return "redirect:getBoard";
+    }
 }

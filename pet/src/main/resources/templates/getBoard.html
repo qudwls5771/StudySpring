@@ -43,8 +43,13 @@
                 </div>
             </td>
         </tr>
+        <tr th:each="Comment :${commentList}">
+            <td bgcolor="orange" th:text="내용"></td>
+            <td><textarea name="content" th:text="${comments}" cols="40" rows="10"></textarea></td>
+        </tr>
     </table>
 </form>
+
 <a th:href="@{/getBoardList}">글목록</a>
 <a th:href="@{/deleteBoard(seq=${seq})}">글삭제</a>
 </body>
