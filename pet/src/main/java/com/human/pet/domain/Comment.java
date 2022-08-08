@@ -15,5 +15,6 @@ import java.util.Date;
 public class Comment {
     @Id
     @GeneratedValue
+    private Long seq;
     private String comments;
 }

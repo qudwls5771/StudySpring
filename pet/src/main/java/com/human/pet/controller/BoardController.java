@@ -1,4 +1,5 @@
 package com.human.pet.controller;
+import javax.servlet.http.HttpServletRequest;
 
 //외장 라이브러리 호출(import), gradle로 설치한 라이브러리
 
@@ -23,18 +24,16 @@ public class BoardController {
     //중복코드 처리리
 
 
-   //step1. 일반 문자열 변수 사용
+    //step1. 일반 문자열 변수 사용
     static String title_string_static = "";
     static String writer_string_static = "";
     static String content_string_static = "";
-
 
 
     //step2. 배열 객체 사용
     static ArrayList<String> title_array = new ArrayList<String>();
     static ArrayList<String> writer_array = new ArrayList<String>();
     static ArrayList<String> content_array = new ArrayList<String>();
-
 
 
     //step3. 사용자 생성 객체 사용
@@ -44,8 +43,9 @@ public class BoardController {
 
     //코멘트
     static ArrayList<Comment> comment_array = new ArrayList<Comment>();
-    static ArrayList<String> contents_Comment = new ArrayList<String>();
-    static String content_Comments = "";
+
+    static String comment_string_static = "";
+
 
 
 //    @RequestMapping은 서버에서 디스페처서블릿을 통해 html의 action태그의 주소와 동일한
@@ -103,6 +103,8 @@ public class BoardController {
         return "getBoardList"; //서버
     }
 
+
+
     //@GetMapping 또는@PostMapping은 @RequestMapping의 자식 클래스이다
     //RequestMapping의 기능을 모두 쓸 수 있다
     //자식클래스 어노테이션이 아닌 부모클래스 어노테이션을 쓰는 이유는 기능의 한정을 통해서
@@ -116,6 +118,9 @@ public class BoardController {
 
     //[클라이언트]html form태그의 method속성의 값인 post를 인식하여 아래의
     //@PostMapping에 연결
+
+
+
     @PostMapping("insertBoard")
     public String insertBoard(
             @RequestParam("title") String title,
@@ -168,6 +173,14 @@ public class BoardController {
             @RequestParam("cnt") String cnt,
             Model model) {
         //클래스나 메소드로 만든다.
+        List<Comment> commentLists = new ArrayList<Comment>();
+        for (Comment comment : comment_array) {
+            if (Long.toString(comment.getSeq()).equals(seq)) {
+                commentLists.add(comment);
+            }
+        }
+        //CommentList에 있는 seq, comment를 가져온다.
+        model.addAttribute("comments", commentLists);
         model.addAttribute("seq", seq);
         model.addAttribute("title", title);
         model.addAttribute("writer", writer);
@@ -176,7 +189,22 @@ public class BoardController {
         model.addAttribute("cnt", cnt);
         model.addAttribute("userId", userId);
         model.addAttribute("userRole", userRole);
+
         return "getBoard";
+    }
+
+    @PostMapping("/insertComment")
+    public String insertComment(@RequestParam("comments") String comments,
+                                @RequestParam("seq") Long seq,
+                                HttpServletRequest request,
+                                Model model) {
+        comment_string_static = comments;
+        Comment comment = new Comment();
+        comment.setComments(comments);
+        comment.setSeq(seq);
+        comment_array.add(comment);
+        String referer =  request.getHeader("referer");
+        return "redirect:" + referer;
     }
 
     //Delete
@@ -193,18 +221,15 @@ public class BoardController {
             //같은 타입이 아니므로 비교불가
             //board_array.get(i).getSeq()의 값 Long을 String으로 변환 = Long.toString()
             if (Long.toString(board_array.get(i).getSeq()).equals(seq)) {
-               // System.out.println("같음확인");
+                // System.out.println("같음확인");
                 // System.out.println(seq);
-              //System.out.println(board_array.get(i).getSeq());
+                //System.out.println(board_array.get(i).getSeq());
                 board_array.remove(i);
             }
         }
         return "redirect:getBoardList";
-        
+
     }
-
-
-
 
 
     //update
@@ -212,10 +237,10 @@ public class BoardController {
     @PostMapping("/updateBoard")
     public String updateBoard(
             //Html에서 name속성을 가진 값을 매개변수 String seq에 할당 = @RequestParam("seq")
-                              @RequestParam("seq") String seq,
-                              @RequestParam("title") String title,
-                              @RequestParam("content") String content
-                              ){
+            @RequestParam("seq") String seq,
+            @RequestParam("title") String title,
+            @RequestParam("content") String content
+    ) {
         System.out.println("Update Board Access");
         //board_array배열을 순회하여 board객체의 seq필드값을 매개변수 seq와 비교하여 true값 찾기
         for (int i = 0; i < board_array.size(); i++) {
@@ -225,31 +250,9 @@ public class BoardController {
                 board_array.get(i).setContent(content);
             }
         }
-        return  "redirect:getBoardList";
-    }
-    @PostMapping("/getBoard")
-    public String selectComments(@RequestParam("contents") String contents,
-                                 Model model){
-
-        model.addAttribute("contents", contents);
-        return "getBoard";
+        return "redirect:getBoardList";
     }
 
-    @PostMapping("/insertComment")
-    public String insertComment(@RequestParam("Comments") String comments,
-                                @RequestParam("seq") String seq,
-                                Model model){
-        List<Comment> commentList = new ArrayList<Comment>();
-        for(int i = 0; i< board_array.size(); i++){
-            if(Long.toString(board_array.get(i).getSeq()).equals(seq)){
-                content_Comments = comments;
-                contents_Comment.add(comments);
-                count++;
-                Comment comment = new Comment();
-                comment.setComments(comments);
-                comment_array.add(comment);
-            }
-        }
-        return "redirect:getBoard";
-    }
+
+
 }

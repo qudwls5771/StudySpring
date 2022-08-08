@@ -6,7 +6,6 @@
 </head>
 <body th:align="center">
 <h1>게시글 상세</h1>
-
 <form th:action="@{updateBoard}" method="Post">
     <!--name이 있으면 실행이 되지 않음 / name으로 지정한 키값을 기준으로 실행!-->
     <input type="hidden" name="seq" th:value="${seq}"/>
@@ -43,12 +42,37 @@
                 </div>
             </td>
         </tr>
-        <tr th:each="Comment :${commentList}">
-            <td bgcolor="orange" th:text="내용"></td>
-            <td><textarea name="content" th:text="${comments}" cols="40" rows="10"></textarea></td>
+    </table>
+</form>
+<!--@ = 링크 연결-->
+<!--$ = Value값 가져온다.-->
+<form th:action="insertComment" method="Post">
+    <input type="hidden" name="seq" th:value="${seq}"/>
+    <table th:align="center" border="1" th:cellpadding="0" th:cellspacing="0">
+    <tr>
+        <td bgcolor="orange" th:text="댓글"></td>
+        <td><textarea name="comments" cols="40" th:text="${comments}" rows="10"></textarea>
+        </td>
+    </tr>
+        <tr>
+            <td><input align="center" type="submit" value="등록"/></td>
         </tr>
     </table>
 </form>
+<br>
+
+<form>
+    <table th:align="center" border="1" th:cellpadding="0" th:cellspacing="0">
+        <tr>
+            <th colspan="2" bgcolor="aqua" width="200">댓글내용</th>
+        </tr>
+        <tr th:each="Comment :${comments}">
+            <td><textarea name="comments" cols="40" th:text="${comments}" rows="10"></textarea>
+            </td>
+        </tr>
+    </table>
+</form>
+
 
 <a th:href="@{/getBoardList}">글목록</a>
 <a th:href="@{/deleteBoard(seq=${seq})}">글삭제</a>
