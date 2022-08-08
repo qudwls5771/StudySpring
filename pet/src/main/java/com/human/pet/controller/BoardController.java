@@ -120,8 +120,6 @@ public class BoardController {
         content_array.add(content);
 
         count++;
-
-
         //클래스나 메소드로 만든다.
         Board board = new Board();
 
