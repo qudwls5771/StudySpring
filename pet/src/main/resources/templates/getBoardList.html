@@ -32,7 +32,7 @@
         [HTML(클라이언트)]seq=${board.seq} 에서 [JAVA(서버)]@RequestParam으로 매개변수 전달
         seq(변수명) = ${board.seq}(HTML(타임리프)에서의 데이터(클라이언트)
         -->
-        <td> <a th:href="@{/getBoard(
+        <td><a th:href="@{/getBoard(
                                 seq=${board.seq},
                                 categori=${board.categori},
                                 userId='userIdTeste',
@@ -44,8 +44,8 @@
                                 createDate=${board.createDate},
                                 cnt=${board.cnt}
                                 )}"
-                th:text="${board.title}"></a></td>
-        <td th:text="${board.content.length() < 20 ? board.content : board.content.substring(0,20)}"></td>
+               th:text="${board.title}"></a></td>
+        <td th:text="${board.content.length() < 20 ? board.content : board.content.substring(0, 20)}"></td>
         <!--        <td th:text="${board.title}"></td>-->
         <td th:text="${board.writer}"></td>
         <!--
@@ -55,16 +55,14 @@
         <!--        <td th:text="${board.createDate}"></td>-->
         <td th:text="${board.cnt}"></td>
     </tr>
+
 </table>
-        <table th:align="center" border="1" th:cellpadding="0" th:cellspacing="0" th:width="700">
-            <td align="center">
-                <select name = "categori" title = "분류유형선택">
-                    <option value="자유">자유</option>
-                    <option value="상품">상품</option>
-                    <option value="문의사항">문의사항</option>
-                </select>
-            </td>
-        </table>
+<select name="categori" title="분류유형선택">
+    <option value="상품">자유</option>
+    <option value="상품">상품</option>
+    <option value="문의사항">문의사항</option>
+</select>
+
 
 <a th:href="@{/insertBoard}">글등록</a>
 </body>
