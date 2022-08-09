@@ -31,6 +31,7 @@ public class Board {
     private Date createDate;
 //    @Column(insertable = false, updatable = false, columnDefinition = "number default 0")
     private long cnt;
+    private String categori;
     
     //원래는 setter, getter라는 메서드가 있어야 private 필드값에 데이터를 넣을 수 있지만,
     //(gradle에서 설치)롬북 이라는 라이브러리로 자동 getter, setter 메서드 생성

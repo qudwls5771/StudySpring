@@ -29,11 +29,17 @@ public class BoardController {
     static String writer_string_static = "";
     static String content_string_static = "";
 
+    static String categori_String_static = "";
+
+
+
 
     //step2. 배열 객체 사용
     static ArrayList<String> title_array = new ArrayList<String>();
     static ArrayList<String> writer_array = new ArrayList<String>();
     static ArrayList<String> content_array = new ArrayList<String>();
+
+    static ArrayList<String> categori_array = new ArrayList<String>();
 
 
     //step3. 사용자 생성 객체 사용
@@ -76,6 +82,7 @@ public class BoardController {
                 Board board = new Board();
                 //롬북으로 자동생성된 seter 메서드로 데이터 입력
                 board.setSeq(board_array.get(i).getSeq());
+                board.setCategori(board_array.get(i).getCategori());
                 //매개변수 title_array.get(i)은
                 //BoardController의 필드인
                 //title_array, writer_array, content_array의
@@ -105,6 +112,8 @@ public class BoardController {
 
 
 
+
+
     //@GetMapping 또는@PostMapping은 @RequestMapping의 자식 클래스이다
     //RequestMapping의 기능을 모두 쓸 수 있다
     //자식클래스 어노테이션이 아닌 부모클래스 어노테이션을 쓰는 이유는 기능의 한정을 통해서
@@ -126,21 +135,26 @@ public class BoardController {
             @RequestParam("title") String title,
             @RequestParam("writer") String writer,
             @RequestParam("content") String content,
+            @RequestParam("categori") String categori,
             Model model) {
+
 
         title_string_static = title;
         writer_string_static = writer;
         content_string_static = content;
+        categori_String_static = categori;
 
         title_array.add(title);
         writer_array.add(writer);
         content_array.add(content);
+        categori_array.add(categori);
 
         count++;
         //클래스나 메소드로 만든다.
         Board board = new Board();
 
         board.setSeq((long) count);
+        board.setCategori(categori);
         board.setTitle(title);
         board.setWriter(writer);
         board.setContent(content);
@@ -148,6 +162,8 @@ public class BoardController {
         board.setCnt(0L);
         board_array.add(board);
 
+        System.out.println("Board : " + board);
+        System.out.println("Board_Array : " + board_array);
         //redirect : 페이지 전환 이동
         //redirect:getBoardList : getBoardList 페이지로 이동
         return "redirect:getBoardList";
