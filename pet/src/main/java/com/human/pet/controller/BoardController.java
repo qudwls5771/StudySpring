@@ -4,18 +4,17 @@ import javax.servlet.http.HttpServletRequest;
 //외장 라이브러리 호출(import), gradle로 설치한 라이브러리
 
 import com.human.pet.domain.Board;
+import com.human.pet.domain.Categori;
 import com.human.pet.domain.Comment;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 //내장 라이브러리 호출(import)
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 @Controller
 public class BoardController {
@@ -127,7 +126,6 @@ public class BoardController {
 
     //[클라이언트]html form태그의 method속성의 값인 post를 인식하여 아래의
     //@PostMapping에 연결
-
 
 
     @PostMapping("insertBoard")
@@ -246,6 +244,22 @@ public class BoardController {
         return "redirect:getBoardList";
 
     }
+    @RequestMapping("categoris") //카테고리 분류
+    public String categorize(@RequestParam("categori") String categori, Model model){
+        //Board => 새로운 ArrayList를 만든다.
+        ArrayList <Board> caterori = new ArrayList<>();
+        for(int i=0; i<board_array.size(); i++){
+            //equals를 이용해서 분류 선택 = 자유, 상품, 문의사항 중에 1개를 선택해서
+            //그에 해당하는 게시글을 보여준다.
+            if(Objects.equals(board_array.get(i).getCategori(), categori)){
+                caterori.add(board_array.get(i));
+            }
+        }
+
+        model.addAttribute("boardList", caterori);
+
+        return "getBoardList";
+    }
 
 
     //update
@@ -268,6 +282,8 @@ public class BoardController {
         }
         return "redirect:getBoardList";
     }
+
+
 
 
 
