@@ -5,28 +5,47 @@ package com.human.pet.domain;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.ColumnDefault;
+import org.springframework.data.jpa.repository.Query;
 
 import javax.persistence.*;
 import java.util.Date;
 
+@Getter
+@Setter
 //롬북에 있는 Getter라는 메서드를 통해
 //하단에 있는 클래스 board는
 //자동으로 getter, setter 메서드가 생성됨을
 //암시함(@어노테이션)
-@Getter
-@Setter
-@ToString
+
 @Entity
+//Entity가 이 class가 JPA를 통해 데이터베이스 테이블로로 쓰겠다 => 컬럼으로 쓰겠다. 선언!
+
+
+@ToString
+
+
 public class Board {
 
     //식별 필드
+    // @ID : Primary key = 유일한 값 설정
+    // @GeneratedValue :  자동생성 속성
     @Id
     @GeneratedValue
     private Long seq;
+
+    //@Column은 title 필드값을 컬럼화할 때 길이와 null 입력 가능여부 확인 옶션
+    @Column(length = 40, nullable = false)
     private String title;
-//    @Column(updatable = false)
+     @Column(updatable = false)
     private String writer;
+
+
+    @Column(nullable = false)
+    //@ColumnDefault 생성할 때 기본 데이터
+    @ColumnDefault("'no content'")
     private String content;
+
 //    @Column(insertable = false, updatable = false, columnDefinition = "date default sysdate")
     private Date createDate;
 //    @Column(insertable = false, updatable = false, columnDefinition = "number default 0")

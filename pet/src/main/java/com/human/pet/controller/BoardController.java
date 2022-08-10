@@ -108,11 +108,6 @@ public class BoardController {
         //return getBoardList라는 문자열로 templates에 있는 같은 이름에 html파일을 찾는다.
         return "getBoardList"; //서버
     }
-
-
-
-
-
     //@GetMapping 또는@PostMapping은 @RequestMapping의 자식 클래스이다
     //RequestMapping의 기능을 모두 쓸 수 있다
     //자식클래스 어노테이션이 아닌 부모클래스 어노테이션을 쓰는 이유는 기능의 한정을 통해서
@@ -126,8 +121,6 @@ public class BoardController {
 
     //[클라이언트]html form태그의 method속성의 값인 post를 인식하여 아래의
     //@PostMapping에 연결
-
-
     @PostMapping("insertBoard")
     public String insertBoard(
             @RequestParam("title") String title,
@@ -284,10 +277,15 @@ public class BoardController {
         }
         return "redirect:getBoardList";
     }
-   /* @PostMapping()
-    public String boardHits(){
+   @PostMapping()
+    public String boardHits(@RequestParam("cnt") String cnt){
+        ArrayList<Board> hitsList = new ArrayList<Board>();
+        for(int i = 0; i<board_array.size(); i++){
+        }
 
-    }*/
+
+        return "getBoardList";
+    }
 
 
 
