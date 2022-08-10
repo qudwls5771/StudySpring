@@ -239,6 +239,7 @@ public class BoardController {
                 // System.out.println(seq);
                 //System.out.println(board_array.get(i).getSeq());
                 board_array.remove(i);
+                System.out.println("글삭제 : " + board_array);
             }
         }
         return "redirect:getBoardList";
@@ -278,10 +279,15 @@ public class BoardController {
                 //setTitle과 같은 setter로 데이터 변경
                 board_array.get(i).setTitle(title);
                 board_array.get(i).setContent(content);
+                System.out.println("수정완료 : " + board_array);
             }
         }
         return "redirect:getBoardList";
     }
+   /* @PostMapping()
+    public String boardHits(){
+
+    }*/
 
 
 
