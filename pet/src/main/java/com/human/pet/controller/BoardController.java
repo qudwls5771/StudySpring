@@ -3,9 +3,12 @@ import javax.servlet.http.HttpServletRequest;
 
 //외장 라이브러리 호출(import), gradle로 설치한 라이브러리
 
+import com.human.pet.Service.BoardService;
 import com.human.pet.domain.Board;
 import com.human.pet.domain.Categori;
 import com.human.pet.domain.Comment;
+import com.human.pet.persistence.BoardRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -53,11 +56,14 @@ public class BoardController {
 
 
 
+
 //    @RequestMapping은 서버에서 디스페처서블릿을 통해 html의 action태그의 주소와 동일한
 //    문자열을 찾는 매핑기능(연결)이 실행되고 하단에 메서드가 실행
 //    return String인 이유는 뷰리졸버가 html파일을 찾기 위한 문자열 리턴
 
     //클라이언트에서 서버로 무언가 데이터를 전송하기 위한 Mapping(@RequestMapping)
+
+
     @RequestMapping("/getBoardList")
     public String getBoardList(Model model) {
         //List 타입으로 Board객체를 넣는 boardList변수명 선언
@@ -200,6 +206,11 @@ public class BoardController {
         return "getBoard";
     }
 
+
+
+
+
+
     @PostMapping("/insertComment")
     public String insertComment(@RequestParam("comments") String comments,
                                 @RequestParam("seq") Long seq,
@@ -287,6 +298,21 @@ public class BoardController {
         return "getBoardList";
     }
 
+
+
+    /**
+     *     @GetMapping("/getBoardList")
+     *     public String getBoardList(Model model){
+     *             model.addAttribute("boardList", boardService.getBoardList());
+     *         return "getBoardList";
+     *     }
+     *
+     *     @GetMapping("/getBoard")
+     *     public String getBoard(Board board, Model model){
+     *         model.addAttribute("board", boardService.getBoard(board));
+     *         return "getBoard";
+     *     }
+     * **/
 
 
 
