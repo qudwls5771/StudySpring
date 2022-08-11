@@ -27,7 +27,7 @@
             <label th:if="${board == null}" class="row label writer"><input name="writer" type="text"></label>
             <div th:unless="${board == null}" class="row label writer" th:text="${board.writer}"></div>
             <div class="row fr">
-                <button class="btn write fl" th:classappend="${board} != null ? 'update'" type="submit" onclick="this.submit()"></button>
+                <button class="btn write fl" th:classappend="${board} != null ? 'update' "type="submit" onclick="this.submit()"></button>
             </div>
         </div>
     </form>
