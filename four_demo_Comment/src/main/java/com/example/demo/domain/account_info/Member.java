@@ -22,9 +22,11 @@ public class Member {
     //)
 
         //JPA : 객체에 맞춰서 SQL문으로 바꿔주는 것(번역역)
-    @Id  //@Id : table을 만들 때, 테이블의 튜플을(row)를 식별할 수 있는 기본 키
+        // //@Id : table을 만들 때, 테이블의 튜플을(row)를 식별할 수 있는 기본 키
+        @Id
     @GeneratedValue
     private Long seq;
+
 
     @Column(length = 20, nullable = false)
     private String id;
@@ -32,7 +34,9 @@ public class Member {
     @Column(length = 20, nullable = false)
     private String password;
 
+    private String email;
 
+    //@Query()
     @Temporal(TemporalType.DATE)
     private Date createDate;
 
