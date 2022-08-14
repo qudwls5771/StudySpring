@@ -64,6 +64,7 @@ public class HelloController {
         int urlFix = url*2;
         model.addAttribute("msg", "이 주소는 없는 경로 입니다 : "+urlFix);
         return main;
+        
     }
 
 }
