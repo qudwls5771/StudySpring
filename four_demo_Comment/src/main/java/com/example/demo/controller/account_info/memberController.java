@@ -100,6 +100,7 @@ public class memberController {
         memberservice.updateMember(member);
         return "redirect:/account/getAccount";
         
+        
     }
 
 }
