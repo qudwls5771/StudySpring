@@ -99,6 +99,7 @@ public class memberController {
         System.out.println("-----update-------");
         memberservice.updateMember(member);
         return "redirect:/account/getAccount";
+        
     }
 
 }
