@@ -19,14 +19,19 @@ public class memberServiceImpl implements memberService{
     // List<Member> : 리턴타입 = List , 속성은 Member
     //return memberRepository의 findMemberByEmailorId메소드를 실행한 리턴 데이터
     @Override
-    public List<Member> getMemberWhereIdOrEmail(String email, String id) {
+    public Member getMemberWhereIdOrEmail(String email, String id) {
 
         return memberRepo.findMemberByEmailorId(email, id);
     }
 
     @Override
+    public Member findEmail(String id) {
+        return memberRepo.findEmail(id);
+    }
+
+    @Override
     public Member getMemberWhereIdAndROWNUL1(String id) {
-        return null;
+        return memberRepo.findFirstById(id);
     }
 
     //모든 회원의 정보를 가져다 오는 것.

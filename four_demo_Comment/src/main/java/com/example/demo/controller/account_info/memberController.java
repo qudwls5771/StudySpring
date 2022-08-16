@@ -18,10 +18,7 @@ public class memberController {
     @Autowired
     private memberService memberservice;
 
-    @GetMapping("index")
-    public String index(){
-        return "index";
-    }
+
     //클라이언트 두 분류 : 사용자 관점
     //시스템관리관점(회원관리, 게시판 관리, 컨텐츠 관리)[웹솔루션을 관리하는 오너]
     //getAccountList(전체 외훤 목록 보기) : 웹솔루션에서 웹시스템을 관리하는 관리자 기능
@@ -29,19 +26,20 @@ public class memberController {
     //String : 이 메소드가 실행 완료되면 최종적으로 리턴하는 타입(HTML 파일명을 찾기 위해)
 
     @GetMapping("/getAccountList")
-    public String getAccountList(Model model){
+    public String getAccountList(Model model) {
         //model : 컨트롤러에서 작업한 결과물을 HTML에 전달하기 위한 매개체
-        //addAttribute : key/value으로 데이터를 저장하는 메소드
+        //addAttribute : key/value으로 데이터를 저장하는 메서드
         //attributeName(key) : 뒤에 있는 value를 호출하기 위한 문자열(key)
-        //memberService.getMemberList() : @Autowired로 선언된 memberService 클래스를  호출하여
-        //getMemberList()메소드 실행
+        //memberService.getMemberList() : @Autowired로 선언된 MemberService 클래스를 호출하여
+        //getMemberList()메서드 실행
         model.addAttribute("memberList", memberservice.getMemberList());
         return "/account/getAccountList";
     }
 
     //member : 클라이언트
     @GetMapping("/getAccount")
-    public String getAccount(Member member, Model model){
+    public String getAccount(Member member, Model model) {
+        System.out.println("-----------getAccount----------");
         model.addAttribute("member", memberservice.getMember(member));
         return "/account/getAccount";
     }
@@ -60,56 +58,63 @@ public class memberController {
     //         Join을 써서 속도가 느림
 
     //retrun 타입이 String 이유 : HTMl 파일명을 찾기 위해
+    //retrun 타입이 String이유 : HTML 파일명을 찾기 위해
     @GetMapping("/insertAccount")
-    public String insertAccountview(){
-        return "/account/insertAccount";
+    public String insertAccountView() {
+        return "account/insertAccount";
     }
 
-
-    //Member 라는 매개변수로 controller에 전달 = 심플하게는 Entity
-    //Member(Entity)이고 DTO(Data Transfor Object)
+    //Member 라는 매개변수로 controller에 전달
+    //Member(Entity)이고 DTO(Data Transfer Object)
     //어디선가 받거나 만든 데이터를 객체로 만드는 것 : DTO
     @PostMapping("/insertAccount")
-    public String insertAccountview(Member member){
-        //클라이언트에서 ID/PWD
-        System.out.println(member.getSeq());
-        System.out.println(member.getId());
-        System.out.println(member.getPassword());
-        System.out.println(member.getCreateDate());
-        System.out.println(member.getUpdateDate());
-
+    public String insertAccountView(Member member) {
+        //클라이언트에서 ID/PW
+        //createDate
+        //updateDate
         member.setCreateDate(new Date());
         member.setUpdateDate(new Date());
+
         memberservice.insertMember(member);
-        return "redirect:getAccountList";
+        return "redirect:/account/getAccountList";
     }
 
     //deleteAccount : 회원정보 삭제
-    @PostMapping("/deleteAccount")
-    public String deleteMember(Member member){
+
+    @PostMapping("/updateAccount")
+    public String updateAccount (Member member) {
+        memberservice.updateMember(member);
+        return "redirect:/account/getAccountList";
+    }
+
+    @GetMapping("/deleteAccount")
+    public String deleteAccount(Member member) {
         System.out.println("-------delete-------");
         memberservice.deleteMember(member);
         return "redirect:/account/getAccountList";
     }
 
-    //updateAccount : 회원정보 수정
-    @PostMapping("/updateAccount")
-    public String updateMember(Member member){
-        System.out.println("-----update-------");
-        memberservice.updateMember(member);
-        return "redirect:/account/getAccount";
-        
-        
-    }
-
     @GetMapping("/selectAccount")
-    public String selectAccount(){return "account/selectAccount";}
+    public String selectAccount() {
+        return "account/selectAccount";
+    }
 
     @PostMapping("/selectAccount")
-    public String resultAccount(Member member, Model model){
-
-        model.addAttribute("member", memberservice.getMemberWhereIdOrEmail(member.getEmail(), member.getId()));
+    public String resultAccount(Member member, Model model) {
+        model.addAttribute("memberList",
+                memberService.getMemberWhereIdOrEmail(member.getEmail(), member.getId()));
         return "account/resultAccount";
     }
+
+    @GetMapping("/selectEmail")
+    public String selectEmail(){
+        return "account/selectEmail";
+    }
+    @PostMapping("/selectEmail")
+    public String selectEmails(Member member, Model model){
+        model.addAttribute("member", memberservice.findEmail(member.getId()));
+        return "account/resultEmail";
+    }
+
 
 }

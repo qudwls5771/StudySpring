@@ -21,16 +21,25 @@ import java.util.List;
 
 
 public interface MemberRepository extends JpaRepository<Member, Long> {
-
-    List<Member> findByIdOrEmail(String email);
+    //SQL 쿼리문 넣는 인터페이스
+   // List<Member> findByIdOrEmail(String email);
 
     //Return 내용선언, Find~변수명에 맞춰서 메소드 생성, 필요한 매개변수
     // m은 별칭이다.
-    @Query(value= "select m from Member m where m.email = :email or m.id = :id")
-    List<Member> findMemberByEmailorId(String email_1, String id_1);
+    @Query(value = "select m from Member m where m.email = :email or m.id = :id")
+    Member findMemberByEmailorId(String email, String id);
 
     //(id는 중복가능한 구조에서)id값을 매개변수로 넣고, 아이디 생성날짜가 가장최신화된 것.
-    @Query(value= "select m from Member m where m.id = :id order by m.createDate DESC")
+    @Query(value = "select m from Member m where m.id = :id_1 order by m.createDate DESC")
     Member findFirstById(String id);
+
+
+    //이메일에 들어가는 거.
+    @Query(value = "select m from Member m where m.id LIKE ?1%")
+    Member findEmail(String email);
+
+
+
+
 
 }

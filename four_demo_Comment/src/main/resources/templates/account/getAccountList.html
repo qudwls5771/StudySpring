@@ -3,11 +3,13 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="/css/default.css">
-    <title>회원 목록</title>
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/board.css">
+    <title>Title</title>
 </head>
-<body>
-<h1>게시글 목록</h1>
+<!--<p class="test">test color</p>-->
+<body th:align="center">
+<h1>회원목록</h1>
 <table th:align="center" border="1" th:cellpadding="0" th:cellspacing="0" th:width="700">
     <tr>
         <th bgcolor="#add8e6" width="100">번호</th>
@@ -15,7 +17,7 @@
         <th bgcolor="#add8e6" width="150">Email</th>
         <th bgcolor="#add8e6" width="150">비고</th>
     </tr>
-    <tr th:each="member :${memberList}" th:align="center">
+    <tr th:each="member :${memberList}">
         <td th:text="${member.seq}"></td>
         <td> <a th:text="${member.id}"></a></td>
         <td th:text="${member.email}"></td>
@@ -36,5 +38,6 @@
 </table>
 <a th:href="@{/account/insertAccount}">회원등록</a>
 <a th:href="@{/account/selectAccount}">회원찾기</a>
+<a th:href="@{/account/selectEmail}">비슷한 회원찾기</a>
 </body>
 </html>
