@@ -1,6 +1,6 @@
 package com.example.demo.controller.account_info;
 
-import com.example.demo.domain.account_info.Member;
+import com.example.demo.Entity.account_info.Member;
 import com.example.demo.service.account_info.memberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Date;
-import java.util.List;
 
 //디스패처 서블릿이 컨트롤러를 찾기 위해서 @Controller라고 선언
 @Controller
@@ -99,6 +98,16 @@ public class memberController {
         System.out.println("-----update-------");
         memberservice.updateMember(member);
         return "redirect:/account/getAccount";
+    }
+
+    @GetMapping("/selectAccount")
+    public String selectAccount(){return "account/selectAccount";}
+
+    @PostMapping("/selectAccount")
+    public String resultAccount(Member member, Model model){
+
+        model.addAttribute("member", memberservice.getMemberWhereIdOrEmail(member.getEmail(), member.getId()));
+        return "account/resultAccount";
     }
 
 }

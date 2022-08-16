@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/board.css">
+    <title>회원정보</title>
+</head>
+<body>
+<!--회원정보 같은 민감데이터는 가능한 암호화와 숨김 코드로 작성 필요-->
+<h1>회원정보 상세</h1>
+<form th:action="@{/account/updateAccount}" method="get">
+    <input name="seq" type="hidden" th:value="${member.seq}">
+    <table th:align="center" border="1" th:cellpadding="0" th:cellspacing="0">
+        <tr>
+            <td bgcolor="#add8e6" th:text="번호" width="80"></td>
+            <td th:text="${member.seq}"></td>
+        </tr>
+        <tr>
+            <td bgcolor="#add8e6" th:text="ID" width="80"></td>
+            <td><input name="id" type="text" th:value="${member.id}"></td>
+        </tr>
+        <<tr>
+            <td bgcolor="#add8e6" th:text="email"></td>
+            <td name="email" type="text" th:text="${member.email}"></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <input type="submit" value="회원정보수정">
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

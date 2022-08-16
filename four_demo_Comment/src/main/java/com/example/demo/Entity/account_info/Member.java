@@ -1,4 +1,4 @@
-package com.example.demo.domain.account_info;
+package com.example.demo.Entity.account_info;
 
 import lombok.Getter;
 import lombok.Setter;
