@@ -6,9 +6,11 @@ import java.util.List;
 
 public interface memberService {
     //Email 또는 ID를 조회하여 튜플을 찾기
-    Member getMemberWhereIdOrEmail(String email, String id);
+    //한개만 출력 select List배열로 만들필요가 없다.
+    Member getMemberWhereIdOrEmail(String Email, String Id);
 
-    Member findEmail(String email);
+    //LiKE를 사용한 이메일 찾기
+    List<Member> findEmail(String email);
 
     Member getMemberWhereIdAndROWNUL1(String id);
 

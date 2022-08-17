@@ -5,9 +5,7 @@ import com.example.demo.service.account_info.memberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 
@@ -101,8 +99,8 @@ public class memberController {
 
     @PostMapping("/selectAccount")
     public String resultAccount(Member member, Model model) {
-        model.addAttribute("memberList",
-                memberService.getMemberWhereIdOrEmail(member.getEmail(), member.getId()));
+        model.addAttribute("member",
+                memberservice.getMemberWhereIdOrEmail(member.getEmail(), member.getId()));
         return "account/resultAccount";
     }
 
@@ -110,11 +108,12 @@ public class memberController {
     public String selectEmail(){
         return "account/selectEmail";
     }
-    @PostMapping("/selectEmail")
-    public String selectEmails(Member member, Model model){
-        model.addAttribute("member", memberservice.findEmail(member.getId()));
+
+    @RequestMapping(value="/selectEmail", method = RequestMethod.POST)
+    public String resultEmail(@RequestParam("email") String email, Member member, Model model){
+        model.addAttribute("member", memberservice.findEmail(member.getEmail()));
+        model.addAttribute("email", email);
         return "account/resultEmail";
     }
-
 
 }

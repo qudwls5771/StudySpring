@@ -4,11 +4,14 @@ import com.example.demo.Entity.account_info.Member;
 import com.example.demo.persistence.account_info.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class memberServiceImpl implements memberService{
+
 
     @Autowired
     //persistence.account_info => MemberRepository에 있는 CrudRepository<Member, Long> 사용
@@ -18,20 +21,23 @@ public class memberServiceImpl implements memberService{
     //public : 공개
     // List<Member> : 리턴타입 = List , 속성은 Member
     //return memberRepository의 findMemberByEmailorId메소드를 실행한 리턴 데이터
-    @Override
-    public Member getMemberWhereIdOrEmail(String email, String id) {
 
-        return memberRepo.findMemberByEmailorId(email, id);
-    }
 
     @Override
-    public Member findEmail(String id) {
-        return memberRepo.findEmail(id);
+    public Member getMemberWhereIdOrEmail(String Email, String Id) {
+        return memberRepo.findMemberByEmailOrId(Email, Id);
     }
 
     @Override
     public Member getMemberWhereIdAndROWNUL1(String id) {
+        
         return memberRepo.findFirstById(id);
+    }
+
+    //LIKE를 이용한 이메일 찾기
+    @Override
+    public List<Member> findEmail(String email) {
+        return (List<Member>) memberRepo.findEmail(email);
     }
 
     //모든 회원의 정보를 가져다 오는 것.
@@ -44,7 +50,22 @@ public class memberServiceImpl implements memberService{
     @Override
     public List<Member> getMemberList() {
         //ArrayList를 List로 형변환!
-        return (List<Member>) memberRepo.findAll();
+        List<Member> memberList =  memberRepo.findAll();
+
+        for(int i =0; i<memberList.size(); i++){
+            StringBuilder stb = new StringBuilder();
+            for(int j =0; j < memberList.get(i).getEmail().length(); j++){
+                String a = memberList.get(i).getEmail();
+                if( j > 2){
+                    stb.append("*");
+                }
+                else {
+                    stb.append(a.charAt(j));
+                }
+            }
+            memberList.get(i).setEmail(String.valueOf(stb));
+        }
+        return memberList;
     }
     //회원 1명의 정보를 Entity에 맞춰서 DB에 저장
     @Override
