@@ -24,18 +24,18 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
     //SQL 쿼리문 넣는 인터페이스
    // List<Member> findByIdOrEmail(String email);
 
-    //Return 내용선언, Find~변수명에 맞춰서 메소드 생성, 필요한 매개변수
-    // m은 별칭이다.
-    @Query(value = "select m from Member m where m.email = :email or m.id = :id")
-    Member findMemberByEmailorId(String email, String id);
+    //Return 내용선언, Find~변수명에 맞춰서 메서드 생성, 필요한 매개변수
+    @Query(value = "select m from Member m where m.email = :email_1 or m.id = :id_1")
+    Member findMemberByEmailOrId(String email_1, String id_1);
 
-    //(id는 중복가능한 구조에서)id값을 매개변수로 넣고, 아이디 생성날짜가 가장최신화된 것.
+    //(ID는 중복가능한 구조에서)Id값을 매개변수로 넣고, 아이디 생성날짜가 가장 최신인 것
     @Query(value = "select m from Member m where m.id = :id_1 order by m.createDate DESC")
-    Member findFirstById(String id);
+    Member findFirstById(String id_1);
 
 
     //이메일에 들어가는 거.
-    @Query(value = "select m from Member m where m.id LIKE ?1%")
+    //리턴을 Member로 받기 때문에 1개의 정보밖에 가져오지 못한다.
+    @Query(value = "select m from Member m where m.email LIKE ?1%")
     Member findEmail(String email);
 
 
