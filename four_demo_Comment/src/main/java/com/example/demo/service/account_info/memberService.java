@@ -21,4 +21,8 @@ public interface memberService {
     void  updateMember(Member member);
 
     void deleteMember(Member member);
+
+    void signUp(Member member);
+
+
 }

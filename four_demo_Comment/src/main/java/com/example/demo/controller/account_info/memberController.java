@@ -5,9 +5,7 @@ import com.example.demo.service.account_info.memberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 
@@ -15,8 +13,46 @@ import java.util.Date;
 @Controller
 @RequestMapping(path="/account")
 public class memberController {
+    //@Autowired
+    //컨트롤러 클래스가 실행되면 memberService를 불러와서 주입 하는 것.
+    //주입 당하는 것.
+    // @Autowired를 사용해서
+    // MemberControlle는 memberService를 주입당하겠다고 선언
+    // SpringBoot는 인식 함 : memberController가 실행하려면
+    // memberService가 필요함
+    //memberController가 필요함
+    // 장점1 : memberController 실행되는 시점에서 필요한 객체만 실핼 수 있는 절약
+    // 장점2 : 이미 컨테이너에 있는 객체를 활용하여 최대한 인스턴스(객체)를 최소한 사용
+    //아래 @Autowired는 필드 주입 방식
+    //메소드, 생성자, 필드 (객체의 데이터)
+    //필드 주입의 경우에ㅅ는 2개이상 주입할 시 어떤 게 먼저 주입당하는지를 모름
+    //주입 당하는 A와 B가 서로 주입당할 경우에는 어떤 게 먼저 생성할지 모르는 문제
+
+    //자바라면~~~!!
+    //일반 자바라면, 실행하는 클래스 (main) 안에서 인스턴스를 만들어서 인스턴스 안에 있는
+    //메소드를 실행(static : 불러옴)
+    //실행되는 클래스(main)이 먼저 존재하고 인스턴스로 후에 생성
+
+    //MemberService라는 객체를 선언
+    //필드 주입방식은 @Autowired를 통해 컨테이넌에서 주입당함(할당)
     @Autowired
     private memberService memberservice;
+
+    //MemberService라는 객체를 선언
+    //필드 주입방식은 @Autowired를 통해 컨테이넌에서 주입당함(할당)
+    //final은 변하지 않게 하는 것. : memberController는 안심하고 memberService를 사용
+    //@Autowired
+    //private final memberService memberservice;
+
+
+    //생성자 주입방식은 아래 생성자에 @Autowired를 붙혀서 컨테이너에서 주입 당함
+    //memberController 클래스의 생성자를 선언
+    //매개변수를 memberService로 받아서 뒤에 있는 필드값 memb에 할당
+    //장점 : 객체 생성 시점에서 생성자를 통해서 주입 받기 때문에 순서가 명확해진다.
+    //@Autowired
+    //protected memberController(memberService memberservice){
+    //    this.memberservice = memberservice;
+    //}
 
 
     //클라이언트 두 분류 : 사용자 관점
@@ -102,7 +138,7 @@ public class memberController {
     @PostMapping("/selectAccount")
     public String resultAccount(Member member, Model model) {
         model.addAttribute("memberList",
-                memberService.getMemberWhereIdOrEmail(member.getEmail(), member.getId()));
+                memberservice.getMemberWhereIdOrEmail(member.getEmail(), member.getId()));
         return "account/resultAccount";
     }
 
@@ -110,9 +146,14 @@ public class memberController {
     public String selectEmail(){
         return "account/selectEmail";
     }
-    @PostMapping("/selectEmail")
-    public String selectEmails(Member member, Model model){
-        model.addAttribute("member", memberservice.findEmail(member.getId()));
+
+    @RequestMapping(value="/selectEmail", method = RequestMethod.POST)
+    public String resultEmail(@RequestParam("email") String email,
+                              @RequestParam("id") String id,
+                              Member member, Model model){
+        model.addAttribute("member", memberservice.findEmail(member.getEmail()));
+        model.addAttribute("id", id);
+        model.addAttribute("email", email);
         return "account/resultEmail";
     }
 

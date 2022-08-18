@@ -44,7 +44,23 @@ public class memberServiceImpl implements memberService{
     @Override
     public List<Member> getMemberList() {
         //ArrayList를 List로 형변환!
-        return (List<Member>) memberRepo.findAll();
+        List<Member> memberList =  memberRepo.findAll();
+
+        for(int i =0; i<memberList.size(); i++){
+            StringBuilder stb = new StringBuilder();
+            for(int j =0; j < memberList.get(i).getEmail().length(); j++){
+                String a = memberList.get(i).getEmail();
+                if( j > 2){
+                    stb.append("*");
+                }
+                else {
+                    stb.append(a.charAt(j));
+                }
+            }
+            memberList.get(i).setEmail(String.valueOf(stb));
+            System.out.println(memberList);
+        }
+        return memberList;
     }
     //회원 1명의 정보를 Entity에 맞춰서 DB에 저장
     @Override
@@ -94,4 +110,9 @@ public class memberServiceImpl implements memberService{
     public void deleteMember(Member member) {
         memberRepo.deleteById(member.getSeq());
     }
+
+    @Override //아이디 중복
+    public void signUp(Member member) {
+
     }
+}
