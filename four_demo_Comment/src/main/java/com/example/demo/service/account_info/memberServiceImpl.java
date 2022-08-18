@@ -21,7 +21,7 @@ public class memberServiceImpl implements memberService{
     @Override
     public Member getMemberWhereIdOrEmail(String email, String id) {
 
-        return memberRepo.findMemberByEmailorId(email, id);
+        return memberRepo.findMemberByEmailOrId(email, id);
     }
 
     @Override
