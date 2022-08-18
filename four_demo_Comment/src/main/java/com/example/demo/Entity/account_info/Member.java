@@ -34,6 +34,7 @@ public class Member {
     @Column(length = 20, nullable = false)
     private String password;
 
+    @Column(length = 20, nullable = false)
     private String email;
 
     //@Query()

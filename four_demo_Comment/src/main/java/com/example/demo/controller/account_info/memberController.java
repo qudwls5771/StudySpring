@@ -110,8 +110,11 @@ public class memberController {
     }
 
     @RequestMapping(value="/selectEmail", method = RequestMethod.POST)
-    public String resultEmail(@RequestParam("email") String email, Member member, Model model){
+    public String resultEmail(@RequestParam("email") String email,
+                              @RequestParam("id") String id,
+                              Member member, Model model){
         model.addAttribute("member", memberservice.findEmail(member.getEmail()));
+        model.addAttribute("id", id);
         model.addAttribute("email", email);
         return "account/resultEmail";
     }

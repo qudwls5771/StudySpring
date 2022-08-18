@@ -10,7 +10,7 @@ public interface memberService {
     Member getMemberWhereIdOrEmail(String Email, String Id);
 
     //LiKE를 사용한 이메일 찾기
-    List<Member> findEmail(String email);
+    Member findEmail(String email);
 
     Member getMemberWhereIdAndROWNUL1(String id);
 

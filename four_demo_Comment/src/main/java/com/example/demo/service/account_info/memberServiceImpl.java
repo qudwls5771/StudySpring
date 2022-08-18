@@ -36,8 +36,8 @@ public class memberServiceImpl implements memberService{
 
     //LIKE를 이용한 이메일 찾기
     @Override
-    public List<Member> findEmail(String email) {
-        return (List<Member>) memberRepo.findEmail(email);
+    public Member findEmail(String email) {
+        return memberRepo.findEmail(email);
     }
 
     //모든 회원의 정보를 가져다 오는 것.
@@ -54,7 +54,7 @@ public class memberServiceImpl implements memberService{
 
         for(int i =0; i<memberList.size(); i++){
             StringBuilder stb = new StringBuilder();
-            for(int j =0; j < memberList.get(i).getEmail().length(); j++){
+            for(int j =0; j < memberList.get(i).getEmail().length();  j++){
                 String a = memberList.get(i).getEmail();
                 if( j > 2){
                     stb.append("*");
