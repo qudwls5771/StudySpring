@@ -5,6 +5,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.util.Date;
@@ -28,17 +29,18 @@ public class Member {
     @GeneratedValue
     private Long seq;
 
-    @NotBlank(message = "닉네임을 입력해주세요.")
-    @Size(min = 2, max=20, message = "닉네임은 2자 이상 20자이하로 입력해주세요.")
+  //  @NotBlank(message = "ID를 입력해주세요.")
+  //  @Size(min = 5, max=20, message = "ID는 5자 이상 20자이하로 입력해주세요.")
     @Column(length = 20, nullable = false)
     private String id;
 
-    @NotBlank(message = "비밀번호를 입력해주세요.")
-    @Size(min = 8, max = 20, message = "비밀번호 8자 이상 20자 이하로 입력해주세요.")
+  //  @NotBlank(message = "비밀번호를 입력해주세요.")
+  //  @Size(min = 8, max = 20, message = "비밀번호 8자 이상 20자 이하로 입력해주세요.")
     @Column(length = 20, nullable = false)
     private String password;
 
-    @NotBlank(message = "이메일 주소를 입력해주세요.")
+ //   @NotBlank(message = "이메일 주소를 입력해주세요.")
+ //   @Email(message = "올바른 이메일 주소를 입력해주세요.")
     private String email;
 
     //@Query()
