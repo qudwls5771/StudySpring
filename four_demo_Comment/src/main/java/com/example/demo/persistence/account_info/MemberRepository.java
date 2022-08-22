@@ -36,7 +36,7 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
     //이메일에 들어가는 거.
     //리턴을 Member로 받기 때문에 1개의 정보밖에 가져오지 못한다.
     @Query(value = "select m from Member m where m.email LIKE ?1%")
-    Member findEmail(String email);
+    List<Member> findEmail(String email);
 
 
 

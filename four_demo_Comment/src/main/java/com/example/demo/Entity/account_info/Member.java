@@ -3,6 +3,7 @@ package com.example.demo.Entity.account_info;
 import com.example.demo.Entity.account_info.base.BaseTimeEntity;
 import com.example.demo.Entity.account_info.board.Board;
 import lombok.*;
+import org.springframework.data.jpa.repository.Query;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -53,6 +54,7 @@ public class Member extends BaseTimeEntity implements Serializable {
     private List<Board> boardList = new ArrayList<>();
 
     private String password;
+
 
     private String email;
 

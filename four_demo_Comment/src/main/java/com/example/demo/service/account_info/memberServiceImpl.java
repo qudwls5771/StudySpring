@@ -35,8 +35,8 @@ public class memberServiceImpl implements memberService{
     }
 
     @Override
-    public Member findEmail(String id) {
-        return memberRepo.findEmail(id);
+    public List<Member> findEmail(String email) {
+        return memberRepo.findEmail(email);
     }
 
     @Override
