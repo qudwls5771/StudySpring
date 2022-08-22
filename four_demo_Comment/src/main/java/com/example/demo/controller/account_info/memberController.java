@@ -143,7 +143,7 @@ public class memberController {
     public String selectEmail(){
         return "account/selectEmail";
     }
-
+    //비슷한 이메일, 아이디 찾기 : 뭘 잘못한 거 같음 안됨
     @RequestMapping(value="/selectEmail", method = RequestMethod.POST)
     public String resultEmail(@RequestParam("email") String email,
                               @RequestParam("id") String id,
@@ -152,6 +152,7 @@ public class memberController {
         model.addAttribute("id", id);
         model.addAttribute("email", email);
         return "account/resultEmail";
+        
     }
 
 
