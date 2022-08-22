@@ -26,5 +26,8 @@ public interface memberService {
 
     void signUp(Member member);
 
+    //민감데이터 (SHA256..)
+    List<Member> getMemberListEncodingByMemberList(List<Member> memberlist);
+
 
 }

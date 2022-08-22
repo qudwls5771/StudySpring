@@ -2,6 +2,7 @@ package com.example.demo.service.account_info;
 
 import com.example.demo.Entity.account_info.Member;
 import com.example.demo.persistence.account_info.MemberRepository;
+import com.example.demo.service.encrypt.EncryptAES256;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +14,15 @@ public class memberServiceImpl implements memberService{
     @Autowired
     //persistence.account_info => MemberRepository에 있는 CrudRepository<Member, Long> 사용
     private MemberRepository memberRepo;
+
+    private final EncryptAES256 encryptAES256;
+
+    //순환참조 중단
+    @Autowired
+    protected memberServiceImpl(MemberRepository memberRepo, EncryptAES256 encryptAES256) {
+        this.encryptAES256 = encryptAES256;
+        this.memberRepo = memberRepo;
+    }
 
 
     //public : 공개
@@ -114,5 +124,17 @@ public class memberServiceImpl implements memberService{
     @Override //아이디 중복
     public void signUp(Member member) {
 
+    }
+
+    @Override
+    public List<Member> getMemberListEncodingByMemberList(List<Member> memberList) {
+        for(Member member : memberList) {
+            try {
+                member.setPassword(encryptAES256.encrypt(member.getPassword()));
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return memberList;
     }
 }

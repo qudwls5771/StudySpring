@@ -3,8 +3,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/css/common.css">
-    <link rel="stylesheet" href="/css/board.css">
+    <link rel="stylesheet" type="text/css" href="/css/default.css">
     <title>Title</title>
 </head>
 <!--<p class="test">test color</p>-->
@@ -15,12 +14,14 @@
         <th bgcolor="#add8e6" width="100">번호</th>
         <th bgcolor="#add8e6" width="200">ID</th>
         <th bgcolor="#add8e6" width="150">Email</th>
+        <th bgcolor="#add8e6" width="150">비밀번호</th>
         <th bgcolor="#add8e6" width="150">비고</th>
     </tr>
     <tr th:each="member :${memberList}">
         <td th:text="${member.seq}"></td>
         <td> <a th:text="${member.id}"></a></td>
         <td th:text="${member.email}"></td>
+        <td th:text="${member.password}"></td>
         <td>
             <!--      account/getAccountList에서 getAccount호출할 때-->
             <!--      기본 시작점이 templates이기 때문에 -->
@@ -38,6 +39,5 @@
 </table>
 <a th:href="@{/account/insertAccount}">회원등록</a>
 <a th:href="@{/account/selectAccount}">회원찾기</a>
-<a th:href="@{/account/selectEmail}">비슷한 회원찾기</a>
 </body>
 </html>

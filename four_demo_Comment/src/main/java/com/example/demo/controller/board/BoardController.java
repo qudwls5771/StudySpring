@@ -1,4 +1,4 @@
-package com.example.demo.controller;
+package com.example.demo.controller.board;
 
 /**
 * @package : com.example.demo.controller
@@ -10,15 +10,15 @@ package com.example.demo.controller;
 * @description : 게시판 컨트롤러
 **/
 
-import com.example.demo.domain.Board;
-import com.example.demo.service.BoardService;
+import com.example.demo.Entity.account_info.Member;
+import com.example.demo.Entity.account_info.board.Board;
+import com.example.demo.service.board.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import javax.transaction.Transactional;
 import java.util.Date;
 import java.util.List;
 
@@ -32,10 +32,10 @@ public class BoardController {
     //DB의 데이터 불러오기(테이블전체) (SQL)
     @GetMapping("/getBoardList")
     public String getBoardList(Model model, Board board) {
-        List<Board> boardList = boardService.getBoardList();
-
+        System.out.println("-------------------");
+        List<Board> boardList = boardService.getBoardList(board);
         model.addAttribute("boardList", boardList);
-        return "getBoardList";
+        return "/board/getBoardList";
     }
 
     @GetMapping("/insertBoard")
@@ -78,5 +78,23 @@ public class BoardController {
     public String deleteBoard(Board board) {
         boardService.deleteBoard(board);
         return "redirect:getBoardList";
+    }
+
+    @GetMapping("/selectBoard")
+    public String selectBoard(Member member, Model model) {
+        System.out.println("--------boarde select-----------");
+        //board.getId()는 클라이언트에서 가져옴
+
+        //@Service에 board를 인자값으로 넣고 메서드 실행
+        model.addAttribute("boardList", boardService.getBoardListByMemberId(member));
+
+        //회원이 작성한 게시글리스트(List<Board>)
+        // > HTML에다가 뿌려주면 끝 (Controller에 가면 메서드가 실행되서 다른 결과물을 리턴받기 때문
+        // 어느 HTML로 가느냐? = 객체지향은 재활용성이 중요한 요인 중 하나
+        // HTML에 중에 재사용 할만한 것을 먼저 찾고, 그 후에 새로 만들기에 대해 고민
+        // > getBoardList
+
+        //return 페이지 Or controller mapoing
+        return "/board/getBoardList";
     }
 }

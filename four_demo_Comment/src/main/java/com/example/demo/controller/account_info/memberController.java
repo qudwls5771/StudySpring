@@ -68,7 +68,9 @@ public class memberController {
         //attributeName(key) : 뒤에 있는 value를 호출하기 위한 문자열(key)
         //memberService.getMemberList() : @Autowired로 선언된 MemberService 클래스를 호출하여
         //getMemberList()메서드 실행
-        model.addAttribute("memberList", memberservice.getMemberList());
+        model.addAttribute("memberList",
+                memberservice.getMemberListEncodingByMemberList(
+                        memberservice.getMemberList()));
         return "/account/getAccountList";
     }
 
@@ -106,11 +108,6 @@ public class memberController {
     @PostMapping("/insertAccount")
     public String insertAccountView(Member member) {
         //클라이언트에서 ID/PW
-        //createDate
-        //updateDate
-        member.setCreateDate(new Date());
-        member.setUpdateDate(new Date());
-
         memberservice.insertMember(member);
         return "redirect:/account/getAccountList";
     }
