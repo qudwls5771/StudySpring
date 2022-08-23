@@ -30,7 +30,6 @@ public class memberServiceImpl implements memberService{
     //return memberRepository의 findMemberByEmailorId메소드를 실행한 리턴 데이터
     @Override
     public Member getMemberWhereIdOrEmail(String email, String id) {
-
         return memberRepo.findMemberByEmailOrId(email, id);
     }
 

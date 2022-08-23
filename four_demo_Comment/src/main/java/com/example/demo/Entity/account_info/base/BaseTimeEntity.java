@@ -18,7 +18,8 @@ import java.util.Date;
 //AuditingEntityListener 는 JPA 내부에서 엔티티 객체가 생성/변경 되는 것을 감지
 
 
-//@EntityListeners(AuditingEntityListener.class)
+//날짜를 나오게 하는 것.
+@EntityListeners(AuditingEntityListener.class)
 @Setter
 @Getter
 @MappedSuperclass

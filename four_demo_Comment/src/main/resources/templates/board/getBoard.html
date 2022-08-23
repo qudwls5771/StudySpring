@@ -10,25 +10,27 @@
 <body>
     <h1 th:align="center">게시글 상세</h1>
     <main>
+        <div class="row" >
+            <div class="category" th:text="${board.category}">카테고리</div>
+        </div>
         <div class="row">
-            <div class="category">카테고리</div>
             <div class="title" th:text="${board.title}">제목입니다</div>
         </div>
         <div class="row between">
-            <div class="name fl" th:text="${board.writer}">글쓴이</div>
+            <span class="name fl">작성자</span>
+            <span class="name fr" th:text="${board.writer}"></span>
             <div class="fr">
-                <div class="date fl" th:text="${board.createDate}">2022-08-09</div>
-                <div class="cnt fl" th:text="${board.createDate}">
-                    <b>조회 수</b>
-                    <span th:text="${board.cnt}">12</span>
-                </div>
+                <div class="date fl" th:text="${#dates.format(board.createDate, 'yyyy-MM-dd')}"></div>
+                <span class="cnt fl">조회수</span>
+                <span class="cnt fr"th:text="${board.cnt}"></span>
             </div>
+        </div>
         </div>
         <article class="content" th:text="${board.content}"></article>
         <div class="row between">
-            <a class="btn back fl" th:href="@{/getBoardList}"></a>
+            <a class="btn back fl" th:href="@{/board/getBoardList}"></a>
             <div class="row fr gap">
-                <a class="btn write fl" th:href="@{/updateBoard(seq=${board.seq})}"></a>
+                <a class="btn write fl" th:href="@{/board/updateBoard(seq=${board.seq})}"></a>
                 <form class="fl" action="deleteBoard" method="post">
                     <input type="hidden" name="seq" th:value="${board.seq}">
                     <button class="btn delete" onclick="this.submit()"></button>

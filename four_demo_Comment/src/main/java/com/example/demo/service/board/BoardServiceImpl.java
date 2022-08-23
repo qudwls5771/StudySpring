@@ -12,7 +12,7 @@ package com.example.demo.service.board;
 
 import com.example.demo.Entity.account_info.Member;
 import com.example.demo.Entity.account_info.board.Board;
-import com.example.demo.persistence.BoardRepository;
+import com.example.demo.persistence.board.BoardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -56,8 +56,10 @@ public class BoardServiceImpl implements BoardService {
     @Override
     public void updateBoard(Board board) {
         Board findBoard = boardRepo.findById(board.getSeq()).get();
+        findBoard.setCategory(board.getCategory());
         findBoard.setTitle(board.getTitle());
         findBoard.setContent(board.getContent());
+        System.out.println(findBoard);
         boardRepo.save(findBoard);
     }
 
@@ -73,7 +75,7 @@ public class BoardServiceImpl implements BoardService {
     }
 
     @Override
-    public List<Board> getBoardListByMemberId(Member member) {
+    public List<Board> getBoardListAllByMemberId(Member member) {
         //Repository
         System.out.println("------getBoardListByMemberId-----");
         System.out.println(member.getId());

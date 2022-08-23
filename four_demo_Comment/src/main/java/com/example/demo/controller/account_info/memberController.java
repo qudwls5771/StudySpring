@@ -126,7 +126,7 @@ public class memberController {
         memberservice.deleteMember(member);
         return "redirect:/account/getAccountList";
     }
-
+    //selectAccount HTML을 보여주는 것.
     @GetMapping("/selectAccount")
     public String selectAccount() {
         return "account/selectAccount";
