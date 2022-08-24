@@ -2,6 +2,7 @@ package com.example.team_pro_ex.com.Entity.member;
 
 import com.example.team_pro_ex.com.Entity.Base.member_BaseEntity;
 import lombok.*;
+import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -53,8 +54,8 @@ public class Member extends member_BaseEntity {
     @Column(name = "member_pet_W", length = 10, nullable = false)
     private Integer pet_W; //--펫 몸무게
 
-    // columnDefinition(default)설정 어노테이션? = "VARCHAR@(1)/타입 default 값을 'Y'로 설장한다."
-    @Column(name = "member_join_M", length = 1, nullable = false ,columnDefinition = "VARCHAR@(1) default 'Y'")
+    @Column(name = "member_join_M", length = 1, nullable = false)
+    @ColumnDefault("'Y'")
     private String join_M; //--가입상태
 
 
