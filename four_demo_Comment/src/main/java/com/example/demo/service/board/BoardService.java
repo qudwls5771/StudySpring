@@ -12,6 +12,7 @@ package com.example.demo.service.board;
 
 import com.example.demo.Entity.account_info.Member;
 import com.example.demo.Entity.account_info.board.Board;
+import com.example.demo.Entity.account_info.board.Comments;
 
 import java.util.List;
 
@@ -25,6 +26,7 @@ public interface BoardService {
     void updateBoard(Board board);
 
     void deleteBoard(Board board);
+
 
 
 
@@ -45,4 +47,9 @@ public interface BoardService {
 
     //오름차순으로 변경 (arrayList)
     List<Board> getBoardListSortColumnByBoardList(List<Board> boardlist);
+
+
+//------------------------코멘트---------------------------------------------------------
+
+    List<Comments> getAllComments(Comments comments);
 }

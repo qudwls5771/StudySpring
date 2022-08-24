@@ -44,24 +44,9 @@ public class BoardController {
     //board Seq전달하면 전체 comments를 불러오는 controller method
     @GetMapping("/getCommentsList")
     public String getCommentsList(Comments comments, Model model){
-
+        model.addAttribute("commentsList", boardService.getAllComments(comments));
         return "/board/getCommentsList";
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

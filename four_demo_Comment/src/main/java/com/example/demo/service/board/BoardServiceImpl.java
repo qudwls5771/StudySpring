@@ -12,7 +12,9 @@ package com.example.demo.service.board;
 
 import com.example.demo.Entity.account_info.Member;
 import com.example.demo.Entity.account_info.board.Board;
+import com.example.demo.Entity.account_info.board.Comments;
 import com.example.demo.persistence.board.BoardRepository;
+import com.example.demo.persistence.board.CommentsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,14 +25,16 @@ import java.util.List;
 @Service
 public class BoardServiceImpl implements BoardService {
 
-
-    private final BoardRepository boardRepo;
     //BoardRepository에 있는 DB와 연동하여 기능하는 것을 명시
+    private final BoardRepository boardRepo;
+    private final CommentsRepository commentsRepository;
+
 
     //순환참조 중단
     @Autowired
-    protected BoardServiceImpl(BoardRepository boardRepo) {
+    protected BoardServiceImpl(BoardRepository boardRepo, CommentsRepository commentsRepository) {
         this.boardRepo = boardRepo;
+        this.commentsRepository = commentsRepository;
     }
 
     //클라이언트에서 받아온 Board객체의 데이터를 BoardRepository의 상속받은 CrudRepository의 findAll메서드를 통해서
@@ -96,6 +100,15 @@ public class BoardServiceImpl implements BoardService {
     public List<Board> getBoardListSortColumnByBoardList(List<Board> boardlist) {
         return null;
     }
+
+//-------------------------코멘트--------------------------------------------------------
+    //모든 코멘트 보여주기
+    @Override
+    public List<Comments> getAllComments(Comments comments) {
+        return commentsRepository.findCommentsByBoard_seq(comments.getBoard_seq());
+    }
+
+
 
 
 }
