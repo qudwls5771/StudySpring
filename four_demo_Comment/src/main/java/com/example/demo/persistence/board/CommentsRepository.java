@@ -1,6 +1,6 @@
 package com.example.demo.persistence.board;
 
-import com.example.demo.Entity.account_info.board.Comments;
+import com.example.demo.Entity.board.Comments;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

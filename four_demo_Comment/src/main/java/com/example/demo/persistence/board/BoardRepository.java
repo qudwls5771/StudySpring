@@ -10,7 +10,7 @@ package com.example.demo.persistence.board;
 * @description : 게시판 레포지토리
 **/
 
-import com.example.demo.Entity.account_info.board.Board;
+import com.example.demo.Entity.board.Board;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -37,6 +37,9 @@ public interface BoardRepository extends JpaRepository<Board, Long> {
     @Query(value = "SELECT b FROM Board b INNER JOIN Member m ON b.writer = m.id WHERE m.id = :memberId")
     List<Board> findAllByMemberIdEqualsBoardWriter(String memberId);
     //회원 id를 검색하면 (writer의 ID가 동일) 관련된 writer의 게시글 모두를 출력 받아 리턴
+
+    @Query(value = "SELECT b FROM Board b JOIN b.member m")
+    List<List<Object>> findAllByBoardAndMember();
 
 }
 

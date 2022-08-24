@@ -1,4 +1,3 @@
-package com.example.demo.controller.account_info;
 
 import com.example.demo.Entity.account_info.Member;
 import com.example.demo.service.account_info.memberService;

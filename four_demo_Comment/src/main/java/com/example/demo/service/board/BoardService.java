@@ -11,8 +11,8 @@ package com.example.demo.service.board;
 **/
 
 import com.example.demo.Entity.account_info.Member;
-import com.example.demo.Entity.account_info.board.Board;
-import com.example.demo.Entity.account_info.board.Comments;
+import com.example.demo.Entity.board.Board;
+import com.example.demo.Entity.board.Comments;
 
 import java.util.List;
 
@@ -34,7 +34,6 @@ public interface BoardService {
     List<Board> getBoardListAllByMemberId(Member member);
 
 
-  //  void insertComment(Comments comments);
 
     //board의 작성자와 회원이 같은지 확인 [2,5조...]
     boolean booleanMemberIdEqualsBoardWriterByMember(Member member);
@@ -52,4 +51,6 @@ public interface BoardService {
 //------------------------코멘트---------------------------------------------------------
 
     List<Comments> getAllComments(Comments comments);
+
+    void insertComment(Comments comments);
 }

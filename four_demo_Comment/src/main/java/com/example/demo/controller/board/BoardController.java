@@ -11,6 +11,8 @@ package com.example.demo.controller.board;
  **/
 
 import com.example.demo.Entity.account_info.Member;
+import com.example.demo.Entity.board.Board;
+import com.example.demo.Entity.board.Comments;
 import com.example.demo.service.board.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,6 +20,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Date;
 import java.util.List;
@@ -26,23 +29,38 @@ import java.util.List;
 @RequestMapping(path = "/board")
 public class BoardController {
 
+    private final BoardService boardService;
+
     @Autowired
-    private BoardService boardService;
+    protected BoardController(BoardService boardService) {
+        this.boardService = boardService;
+    }
 
+    @GetMapping("/insertComments")
+    public String insertComments(Board board, Model model) {
+        System.out.println(board.getTitle());
+        model.addAttribute("board", board);
+        return "/board/insertComments";
+    }
 
-//    @PostMapping("insertComment")
-//    public String insertComment(Comments comments, Model model){
-//        boardService.insertComments(comments);
-//         return "redirect:board/getBoardList";
-//    }
+    @PostMapping("/insertComments")
+    public String insertComments(@RequestParam("board_title")String boardTitle, Comments comments, Model model) {
 
-
-
+        System.out.println("------inertComments---------");
+        System.out.println(comments.getBoard_title());
+        System.out.println(comments.getComments_content());
+        boardService.insertComment(comments);
+        return "redirect:/board/getBoardList";
+    }
 
     //board Seq전달하면 전체 comments를 불러오는 controller method
     @GetMapping("/getCommentsList")
-    public String getCommentsList(Comments comments, Model model){
-        model.addAttribute("commentsList", boardService.getAllComments(comments));
+    public String getCommentsList(Comments comments, Model model) {
+        System.out.println("-------getCommentsList-------");
+        System.out.println(comments.getBoard_title());
+        List<Comments> checkCommentsList = boardService.getAllComments(comments);
+
+        model.addAttribute("commentsList", checkCommentsList);
         return "/board/getCommentsList";
     }
 
@@ -60,12 +78,9 @@ public class BoardController {
 
     @GetMapping("/insertBoard")
     public String insertBoard() {
+        System.out.println("------insertBoard_get-------------");
         return "/board/insertBoard";
     }
-//    public String insertBoardView() {
-//
-//        return "/board/insertBoard";
-//    }
 
     @PostMapping("/insertBoard")
     public String insertBoard(Board board) {

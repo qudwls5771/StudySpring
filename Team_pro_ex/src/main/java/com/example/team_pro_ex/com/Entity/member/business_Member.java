@@ -1,12 +1,12 @@
 package com.example.team_pro_ex.com.Entity.member;
 
-import com.example.team_pro_ex.com.Entity.Base.BaseEntity;
+import com.example.team_pro_ex.com.Entity.Base.member_BaseEntity;
 import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import java.util.Date;
+
 @ToString
 @Entity
 @Getter
@@ -14,26 +14,30 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class business_Member extends BaseEntity {
+public class business_Member extends member_BaseEntity {
 
     @Id
     @Generated
     @Column(name = "business_member_id", length = 20, nullable = false)
-    String id;  // 아이디
+    private String id;  // 아이디
+
+    @Column(name = "business_member_number", length = 20, nullable = false)
+    private String business_Number; //사업자 번호
 
     @Column(name = "business_member_password",length = 20, nullable = false)
-    String password; // 비밀번호
-
-    @Column(name = "business_member_name", length = 30, nullable = false)
-    String name; // 이름
-
-    @Column(name = "business_member_year", nullable = false)
-    Integer year; // 펫주인 생년월일
+    private String password; // 비밀번호
 
     @Column(name = "business_member_phone_number", nullable = false)
-    String phone_number; // 핸드폰 번호
+    private String phone_number; // 핸드폰 번호
+
+    @Column(name = "business_member_name", length = 30, nullable = false)
+    private String store_Name; // 가게이름
 
     @Column(name = "business_member_address", length = 50, nullable = false)
-    String address; // 주소
+    private String address; // 주소
+
+    // columnDefinition(default)설정 어노테이션? = "VARCHAR@(1)/타입 default 값을 'Y'로 설장한다."
+    @Column(name = "member_join_M", length = 1, nullable = false ,columnDefinition = "VARCHAR@(1) default 'Y'")
+    private String join_M; //--가입상태
 
 }

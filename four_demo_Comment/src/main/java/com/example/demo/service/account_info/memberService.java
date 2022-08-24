@@ -30,4 +30,6 @@ public interface memberService {
     List<Member> getMemberListEncodingByMemberList(List<Member> memberlist);
 
 
+
+
 }

@@ -1,7 +1,7 @@
 package com.example.demo.Entity.account_info;
 
-import com.example.demo.Entity.account_info.base.BaseTimeEntity;
-import com.example.demo.Entity.account_info.board.Board;
+import com.example.demo.Entity.base.BaseTimeEntity;
+import com.example.demo.Entity.board.Board;
 import lombok.*;
 import org.hibernate.annotations.BatchSize;
 import org.springframework.data.jpa.repository.Query;
