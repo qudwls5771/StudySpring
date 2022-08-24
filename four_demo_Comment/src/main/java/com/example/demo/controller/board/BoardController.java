@@ -11,8 +11,6 @@ package com.example.demo.controller.board;
  **/
 
 import com.example.demo.Entity.account_info.Member;
-import com.example.demo.Entity.account_info.board.Board;
-import com.example.demo.Entity.account_info.board.Comments;
 import com.example.demo.service.board.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
