@@ -14,6 +14,8 @@ public class member_BaseEntity {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", timezone = "Asia/Seoul")
     private LocalDateTime join_D; //--가입날짜
 
+
+    //08.24 생각해야할 부분 : 회원 탈퇴를 어떻게 할 지 생각을 해보자
     @CreatedDate
     private Date join_O; //--탈퇴날짜
 }
