@@ -38,6 +38,8 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
     @Query(value = "select m from Member m where m.email LIKE ?1%")
     List<Member> findEmail(String email);
 
+    @Query(value = "SELECT m FROM Member m JOIN FETCH m.boardList WHERE m.id = :memberId")
+    List<Member> findAllByMemberIdEqualsBoardWriter(String memberId);
 
 
 

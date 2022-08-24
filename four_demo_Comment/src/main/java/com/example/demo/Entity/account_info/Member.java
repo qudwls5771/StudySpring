@@ -3,6 +3,7 @@ package com.example.demo.Entity.account_info;
 import com.example.demo.Entity.account_info.base.BaseTimeEntity;
 import com.example.demo.Entity.account_info.board.Board;
 import lombok.*;
+import org.hibernate.annotations.BatchSize;
 import org.springframework.data.jpa.repository.Query;
 
 import javax.persistence.*;
@@ -49,6 +50,8 @@ public class Member extends BaseTimeEntity implements Serializable {
     //board들을 가지고 있다고 필드에 넣음 (JPA는 이 필드내용으로 테이블 연관관계(JOIN)으로 식별)
     //@OneToMany는 member 1튜플마다 여러개의 board를 가진다는 속성 선언과 다수 엔티티 연동에
     // Springboot는 Serializable 상속 요구함
+
+    @BatchSize(size= 100)
     @OneToMany(mappedBy = "member")
     @Builder.Default
     private List<Board> boardList = new ArrayList<>();

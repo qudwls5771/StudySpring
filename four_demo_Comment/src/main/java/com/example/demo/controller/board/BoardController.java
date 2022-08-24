@@ -1,17 +1,18 @@
 package com.example.demo.controller.board;
 
 /**
-* @package : com.example.demo.controller
-* @name : BoardController.java
-* @date : 2022-08-08 오후 6:24
-* @author : Rubisco
-* @version : 1.0.0
-* @modifyed : 
-* @description : 게시판 컨트롤러
-**/
+ * @package : com.example.demo.controller
+ * @name : BoardController.java
+ * @date : 2022-08-08 오후 6:24
+ * @author : Rubisco
+ * @version : 1.0.0
+ * @modifyed :
+ * @description : 게시판 컨트롤러
+ **/
 
 import com.example.demo.Entity.account_info.Member;
 import com.example.demo.Entity.account_info.board.Board;
+import com.example.demo.Entity.account_info.board.Comments;
 import com.example.demo.service.board.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,11 +25,45 @@ import java.util.Date;
 import java.util.List;
 
 @Controller
-@RequestMapping(path="/board")
+@RequestMapping(path = "/board")
 public class BoardController {
 
     @Autowired
     private BoardService boardService;
+
+
+//    @PostMapping("insertComment")
+//    public String insertComment(Comments comments, Model model){
+//        boardService.insertComments(comments);
+//         return "redirect:board/getBoardList";
+//    }
+
+
+
+
+    //board Seq전달하면 전체 comments를 불러오는 controller method
+    @GetMapping("/getCommentsList")
+    public String getCommentsList(Comments comments, Model model){
+
+        return "/board/getCommentsList";
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     //BoardService의 getBoardList메서드 실행 > BoardRepository(CrudRepository).findAll()를 통해서 (JPA번역)
     //DB의 데이터 불러오기(테이블전체) (SQL)
@@ -72,7 +107,7 @@ public class BoardController {
     public String updateBoard(Board board) {
         boardService.updateBoard(board);
 //        return "redirect:/board/getBoardList";
-        return "redirect:/board/getBoard?seq="+board.getSeq();
+        return "redirect:/board/getBoard?seq=" + board.getSeq();
     }
 
     @GetMapping("/updateBoard")
@@ -96,7 +131,7 @@ public class BoardController {
 //        @Service에 board를 인자값으로 넣고 메서드 실행
         boardService.getBoardListAllByMemberId(member);
 //        *model 넣어주기
-        model.addAttribute("boardList",boardService.getBoardListAllByMemberId(member));
+        model.addAttribute("boardList", boardService.getBoardListAllByMemberId(member));
 
 //        ---------return 에 대한 고민
 //        회원이 작성한 게시글 (List<Board>) html에다가 뿌려주면 끝 (Controller에 가면 Service메서드가 실행되서 다른 결과물을 리턴받기 때문)
