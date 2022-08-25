@@ -27,31 +27,31 @@ public class Member extends member_BaseEntity {
     @Column(name = "member_id", length = 20, nullable = false)
     private String id;  // 아이디
 
-    @Column(name = "member_password",length = 20, nullable = false)
+    @Column(name = "member_password",length = 20)
     private String password; // 비밀번호
 
     @Column(name = "member_name", length = 30, nullable = false)
     private String name; // 이름
 
-    @Column(name = "member_year", nullable = false)
+    @Column(name = "member_year")
     private String year; // 펫주인 생년월일
 
-    @Column(name = "member_phone_number", nullable = false)
+    @Column(name = "member_phone_number")
     private String phone_number; // 핸드폰 번호
 
-    @Column(name = "member_address", length = 50, nullable = false)
+    @Column(name = "member_address", length = 50)
     private String address; // 주소
 
-    @Column(name = "member_pet_T", length = 20, nullable = false)
+    @Column(name = "member_pet_T", length = 20)
     private String pet_T; //--펫 종류
 
-    @Column(name = "member_pet_S", length = 1, nullable = false)
+    @Column(name = "member_pet_S", length = 1)
     private String pet_S; //--펫 성별
 
-    @Column(name = "member_pet_D", nullable = false)
+    @Column(name = "member_pet_D")
     private String pet_D; //-- 펫 출생
 
-    @Column(name = "member_pet_W", length = 10, nullable = false)
+    @Column(name = "member_pet_W", length = 10)
     private Integer pet_W; //--펫 몸무게
 
     @Column(name = "member_join_M", length = 1, nullable = false)

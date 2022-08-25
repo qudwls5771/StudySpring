@@ -22,19 +22,19 @@ public class business_Member extends member_BaseEntity {
     @Column(name = "business_member_id", length = 20, nullable = false)
     private String id;  // 아이디
 
-    @Column(name = "business_member_number", length = 20, nullable = false)
+    @Column(name = "business_member_number", length = 20)
     private String business_Number; //사업자 번호
 
-    @Column(name = "business_member_password",length = 20, nullable = false)
+    @Column(name = "business_member_password",length = 20)
     private String password; // 비밀번호
 
-    @Column(name = "business_member_phone_number", nullable = false)
+    @Column(name = "business_member_phone_number")
     private String phone_number; // 핸드폰 번호
 
-    @Column(name = "business_member_name", length = 30, nullable = false)
+    @Column(name = "business_member_name", length = 30)
     private String store_Name; // 가게이름
 
-    @Column(name = "business_member_address", length = 50, nullable = false)
+    @Column(name = "business_member_address", length = 50)
     private String address; // 주소
 
     @Column(name = "member_join_M", length = 1, nullable = false)
