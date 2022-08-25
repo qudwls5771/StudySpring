@@ -33,8 +33,24 @@ public class Member extends BaseTimeEntity implements Serializable {
 //    )
     //JPA : 객체에 맞춰서 SQL문으로 바꿔주는 것 (번역)
     //@Id : table을 만들 때, 테이블의 튜플(row)를 식별할 수 있는 기본키
+
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    //*영속화 => 객체를 어딘가에 영원히 저장하겠다.
+    //JVM밖에서도 객체를 영원히 저장하고 싶다.
+    //Commit, flush, persist를 포괄하는 내용
+    //SQL(MyBatis)는 DB틀에 맞춘 mapper라고 정의한다면,
+    //JPA는 객체(Entity, 튜플)단위로 DB에 저장하는 개념을 영속화 한다고 정의
+
+    //*IDENTITY : DB에 필드값을 저장 후에 기본키를 생성
+    //Entity가 영속상태가 되기 위해서는 식별자가 필수
+
+    //*Sequence : DB(Oracle) Sequence 함수 기는ㅇ을 활용하여 생성
+
+    //*Table : Seq(시퀀스)를 정보로 갖고 있는 테이블을 만들고, seq칼럼값을 저장한 뒤 불러온다.
+    //여타 위에 전략과 달리 임의의 seq Table을 만들기 때문에 table 성능이 좋지 않을경우(튜닝x)
+    //속도적인 문제를 야기할 수 있다.
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long seq;
 
     //table 끼리 조인을 하는 조건
