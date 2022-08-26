@@ -1,7 +1,7 @@
 package com.example.team_pro_ex.com.Service.business_Member;
 
 import com.example.team_pro_ex.com.Entity.business_Member.business_Member;
-import com.example.team_pro_ex.com.persistence.member.business_MemberRepository;
+import com.example.team_pro_ex.com.persistence.business_Member.business_MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
