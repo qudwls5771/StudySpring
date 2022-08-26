@@ -3,9 +3,10 @@ package com.example.team_pro_ex.com.Service.member;
 import com.example.team_pro_ex.com.Entity.member.Member;
 import com.example.team_pro_ex.com.persistence.member.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class memberServiceImpl implements memberService{
 
     //persistence.account_info => MemberRepository에 있는 CrudRepository<Member, Long> 사용
@@ -55,7 +56,7 @@ public class memberServiceImpl implements memberService{
     //데이터를 Null값으로 변경
     //날짜 테이블에 있는 가입날짜, 탈퇴날짜 수정은 차후에 하기로 한다.
     @Override
-    public void deleteMember(Member member) {
+    public void deleteUpdateMember(Member member) {
         System.out.println("--------회원탈퇴---------");
         memberRepo.updateDelete(member.getId());
     }

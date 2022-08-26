@@ -18,6 +18,6 @@ public interface memberService {
     //삭제하면 회사(우리) 입장에서는 손해다. 그래서 회원의 데이터를 회원 =아이디, 탈퇴날짜,가입상태
     //를 제외한 컬럼은 모두 null처리를 한다.
     //회원 탈퇴를 클릭할 시 = 아이디, 탈퇴날짜, 가입상태를 제외한 모든 컬럼이 null값으로 변경
-    void deleteMember(Member member);
+    void deleteUpdateMember(Member member);
 
 }

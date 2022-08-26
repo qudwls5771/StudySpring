@@ -35,6 +35,8 @@ public class Board extends BaseTimeEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long seq;
 
+    private String category;
+
     @Column(length = 40, nullable = false, unique = true)
     private String title;
 
@@ -48,13 +50,7 @@ public class Board extends BaseTimeEntity {
     @JoinColumn(name = "id", referencedColumnName = "id")
     private Member member;
 
-    @OneToMany(mappedBy = "board", fetch = FetchType.LAZY)
-    private List<Comments> commentsList = new ArrayList<>();
 
-    public void addComments(Comments comments) {
-        comments.setBoard(this);
-        commentsList.add(comments);
-    }
 
     @Setter
     @Column(nullable = false)
@@ -65,6 +61,9 @@ public class Board extends BaseTimeEntity {
     //@ManyToOne 다양한 board는 1개의 member를 바라본다.
     //@OneToMany는 member 1튜플마다 여러개의 board를 가진다는 속성 선언과 다수 엔티티 연동에
 
+    @ColumnDefault("0")
+    @Column(insertable = false, updatable = false)
+    private Long cnt;
 
 
 

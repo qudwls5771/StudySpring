@@ -12,9 +12,7 @@ package com.example.demo.service.board;
 
 import com.example.demo.Entity.account_info.Member;
 import com.example.demo.Entity.board.Board;
-import com.example.demo.Entity.board.Comments;
 import com.example.demo.persistence.board.BoardRepository;
-import com.example.demo.persistence.board.CommentsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,14 +25,12 @@ public class BoardServiceImpl implements BoardService {
 
     //BoardRepository에 있는 DB와 연동하여 기능하는 것을 명시
     private final BoardRepository boardRepo;
-    private final CommentsRepository commentsRepository;
 
 
     //순환참조 중단
     @Autowired
-    protected BoardServiceImpl(BoardRepository boardRepo, CommentsRepository commentsRepository) {
+    protected BoardServiceImpl(BoardRepository boardRepo) {
         this.boardRepo = boardRepo;
-        this.commentsRepository = commentsRepository;
     }
 
     //클라이언트에서 받아온 Board객체의 데이터를 BoardRepository의 상속받은 CrudRepository의 findAll메서드를 통해서
@@ -49,6 +45,7 @@ public class BoardServiceImpl implements BoardService {
     //DB에 저장 (저장하는 SQL문 만들어서 실행)
     @Override
     public void insertBoard(Board board) {
+        System.out.println("서비스 : "+board);
         boardRepo.save(board);
     }
 
@@ -103,30 +100,7 @@ public class BoardServiceImpl implements BoardService {
 
 
     //-------------------------코멘트--------------------------------------------------------
-    //모든 코멘트 보여주기
-    @Override
-    public List<Comments> getAllComments(Comments comments) {
-        List<Comments> checktest = commentsRepository.findAll();
-        System.out.println(checktest.size());
-        for(int i =0; i<checktest.size(); i++) {
-            System.out.println("-----init for-------");
-            checktest.get(i).getComments_content();
-        }
-        return checktest;
-    }
 
-    @Override
-    public void insertComment(Comments comments) {
-        System.out.println("------service logic---------");
-        System.out.println(comments.getBoard_title());
-        System.out.println(comments.getComments_content());
-        System.out.println(comments.getSeq());
-//        System.out.println(comments.getBoard().getTitle());
-        commentsRepository.save(comments);
-        //boolean title 체크
-        //insert comment 실행
-        //트랜젝션 처리
-    }
 
 
 }

@@ -12,7 +12,6 @@ package com.example.demo.service.board;
 
 import com.example.demo.Entity.account_info.Member;
 import com.example.demo.Entity.board.Board;
-import com.example.demo.Entity.board.Comments;
 
 import java.util.List;
 
@@ -50,7 +49,7 @@ public interface BoardService {
 
 //------------------------코멘트---------------------------------------------------------
 
-    List<Comments> getAllComments(Comments comments);
+   // List<Comments> getAllComments(Comments comments);
 
-    void insertComment(Comments comments);
+   // void insertComment(Comments comments);
 }

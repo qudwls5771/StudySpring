@@ -24,6 +24,12 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@SequenceGenerator(
+    name = "User_Seq-Gen",
+    sequenceName = "User_Seq",
+    initialValue = 1, // 1부터 시작
+    allocationSize = 1 //사이즈가 1부터 증가 1->2->3
+)
 public class Member extends BaseTimeEntity implements Serializable {
 
     //SELCT [*컬럼명=객체의 필드] FROM TABLE_NAME*객체;
@@ -42,13 +48,44 @@ public class Member extends BaseTimeEntity implements Serializable {
     //JPA는 객체(Entity, 튜플)단위로 DB에 저장하는 개념을 영속화 한다고 정의
 
     //*IDENTITY : DB에 필드값을 저장 후에 기본키를 생성
+    //AUTO_INCREMENT처럼 DB에 값을 저장하고 나서야 기본키를 구할 수 있을 때 쓰임
+    // = DB에 클라이언트에서 받은 정보를 저장 후에 기본키(ex)seq를 부여
     //Entity가 영속상태가 되기 위해서는 식별자가 필수
+    //em : EntityManager
+    //em.psersiste()를 하는 즉시 insert SQL(기본키 저장)이 DB에전달
+    //필드값을 테이블에 저장함과 동시에 기본키생성해서 집어 넣는다.
+    //트랜잭션이 지원하는 쓰기 지연이 동작 x
+    //빈번하게 저장할 때 좋다 = ex)게시판 댓글
+
 
     //*Sequence : DB(Oracle) Sequence 함수 기는ㅇ을 활용하여 생성
+    //DB마다 index를 생성하고 관리하는 함수가 있음
+    //시퀀스 전략은 em.persist()를 호출할 때 먼저 DB 시퀀스를 사용해서 식별자를 조회
+    //이후 트랜잭션 커밋 시점에 플러시가 발생하면 엔티티를 DB에 저장
+    //빈번하게 저장할 때 한번에 저장할 때 좋다.
 
-    //*Table : Seq(시퀀스)를 정보로 갖고 있는 테이블을 만들고, seq칼럼값을 저장한 뒤 불러온다.
-    //여타 위에 전략과 달리 임의의 seq Table을 만들기 때문에 table 성능이 좋지 않을경우(튜닝x)
+
+    //*Table : Seq(시퀀스)를 정보로 갖고 있는 테이블을 만들고,
+    // seq칼럼값을 저장한 뒤 불러온다.
+    //여타 위에 전략과 달리 임의의 seq Table을 만들기 때문에
+    // table 성능이 좋지 않을경우(튜닝하지 않을 경우)
     //속도적인 문제를 야기할 수 있다.
+
+    //Sequence 최적화 전략
+    //allocationSize 시퀀스 접근하는 횟수를 줄이기 위한 방편
+    //예를 들어, allocationSize가 50이라면, 시퀀스 함수 한번 조회 시
+    //50씩 증가하고, 1~50사이에서는 메모리에서 식별자로 할당.
+    //백엔드(서버)마다 DB를 조회해서 여러 서버가 동시에 접근하고 시퀀스 함수를
+    //사용하여 시퀀스를 할당할 때 1단위로 size가 증가하면 DB저장에 문제를
+    // 야기할 수 있으므로 size를 넘게 잡아 메모리가 알아서 접속한 서버마다 할당 해주는 전랴
+    //~50으로 시퀀스 값을 선정하므로 여러 JVM(스프링 부트 서버)가 동시에
+    // 동작해도 기본 키 값이 충돌하지 않는 장점, DB부하를 피할 수 있다.
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.SEQUENCE
+//                    generator ="User_Seq-Gen")
+//    private Long seq;
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long seq;
@@ -60,6 +97,9 @@ public class Member extends BaseTimeEntity implements Serializable {
     //2. null처리 (null이 들어가면 board는 Id를 식별할 수 없다)
     @Column(length = 40, nullable = false, unique = true)
     private String id;
+
+
+
 
 
     //member는 여러개의 board를 가질 수 있다고 선언,

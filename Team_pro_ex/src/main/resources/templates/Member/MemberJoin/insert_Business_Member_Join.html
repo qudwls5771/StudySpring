@@ -1,10 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title><사업자>회원가입 페이지</title>
+    <title>(일반) 회원가입</title>
 </head>
 <body>
+<script>
+    function idOverlap(){
+
+    }
+</script>
+<div>회원 가입</div>
+<form th:action="@{/Member/MemberJoin/insert_Member}" method="post">
+    <div><p>사업자 번호</p>
+        <input name="business_Number" type="text" placeholder="사업자 번호">
+    </div>
+    <div><p>아이디</p>
+        <input name="id" type="text" placeholder="ID">
+    </div>
+    <div><p>비밀번호</p>
+        <input name="password" type="text" placeholder="Password">
+    </div>
+    <div><p>비밀번호 재확인</p>
+        <input name="password" type="text" placeholder="비밀번호 재확인">
+    </div>
+    <div><p>이름</p>
+        <input name="name" type="text" placeholder="이름">
+    </div>
+    <div>
+        <p>생년월일</p>
+        <input name="year" type="text" placeholder="예)20220826">
+        <!--        <input type="text" placeholder="년(4자)"><select name="" id="">-->
+        <!--        <optionT value="1"></option>-->
+        <!--        <optionT value="2"></option>-->
+        <!--        <optionT value="3"></option>-->
+        <!--        <optionT value="4"></option>-->
+        <!--        <optionT value="5"></option>-->
+        <!--        <optionT value="6"></option>-->
+        <!--        <optionT value="7"></option>-->
+        <!--        <optionT value="8"></option>-->
+        <!--        <optionT value="9"></option>-->
+        <!--        <optionT value="10"></option>-->
+        <!--        <optionT value="11"></option>-->
+        <!--        <optionT value="12"></option>-->
+        <!--        <optionT value="13"></option>-->
+        <!--        </select><input type="text" placeholder="일">-->
+    </div>
+    <div><p>핸드폰 번호</p>
+        <input name = "phone_number" type="text" placeholder="-를 제외하고 입력해주세요.">
+    </div>
+    <div><p>주소</p>
+        <input name = "address" type="text" placeholder="주소">
+    </div>
+</form>
 
 </body>
 </html>

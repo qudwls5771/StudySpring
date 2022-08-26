@@ -4,7 +4,7 @@ import com.example.team_pro_ex.com.Entity.member.Member;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-
+//DAO
 public interface MemberRepository extends JpaRepository<Member, String> {
     //아이디 찾기?
     @Query(value = "select m from Member m where m.id = :id_1")

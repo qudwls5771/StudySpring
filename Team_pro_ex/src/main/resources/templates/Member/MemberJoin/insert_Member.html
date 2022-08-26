@@ -1,27 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>(일반) 회원가입</title>
 </head>
 <body>
+<script>
+    function idOverlap(){
+
+    }
+</script>
 <div>회원 가입</div>
-<form>
+<form th:action="@{/Member/MemberJoin/insert_Member}" method="post">
     <div><p>아이디</p>
-        <input type="text" placeholder="@naver.com">
+        <input name="id" type="text" placeholder="ID">
     </div>
     <div><p>비밀번호</p>
-        <input type="text">
+        <input name="password" type="text" placeholder="Password">
     </div>
     <div><p>비밀번호 재확인</p>
-        <input type="text">
+        <input name="password" type="text" placeholder="비밀번호 재확인">
     </div>
     <div><p>이름</p>
-        <input type="text">
+        <input name="name" type="text" placeholder="이름">
     </div>
     <div>
         <p>생년월일</p>
-        <input type="text" placeholder="생년월일">
+        <input name="year" type="text" placeholder="예)20220826">
         <!--        <input type="text" placeholder="년(4자)"><select name="" id="">-->
         <!--        <optionT value="1"></option>-->
         <!--        <optionT value="2"></option>-->
@@ -38,17 +43,24 @@
         <!--        <optionT value="13"></option>-->
         <!--        </select><input type="text" placeholder="일">-->
     </div>
-    <div><p>성별</p>
-        <input type="text" placeholder="성별">
+    <div><p>핸드폰 번호</p>
+        <input name = "phone_number" type="text" placeholder="-를 제외하고 입력해주세요.">
     </div>
-    <div><p>본인 확인 이메일(선택)</p>
-        <input type="text" placeholder="선택입력">
+    <div><p>주소</p>
+        <input name = "address" type="text" placeholder="주소">
     </div>
-    <div><p>휴대전화</p>
-        <input type="text">
+    <div><p>펫 종류</p>
+        <input name = "member_pet_T" type="text" placeholder="펫 종류">
     </div>
-
-    <div></div>
+    <div><p>펫 성별</p>
+        <input name = "member_pet_S" type="text" placeholder="펫 성별">
+    </div>
+    <div><p>펫 출생</p>
+        <input name = "member_pet_D" type="text" placeholder="펫 출생 : 202208256">
+    </div>
+    <div><p>펫 몸무게</p>
+        <input name = "member_pet_W" type="text" placeholder="펫 몸무게">
+    </div>
 </form>
 
 </body>

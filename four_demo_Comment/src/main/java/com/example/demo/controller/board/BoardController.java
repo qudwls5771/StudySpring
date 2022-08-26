@@ -12,7 +12,6 @@ package com.example.demo.controller.board;
 
 import com.example.demo.Entity.account_info.Member;
 import com.example.demo.Entity.board.Board;
-import com.example.demo.Entity.board.Comments;
 import com.example.demo.service.board.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -43,27 +42,6 @@ public class BoardController {
         return "/board/insertComments";
     }
 
-    @PostMapping("/insertComments")
-    public String insertComments(@RequestParam("board_title")String boardTitle, Comments comments, Model model) {
-
-        System.out.println("------inertComments---------");
-        System.out.println(comments.getBoard_title());
-        System.out.println(comments.getComments_content());
-        boardService.insertComment(comments);
-        return "redirect:/board/getBoardList";
-    }
-
-    //board Seq전달하면 전체 comments를 불러오는 controller method
-    @GetMapping("/getCommentsList")
-    public String getCommentsList(Comments comments, Model model) {
-        System.out.println("-------getCommentsList-------");
-        System.out.println(comments.getBoard_title());
-        List<Comments> checkCommentsList = boardService.getAllComments(comments);
-
-        model.addAttribute("commentsList", checkCommentsList);
-        return "/board/getCommentsList";
-    }
-
 
 
     //BoardService의 getBoardList메서드 실행 > BoardRepository(CrudRepository).findAll()를 통해서 (JPA번역)
@@ -91,6 +69,8 @@ public class BoardController {
         //[2]BoardRepository(CrudRepository).save(board)를 통해서 (JPA번역)
         //DB의 저장 (SQL)
         //insertBoard라는 메서드에 board객체 인자값으로 넣기
+        System.out.println("컨트롤러 : " + board);
+        board.setCreateDate(new Date());
         boardService.insertBoard(board);
         return "redirect:/board/getBoardList";
     }
