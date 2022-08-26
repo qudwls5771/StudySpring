@@ -1,4 +1,4 @@
-package com.example.team_pro_ex.com.Entity.member;
+package com.example.team_pro_ex.com.Entity.business_Member;
 
 import com.example.team_pro_ex.com.Entity.Base.member_BaseEntity;
 import lombok.*;
@@ -31,7 +31,10 @@ public class business_Member extends member_BaseEntity {
     @Column(name = "business_member_phone_number")
     private String phone_number; // 핸드폰 번호
 
-    @Column(name = "business_member_name", length = 30)
+    @Column(name = "business_member_store_number")
+    private String store_number; // 핸드폰 번호
+
+    @Column(name = "business_store_name", length = 30)
     private String store_Name; // 가게이름
 
     @Column(name = "business_member_address", length = 50)

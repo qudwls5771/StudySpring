@@ -10,7 +10,7 @@
 
     }
 </script>
-<div>회원 가입</div>
+<div>회원 가입(사업자)</div>
 <form th:action="@{/Member/MemberJoin/insert_Member}" method="post">
     <div><p>사업자 번호</p>
         <input name="business_Number" type="text" placeholder="사업자 번호">
@@ -27,27 +27,16 @@
     <div><p>이름</p>
         <input name="name" type="text" placeholder="이름">
     </div>
-    <div>
-        <p>생년월일</p>
-        <input name="year" type="text" placeholder="예)20220826">
-        <!--        <input type="text" placeholder="년(4자)"><select name="" id="">-->
-        <!--        <optionT value="1"></option>-->
-        <!--        <optionT value="2"></option>-->
-        <!--        <optionT value="3"></option>-->
-        <!--        <optionT value="4"></option>-->
-        <!--        <optionT value="5"></option>-->
-        <!--        <optionT value="6"></option>-->
-        <!--        <optionT value="7"></option>-->
-        <!--        <optionT value="8"></option>-->
-        <!--        <optionT value="9"></option>-->
-        <!--        <optionT value="10"></option>-->
-        <!--        <optionT value="11"></option>-->
-        <!--        <optionT value="12"></option>-->
-        <!--        <optionT value="13"></option>-->
-        <!--        </select><input type="text" placeholder="일">-->
-    </div>
     <div><p>핸드폰 번호</p>
         <input name = "phone_number" type="text" placeholder="-를 제외하고 입력해주세요.">
+    </div>
+    <div>
+        <p>가게번호</p>
+        <input name="store_number" type="text" placeholder="가게 전화번호">
+    </div>
+    <div>
+        <p>가게이름</p>
+        <input name="store_Name" type="text" placeholder="가게이름">
     </div>
     <div><p>주소</p>
         <input name = "address" type="text" placeholder="주소">
