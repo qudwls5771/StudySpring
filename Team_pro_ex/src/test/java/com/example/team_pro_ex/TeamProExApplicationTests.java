@@ -12,6 +12,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 class TeamProExApplicationTests {
     @Autowired
     MemberRepository memberrepository;
+
+    @Autowired
     business_MemberRepository business_memberrepository;
     @Test
     void memberJoin() { //회원 회원가입
@@ -30,18 +32,17 @@ class TeamProExApplicationTests {
         memberrepository.save(member);
         System.out.println(member);
     }
-
+    @Test
     void business_MemberJoin(){//(사업자)회원 회원가입
         business_Member business_member = new business_Member();
         business_member.setId("ss");
         business_member.setPassword("11");
         business_member.setBusiness_Number("11");
         business_member.setPhone_number("11");
-        business_member.setStore_number("11");
         business_member.setStore_Name("11");
         business_member.setJoin_M("sysdate");
         business_member.setJoin_O(null);
-        business_member.setJoin_M("Y");
+        business_member.setAddress("집");
         business_memberrepository.save(business_member);
         System.out.println(business_member);
 
