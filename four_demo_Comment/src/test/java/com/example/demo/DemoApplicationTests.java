@@ -9,11 +9,50 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;*/
 
-import java.util.List;
+import com.example.demo.Entity.account_info.Member;
+import com.example.demo.persistence.account_info.MemberRepository;
+import com.example.demo.service.openTest.publicTest;
+import org.junit.Test;
+import org.junit.jupiter.api.DisplayName;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import textTransfer.TextTransfer;
 
+@SpringBootTest
 //@RunWith(SpringRunner.class)
 //@SpringBootTest
 class DemoApplicationTests {
+
+    @Autowired
+    publicTest apiTest_1;
+
+    @Test
+    void setApiTest_2(){
+        apiTest_1.resultAPI();
+    }
+    //Test로 데이터 들어가는지 확인
+    MemberRepository memberRepository;
+    @Test
+    @DisplayName("저장, 데이터 잘 들어갔는지 확인")
+    void contextSave(){
+        //setter로 엔티티를 생성하고 repository 정상 작동하는지 확인
+        Member member = new Member();
+        //큻라이언트가에서 Controller에 데이터를 전달하는 내용을 setter를 통해 대체
+        member.setId("s");
+        member.setPassword("s");
+        member.setEmail("@@");
+        memberRepository.save(member);
+
+    }
+
+    //문제3. 아이디 별처리
+    TextTransfer textTransfer;
+    @Test
+    void textTest() throws Exception{
+        textTransfer.transferText3Word("qudwls3771");
+    }
+
+
 //
 //    @Autowired
 //    private BoardRepository boardRepo;

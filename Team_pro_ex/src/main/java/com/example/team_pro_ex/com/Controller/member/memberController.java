@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping(path = "/Member/Member_Join")
+@RequestMapping(path = "/Member")
 public class memberController {
 
     private final memberService memberService;
@@ -19,23 +19,23 @@ public class memberController {
         this.memberService = memberservice;
     }
 
-    @GetMapping("/insert_Member")
+    @GetMapping("/Member_Join/insert_Member")
     public String insertMember(){
         return "Member/Member_Join/insert_Member";
     }
     //회원 가입
-    @PostMapping("/insert_Member")
+    @PostMapping("/Member_Join/insert_Member")
     public String insertMember(Member member){
         System.out.println("------insert-------");
         memberService.insertMember(member);
         return "redirect:Member/Member_Join/insert_Member";
     }
     //회원정보 수정
-    @PostMapping("/update_Member")
+    @PostMapping("/Member_Update/update_Member")
     public String updateMember(Member member){
         System.out.println("------update--------");
         memberService.updateMember(member);
-        return "redirect:Member/Member_Up_Del/update_Member";
+        return "redirect:Member/Member_Update/update_Member";
     }
 
     //회원을 삭제하는게 아니라 수정한다. ID, Name, Join_m 및 날짜 테이블의 join_O을 제외한 값 전부 Null

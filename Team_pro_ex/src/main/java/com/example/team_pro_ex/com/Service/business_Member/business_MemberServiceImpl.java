@@ -27,7 +27,7 @@ public class business_MemberServiceImpl implements business_MemberService{
     @Override
     public void insertBusiness_Member(business_Member business_member) {
         System.out.println("--------사업자 회원 가입---------");
-        business_memberRepo.save(business_member)
+        business_memberRepo.save(business_member);
     }
 
     @Override

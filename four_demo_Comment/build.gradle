@@ -68,6 +68,10 @@ dependencies {
     implementation 'com.oracle.database.security:oraclepki'
     implementation 'com.oracle.database.security:osdt_core'
     implementation 'com.oracle.database.security:osdt_cert'
+
+
+    //Gson 라이브러리
+    implementation 'com.google.code.gson:gson'
 }
 
 //테스트 라이브러리 정보
