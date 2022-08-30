@@ -10,9 +10,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 class TeamProExApplicationTests {
+    //일반 회원
     @Autowired
     MemberRepository memberrepository;
-
+    //사업자 회원
     @Autowired
     business_MemberRepository business_memberrepository;
     @Test
@@ -39,10 +40,12 @@ class TeamProExApplicationTests {
         business_member.setPassword("11");
         business_member.setBusiness_Number("11");
         business_member.setPhone_number("11");
+        business_member.setStore_number("11");
         business_member.setStore_Name("11");
-        business_member.setJoin_M("sysdate");
-        business_member.setJoin_O(null);
         business_member.setAddress("집");
+        business_member.setJoin_M("Y");
+
+
         business_memberrepository.save(business_member);
         System.out.println(business_member);
 
