@@ -69,6 +69,8 @@ dependencies {
     implementation 'com.oracle.database.security:osdt_core'
     implementation 'com.oracle.database.security:osdt_cert'
 
+    //구글드라이브 셀리니움
+    implementation 'org.seleniumhq.selenium:selenium-java'
 
     //Gson 라이브러리
     implementation 'com.google.code.gson:gson'
