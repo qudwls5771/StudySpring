@@ -4,6 +4,7 @@ import com.example.team_pro_ex.com.Entity.business_Member.business_Member;
 import com.example.team_pro_ex.com.Entity.member.Member;
 import com.example.team_pro_ex.com.persistence.business_Member.business_MemberRepository;
 import com.example.team_pro_ex.com.persistence.member.MemberRepository;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -17,6 +18,7 @@ class TeamProExApplicationTests {
     @Autowired
     business_MemberRepository business_memberrepository;
     @Test
+    @DisplayName("회원, 잘들어감?")
     void memberJoin() { //회원 회원가입
         Member member = new Member();
         member.setId("qudwls3771");
@@ -31,12 +33,13 @@ class TeamProExApplicationTests {
         member.setPet_W(65);
         member.setJoin_M("Y");
         memberrepository.save(member);
-        System.out.println(member);
+//        System.out.println(member);
     }
     @Test
+    @DisplayName("사업자, 잘들어감?")
     void business_MemberJoin(){//(사업자)회원 회원가입
         business_Member business_member = new business_Member();
-        business_member.setId("ss");
+        business_member.setId("김");
         business_member.setPassword("11");
         business_member.setBusiness_Number("11");
         business_member.setPhone_number("11");
@@ -44,10 +47,8 @@ class TeamProExApplicationTests {
         business_member.setStore_Name("11");
         business_member.setAddress("집");
         business_member.setJoin_M("Y");
-
-
         business_memberrepository.save(business_member);
-        System.out.println(business_member);
+        System.out.println( "사업자 잘 들어갔냐?" + business_member);
 
     }
 

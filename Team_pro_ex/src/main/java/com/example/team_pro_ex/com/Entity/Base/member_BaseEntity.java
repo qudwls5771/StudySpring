@@ -19,6 +19,7 @@ import java.util.Date;
 @MappedSuperclass
 public class member_BaseEntity {
 
+    @Temporal(TemporalType.DATE)
     @CreatedDate
     private Date join_D; //--가입날짜
 
