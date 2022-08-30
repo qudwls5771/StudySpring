@@ -4,6 +4,8 @@ import com.example.team_pro_ex.com.Entity.member.Member;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
+import java.util.List;
+
 //DAO
 public interface MemberRepository extends JpaRepository<Member, String> {
     //아이디 찾기?
@@ -17,5 +19,10 @@ public interface MemberRepository extends JpaRepository<Member, String> {
             " m.name = 'null', m.year = 'null', m.phone_number = 'null', m.pet_D = 'null', m.pet_S = 'null', " +
             "m.pet_T = 'null', m.pet_W = 'null', m.join_M = 'N' where m.id = :memberID")
     Member updateDelete(String memberID);
+
+
+
+
+
 
 }

@@ -7,6 +7,8 @@ import org.hibernate.annotations.ColumnDefault;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 
 //@AllArgsConstructor : 모든 매개변수를 갖는 생성자
 //@NoArgsConstructor(access = AccessLevel.PROTECTED) : 매개변수 없는 생성자
@@ -25,12 +27,15 @@ public class Member extends member_BaseEntity {
     @Id
     @Generated
     @Column(name = "member_id", length = 20, nullable = false)
+    @NotBlank(message = "아이디는 필수 입력 값입니다.")
     private String id;  // 아이디
 
-    @Column(name = "member_password",length = 20)
+    @Column(name = "member_password",length = 18)
+    @NotBlank(message = "비밀번호는 필수 입력 값입니다.")
+    @Pattern(regexp = "(?=.*[0-9])(?=.*[a-zA-Z])(?=.*\\W)(?=\\S+$).{8,16}", message = "비밀번호는 8~16자 영문 대 소문자, 숫자, 특수문자를 사용하세요.")
     private String password; // 비밀번호
 
-    @Column(name = "member_name", length = 30, nullable = false)
+    @Column(name = "member_name")
     private String name; // 이름
 
     @Column(name = "member_year")

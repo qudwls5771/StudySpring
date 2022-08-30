@@ -4,8 +4,14 @@ import com.example.team_pro_ex.com.Entity.member.Member;
 import com.example.team_pro_ex.com.persistence.member.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.Errors;
+import org.springframework.validation.FieldError;
 
+import javax.transaction.Transactional;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 @Service
 public class memberServiceImpl implements memberService{
 
@@ -61,7 +67,21 @@ public class memberServiceImpl implements memberService{
         memberRepo.updateDelete(member.getId());
     }
 
+    @Override
+    public Map<String, String> validateHandling(Errors errors) {
+        //유효성 검사에 실패한 필드들은 Map 자료구조를 통해 키값과 에러 메시지를 응답한다.
+        //Key : valid_{dto 필드명}
+        //Message : dto에서 작성한 message 값
+        //유효성 검사에 실패한 필드 목록을 받아 미리 정의된 메시지를 가져와 Map에 넣어준다.
 
+        Map<String, String> validatorResult = new HashMap<>();
+        /* 유효성 검사에 실패한 필드 목록을 받음 */
+        for (FieldError error : errors.getFieldErrors()) {
+            String validKeyName = String.format("valid_%s", error.getField());
+            validatorResult.put(validKeyName, error.getDefaultMessage());
+        }
+        return validatorResult;
+    }
 
 
 }

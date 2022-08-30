@@ -7,6 +7,8 @@ import org.hibernate.annotations.ColumnDefault;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 
 @ToString
 @Entity
@@ -19,14 +21,17 @@ public class business_Member extends member_BaseEntity {
 
     @Id
     @Generated
-    @Column(name = "business_member_id", length = 20, nullable = false)
+    @Column(name = "member_id", length = 20, nullable = false)
+    @NotBlank(message = "아이디는 필수 입력 값입니다.")
     private String id;  // 아이디
+
+    @Column(name = "member_password",length = 18)
+    @NotBlank(message = "비밀번호는 필수 입력 값입니다.")
+    @Pattern(regexp = "(?=.*[0-9])(?=.*[a-zA-Z])(?=.*\\W)(?=\\S+$).{8,16}", message = "비밀번호는 8~16자 영문 대 소문자, 숫자, 특수문자를 사용하세요.")
+    private String password; // 비밀번호
 
     @Column(name = "business_member_number", length = 20)
     private String business_Number; //사업자 번호
-
-    @Column(name = "business_member_password",length = 20)
-    private String password; // 비밀번호
 
     @Column(name = "business_member_phone_number")
     private String phone_number; // 핸드폰 번호
