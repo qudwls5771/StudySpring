@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/03sample/03sample/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/03sample/03sample/src/test/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/20220830_scraping_entitydbsave_lecture_spring_2_crudProject/03sample/03sample/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/20220830_scraping_entitydbsave_lecture_spring_2_crudProject/03sample/03sample/src/test/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/20220830_scraping_entitydbsave_lecture_spring_2_crudProject/Team_pro_ex/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/20220830_scraping_entitydbsave_lecture_spring_2_crudProject/Team_pro_ex/src/test/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/20220830_scraping_entitydbsave_lecture_spring_2_crudProject/four_demo_Comment/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/20220830_scraping_entitydbsave_lecture_spring_2_crudProject/four_demo_Comment/src/test/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/20220830_scraping_entitydbsave_lecture_spring_2_crudProject/pet/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/20220830_scraping_entitydbsave_lecture_spring_2_crudProject/pet/src/test/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/20220830_scraping_entitydbsave_lecture_spring_2_crudProject/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/20220830_scraping_entitydbsave_lecture_spring_2_crudProject/src/test/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/20220830_scraping_entitydbsave_lecture_spring_2_crudProject/testSpring/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/20220830_scraping_entitydbsave_lecture_spring_2_crudProject/testSpring/src/test/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Team_pro_ex/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Team_pro_ex/src/test/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/four_demo_Comment/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/four_demo_Comment/src/test/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/pet/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/pet/src/test/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/testSpring/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/testSpring/src/test/java" isTestSource="false" />
+    </content>
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

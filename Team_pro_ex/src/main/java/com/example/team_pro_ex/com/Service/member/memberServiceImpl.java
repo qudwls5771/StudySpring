@@ -66,8 +66,9 @@ public class memberServiceImpl implements memberService{
         System.out.println("--------회원탈퇴---------");
         memberRepo.updateDelete(member.getId());
     }
-
+    //회원가입 시, 유효성 체크
     @Override
+    @Transactional
     public Map<String, String> validateHandling(Errors errors) {
         //유효성 검사에 실패한 필드들은 Map 자료구조를 통해 키값과 에러 메시지를 응답한다.
         //Key : valid_{dto 필드명}
