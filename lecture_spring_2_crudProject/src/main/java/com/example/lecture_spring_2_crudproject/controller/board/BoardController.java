@@ -221,12 +221,12 @@ public class BoardController {
 
     //server에서 client로 이미지 전송
     //supringboot에서 URL주소를 통해 이미지를 받음. InputStream을 통해 파일을 http프로토콜에 전달하여 클라이언트에게 전송
-    @GetMapping("/vewImage/{imgname")
+    @GetMapping("/vewImage/{imgname}")
     public ResponseEntity<byte[]> viewImage(@PathVariable("imgname")String input_imgName) throws IOException {
 
         //ResponseEntity : http프로토콜을 통해서 byte데이터를 전달하는 객체, byte(소문자=기본타입) []배열
         //@PathVariable : URL주소의 값을 받아옴
-        String path ="C:/work/wp/Day73/lecture_spring_2_crudProject/src/main/resources/upload"+input_imgName;
+        String path ="/Users/jeongseojin/studyspring/lecture_spring_2_crudProject/src/main/resources/upload"+input_imgName;
         //데이터(이미지)를 전손하기 위한 객체로써 java에서는 항상 데이터를 스트림타입으로 전달
         InputStream inputStream = new FileInputStream(path);
         //byte배열로 변환

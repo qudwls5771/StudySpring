@@ -24,39 +24,39 @@ public class memberController {
         this.memberService = memberservice;
     }
 
-//    @GetMapping("/Member_Join/insert_Member")
-//    public String insertMember(){
-//        return "Member/Member_Join/insert_Member";
-//    }
-//    //회원 가입
-//    @PostMapping("/Member_Join/insert_Member")
-//    public String insertMember(Member member){
-//        System.out.println("------insert-------");
-//        memberService.insertMember(member);
-//        return "redirect:Member/Member_Join/insert_Member";
-//    }
-
     @GetMapping("/Member_Join/insert_Member")
-    public String JoinProc(){
+    public String insertMember(){
         return "Member/Member_Join/insert_Member";
     }
-
-    /* 회원가입 */    @PostMapping("/Member_Join/insert_Member")
-    public String joinProc(@Valid Member member, Errors errors, Model model) {
-        if (errors.hasErrors()) {
-            /* 회원가입 실패시 입력 데이터 값을 유지 */
-            model.addAttribute("member", member);
-            /* 유효성 통과 못한 필드와 메시지를 핸들링 */
-            Map<String, String> validatorResult = memberService.validateHandling(errors);
-            for (String key : validatorResult.keySet()) {
-                model.addAttribute(key, validatorResult.get(key));
-            }
-            /* 회원가입 페이지로 다시 리턴 */
-            return "/Member_business_Join/Choice_Member_Join";
-        }
+    //회원 가입
+    @PostMapping("/Member_Join/insert_Member")
+    public String insertMember(Member member){
+        System.out.println("------insert-------");
         memberService.insertMember(member);
-        return "redirect:/Member/Member_Join/insert_Member";
+       return "redirect:Member/Member_Join/insert_Member";
     }
+
+//    @GetMapping("/Member_Join/insert_Member")
+//    public String JoinProc(){
+//        return "Member/Member_Join/insert_Member";
+//    }
+//
+//    /* 회원가입 */    @PostMapping("/Member_Join/insert_Member")
+//    public String joinProc(@Valid Member member, Errors errors, Model model) {
+//        if (errors.hasErrors()) {
+//            /* 회원가입 실패시 입력 데이터 값을 유지 */
+//            model.addAttribute("member", member);
+//            /* 유효성 통과 못한 필드와 메시지를 핸들링 */
+//            Map<String, String> validatorResult = memberService.validateHandling(errors);
+//            for (String key : validatorResult.keySet()) {
+//                model.addAttribute(key, validatorResult.get(key));
+//            }
+//            /* 회원가입 페이지로 다시 리턴 */
+//            return "/Member_business_Join/Choice_Member_Join";
+//        }
+//        memberService.insertMember(member);
+//        return "redirect:/Member/Member_Join/insert_Member";
+//    }
 
 
 
