@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.lecture_spring_2_crudproject.LectureSpring2CrudProjectApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-08-30T03:11:14" hostname="DESKTOP-6223J9B" time="14.659">
+  <properties/>
+  <testcase name="ScrapingTest()" classname="com.example.lecture_spring_2_crudproject.LectureSpring2CrudProjectApplicationTests" time="14.659"/>
+  <system-out><![CDATA[12:10:57.520 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+12:10:57.535 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+12:10:57.578 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [com.example.lecture_spring_2_crudproject.LectureSpring2CrudProjectApplicationTests] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
+12:10:57.593 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.example.lecture_spring_2_crudproject.LectureSpring2CrudProjectApplicationTests], using SpringBootContextLoader
+12:10:57.599 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.example.lecture_spring_2_crudproject.LectureSpring2CrudProjectApplicationTests]: class path resource [com/example/lecture_spring_2_crudproject/LectureSpring2CrudProjectApplicationTests-context.xml] does not exist
+12:10:57.599 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.example.lecture_spring_2_crudproject.LectureSpring2CrudProjectApplicationTests]: class path resource [com/example/lecture_spring_2_crudproject/LectureSpring2CrudProjectApplicationTestsContext.groovy] does not exist
+12:10:57.600 [Test worker] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.example.lecture_spring_2_crudproject.LectureSpring2CrudProjectApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+12:10:57.601 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.example.lecture_spring_2_crudproject.LectureSpring2CrudProjectApplicationTests]: LectureSpring2CrudProjectApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+12:10:57.661 [Test worker] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [com.example.lecture_spring_2_crudproject.LectureSpring2CrudProjectApplicationTests]
+12:10:57.775 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [C:\Cleancode\lecture_spring_2_crudProject\build\classes\java\main\com\example\lecture_spring_2_crudproject\LectureSpring2CrudProjectApplication.class]
+12:10:57.777 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.example.lecture_spring_2_crudproject.LectureSpring2CrudProjectApplication for test class com.example.lecture_spring_2_crudproject.LectureSpring2CrudProjectApplicationTests
+12:10:58.105 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestExecutionListeners is not present for class [com.example.lecture_spring_2_crudproject.LectureSpring2CrudProjectApplicationTests]: using defaults.
+12:10:58.107 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+12:10:58.155 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@f9b7332, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@74cec793, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@6fefce9e, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@4f8969b0, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@1bdf8190, org.springframework.test.context.support.DirtiesContextTestExecutionListener@192f2f27, org.springframework.test.context.transaction.TransactionalTestExecutionListener@8a589a2, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@c65a5ef, org.springframework.test.context.event.EventPublishingTestExecutionListener@6b5176f2, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@b672aa8, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@2fab4aff, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@ec0c838, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@6e46d9f4, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@5cc69cfe, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@29cfd92b]
+12:10:58.160 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@4fd4cae3 testClass = LectureSpring2CrudProjectApplicationTests, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@4a067c25 testClass = LectureSpring2CrudProjectApplicationTests, locations = '{}', classes = '{class com.example.lecture_spring_2_crudproject.LectureSpring2CrudProjectApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@73a2e526, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@1b73be9f, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@366ac49b, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@44b3606b, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@54dcfa5a, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@242b836], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> true]], class annotated with @DirtiesContext [false] with mode [null].
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.7.2)
+
+2022-08-30 12:10:58.881  INFO 13024 --- [    Test worker] ectureSpring2CrudProjectApplicationTests : Starting LectureSpring2CrudProjectApplicationTests using Java 17.0.3.1 on DESKTOP-6223J9B with PID 13024 (started by User in C:\Cleancode\lecture_spring_2_crudProject)
+2022-08-30 12:10:58.884  INFO 13024 --- [    Test worker] ectureSpring2CrudProjectApplicationTests : No active profile set, falling back to 1 default profile: "default"
+2022-08-30 12:11:00.662  INFO 13024 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-08-30 12:11:00.942  INFO 13024 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 254 ms. Found 7 JPA repository interfaces.
+2022-08-30 12:11:02.675  INFO 13024 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-08-30 12:11:02.790  INFO 13024 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.10.Final
+2022-08-30 12:11:03.168  INFO 13024 --- [    Test worker] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-08-30 12:11:03.245 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration boolean -> org.hibernate.type.BooleanType@44fd7ba4
+2022-08-30 12:11:03.246 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration boolean -> org.hibernate.type.BooleanType@44fd7ba4
+2022-08-30 12:11:03.246 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Boolean -> org.hibernate.type.BooleanType@44fd7ba4
+2022-08-30 12:11:03.247 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration numeric_boolean -> org.hibernate.type.NumericBooleanType@74fb5b59
+2022-08-30 12:11:03.249 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration true_false -> org.hibernate.type.TrueFalseType@26fadd98
+2022-08-30 12:11:03.250 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration yes_no -> org.hibernate.type.YesNoType@6ef4cbe1
+2022-08-30 12:11:03.253 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration byte -> org.hibernate.type.ByteType@b506ed0
+2022-08-30 12:11:03.253 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration byte -> org.hibernate.type.ByteType@b506ed0
+2022-08-30 12:11:03.253 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Byte -> org.hibernate.type.ByteType@b506ed0
+2022-08-30 12:11:03.258 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration character -> org.hibernate.type.CharacterType@426c0486
+2022-08-30 12:11:03.258 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration char -> org.hibernate.type.CharacterType@426c0486
+2022-08-30 12:11:03.259 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Character -> org.hibernate.type.CharacterType@426c0486
+2022-08-30 12:11:03.318 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration short -> org.hibernate.type.ShortType@5e99e2cb
+2022-08-30 12:11:03.319 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration short -> org.hibernate.type.ShortType@5e99e2cb
+2022-08-30 12:11:03.319 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Short -> org.hibernate.type.ShortType@5e99e2cb
+2022-08-30 12:11:03.322 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration integer -> org.hibernate.type.IntegerType@2c60ce47
+2022-08-30 12:11:03.323 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration int -> org.hibernate.type.IntegerType@2c60ce47
+2022-08-30 12:11:03.324 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Integer -> org.hibernate.type.IntegerType@2c60ce47
+2022-08-30 12:11:03.326 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration long -> org.hibernate.type.LongType@2776fd8f
+2022-08-30 12:11:03.326 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration long -> org.hibernate.type.LongType@2776fd8f
+2022-08-30 12:11:03.326 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Long -> org.hibernate.type.LongType@2776fd8f
+2022-08-30 12:11:03.329 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration float -> org.hibernate.type.FloatType@4a1dda83
+2022-08-30 12:11:03.330 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration float -> org.hibernate.type.FloatType@4a1dda83
+2022-08-30 12:11:03.331 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Float -> org.hibernate.type.FloatType@4a1dda83
+2022-08-30 12:11:03.334 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration double -> org.hibernate.type.DoubleType@18c880ea
+2022-08-30 12:11:03.334 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration double -> org.hibernate.type.DoubleType@18c880ea
+2022-08-30 12:11:03.335 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Double -> org.hibernate.type.DoubleType@18c880ea
+2022-08-30 12:11:03.336 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration big_decimal -> org.hibernate.type.BigDecimalType@1abcd059
+2022-08-30 12:11:03.337 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.math.BigDecimal -> org.hibernate.type.BigDecimalType@1abcd059
+2022-08-30 12:11:03.343 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration big_integer -> org.hibernate.type.BigIntegerType@105db94d
+2022-08-30 12:11:03.345 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.math.BigInteger -> org.hibernate.type.BigIntegerType@105db94d
+2022-08-30 12:11:03.347 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration string -> org.hibernate.type.StringType@440ef8d
+2022-08-30 12:11:03.347 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.String -> org.hibernate.type.StringType@440ef8d
+2022-08-30 12:11:03.349 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration nstring -> org.hibernate.type.StringNVarcharType@6c8efde4
+2022-08-30 12:11:03.351 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration ncharacter -> org.hibernate.type.CharacterNCharType@45e140ae
+2022-08-30 12:11:03.356 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration url -> org.hibernate.type.UrlType@267891bf
+2022-08-30 12:11:03.358 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.net.URL -> org.hibernate.type.UrlType@267891bf
+2022-08-30 12:11:03.361 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration Duration -> org.hibernate.type.DurationType@25699aa7
+2022-08-30 12:11:03.362 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.Duration -> org.hibernate.type.DurationType@25699aa7
+2022-08-30 12:11:03.365 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration Instant -> org.hibernate.type.InstantType@4662752a
+2022-08-30 12:11:03.365 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.Instant -> org.hibernate.type.InstantType@4662752a
+2022-08-30 12:11:03.368 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration LocalDateTime -> org.hibernate.type.LocalDateTimeType@799f354a
+2022-08-30 12:11:03.369 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.LocalDateTime -> org.hibernate.type.LocalDateTimeType@799f354a
+2022-08-30 12:11:03.372 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration LocalDate -> org.hibernate.type.LocalDateType@3ace6346
+2022-08-30 12:11:03.372 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.LocalDate -> org.hibernate.type.LocalDateType@3ace6346
+2022-08-30 12:11:03.373 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration LocalTime -> org.hibernate.type.LocalTimeType@11826398
+2022-08-30 12:11:03.374 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.LocalTime -> org.hibernate.type.LocalTimeType@11826398
+2022-08-30 12:11:03.375 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration OffsetDateTime -> org.hibernate.type.OffsetDateTimeType@7a572ea0
+2022-08-30 12:11:03.376 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.OffsetDateTime -> org.hibernate.type.OffsetDateTimeType@7a572ea0
+2022-08-30 12:11:03.377 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration OffsetTime -> org.hibernate.type.OffsetTimeType@63f9ddf9
+2022-08-30 12:11:03.378 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.OffsetTime -> org.hibernate.type.OffsetTimeType@63f9ddf9
+2022-08-30 12:11:03.379 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration ZonedDateTime -> org.hibernate.type.ZonedDateTimeType@7caf1e5
+2022-08-30 12:11:03.379 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.ZonedDateTime -> org.hibernate.type.ZonedDateTimeType@7caf1e5
+2022-08-30 12:11:03.381 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration date -> org.hibernate.type.DateType@4e974b9e
+2022-08-30 12:11:03.382 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.Date -> org.hibernate.type.DateType@4e974b9e
+2022-08-30 12:11:03.383 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration time -> org.hibernate.type.TimeType@25c1f5ee
+2022-08-30 12:11:03.383 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.Time -> org.hibernate.type.TimeType@25c1f5ee
+2022-08-30 12:11:03.384 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration timestamp -> org.hibernate.type.TimestampType@2a484710
+2022-08-30 12:11:03.385 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.Timestamp -> org.hibernate.type.TimestampType@2a484710
+2022-08-30 12:11:03.385 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.Date -> org.hibernate.type.TimestampType@2a484710
+2022-08-30 12:11:03.387 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration dbtimestamp -> org.hibernate.type.DbTimestampType@2ad7bd26
+2022-08-30 12:11:03.388 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration calendar -> org.hibernate.type.CalendarType@482ba4b1
+2022-08-30 12:11:03.388 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.Calendar -> org.hibernate.type.CalendarType@482ba4b1
+2022-08-30 12:11:03.388 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.GregorianCalendar -> org.hibernate.type.CalendarType@482ba4b1
+2022-08-30 12:11:03.389 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration calendar_date -> org.hibernate.type.CalendarDateType@4bcdd11
+2022-08-30 12:11:03.390 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration calendar_time -> org.hibernate.type.CalendarTimeType@2dd0a0d0
+2022-08-30 12:11:03.392 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration locale -> org.hibernate.type.LocaleType@589fb74d
+2022-08-30 12:11:03.392 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.Locale -> org.hibernate.type.LocaleType@589fb74d
+2022-08-30 12:11:03.394 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration currency -> org.hibernate.type.CurrencyType@29170a47
+2022-08-30 12:11:03.394 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.Currency -> org.hibernate.type.CurrencyType@29170a47
+2022-08-30 12:11:03.395 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration timezone -> org.hibernate.type.TimeZoneType@267ff4df
+2022-08-30 12:11:03.395 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.TimeZone -> org.hibernate.type.TimeZoneType@267ff4df
+2022-08-30 12:11:03.397 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration class -> org.hibernate.type.ClassType@1b17d8ab
+2022-08-30 12:11:03.397 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Class -> org.hibernate.type.ClassType@1b17d8ab
+2022-08-30 12:11:03.398 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration uuid-binary -> org.hibernate.type.UUIDBinaryType@28989415
+2022-08-30 12:11:03.398 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.UUID -> org.hibernate.type.UUIDBinaryType@28989415
+2022-08-30 12:11:03.399 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration uuid-char -> org.hibernate.type.UUIDCharType@1132baa3
+2022-08-30 12:11:03.401 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration binary -> org.hibernate.type.BinaryType@2edb2f8b
+2022-08-30 12:11:03.402 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration byte[] -> org.hibernate.type.BinaryType@2edb2f8b
+2022-08-30 12:11:03.402 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration [B -> org.hibernate.type.BinaryType@2edb2f8b
+2022-08-30 12:11:03.406 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration wrapper-binary -> org.hibernate.type.WrapperBinaryType@3e38c472
+2022-08-30 12:11:03.409 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration Byte[] -> org.hibernate.type.WrapperBinaryType@3e38c472
+2022-08-30 12:11:03.409 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration [Ljava.lang.Byte; -> org.hibernate.type.WrapperBinaryType@3e38c472
+2022-08-30 12:11:03.413 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration row_version -> org.hibernate.type.RowVersionType@66020d69
+2022-08-30 12:11:03.414 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration image -> org.hibernate.type.ImageType@63124022
+2022-08-30 12:11:03.416 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration characters -> org.hibernate.type.CharArrayType@4bf4680c
+2022-08-30 12:11:03.416 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration char[] -> org.hibernate.type.CharArrayType@4bf4680c
+2022-08-30 12:11:03.417 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration [C -> org.hibernate.type.CharArrayType@4bf4680c
+2022-08-30 12:11:03.419 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration wrapper-characters -> org.hibernate.type.CharacterArrayType@4e4395c
+2022-08-30 12:11:03.419 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration [Ljava.lang.Character; -> org.hibernate.type.CharacterArrayType@4e4395c
+2022-08-30 12:11:03.420 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration Character[] -> org.hibernate.type.CharacterArrayType@4e4395c
+2022-08-30 12:11:03.423 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration text -> org.hibernate.type.TextType@72b2c5ed
+2022-08-30 12:11:03.429 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration ntext -> org.hibernate.type.NTextType@1600a8a2
+2022-08-30 12:11:03.437 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration blob -> org.hibernate.type.BlobType@113dcaf8
+2022-08-30 12:11:03.438 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.Blob -> org.hibernate.type.BlobType@113dcaf8
+2022-08-30 12:11:03.478 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration materialized_blob -> org.hibernate.type.MaterializedBlobType@3f866f50
+2022-08-30 12:11:03.489 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration clob -> org.hibernate.type.ClobType@5618fc1f
+2022-08-30 12:11:03.489 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.Clob -> org.hibernate.type.ClobType@5618fc1f
+2022-08-30 12:11:03.505 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration nclob -> org.hibernate.type.NClobType@6bcdd6e4
+2022-08-30 12:11:03.505 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.NClob -> org.hibernate.type.NClobType@6bcdd6e4
+2022-08-30 12:11:03.510 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration materialized_clob -> org.hibernate.type.MaterializedClobType@7b91d9f
+2022-08-30 12:11:03.514 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration materialized_nclob -> org.hibernate.type.MaterializedNClobType@42c54bad
+2022-08-30 12:11:03.518 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration serializable -> org.hibernate.type.SerializableType@2a136383
+2022-08-30 12:11:03.526 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration object -> org.hibernate.type.ObjectType@685d7ba5
+2022-08-30 12:11:03.526 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Object -> org.hibernate.type.ObjectType@685d7ba5
+2022-08-30 12:11:03.528 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_date -> org.hibernate.type.AdaptedImmutableType@26d0ece6
+2022-08-30 12:11:03.530 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_time -> org.hibernate.type.AdaptedImmutableType@100bba26
+2022-08-30 12:11:03.530 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_timestamp -> org.hibernate.type.AdaptedImmutableType@4ae280da
+2022-08-30 12:11:03.530 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_dbtimestamp -> org.hibernate.type.AdaptedImmutableType@76d0ecd7
+2022-08-30 12:11:03.531 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_calendar -> org.hibernate.type.AdaptedImmutableType@57c69937
+2022-08-30 12:11:03.531 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_calendar_date -> org.hibernate.type.AdaptedImmutableType@1ad1c363
+2022-08-30 12:11:03.531 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_binary -> org.hibernate.type.AdaptedImmutableType@446b64b3
+2022-08-30 12:11:03.531 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_serializable -> org.hibernate.type.AdaptedImmutableType@35ac9ebd
+2022-08-30 12:11:03.653  INFO 13024 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-08-30 12:11:05.598  INFO 13024 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-08-30 12:11:05.633  INFO 13024 --- [    Test worker] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.Oracle12cDialect
+2022-08-30 12:11:06.071 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration byte[] -> org.hibernate.type.MaterializedBlobType@3f866f50
+2022-08-30 12:11:06.072 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : HHH000270: Type registration [byte[]] overrides previous : org.hibernate.type.BinaryType@2edb2f8b
+2022-08-30 12:11:06.072 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration [B -> org.hibernate.type.MaterializedBlobType@3f866f50
+2022-08-30 12:11:06.072 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : HHH000270: Type registration [[B] overrides previous : org.hibernate.type.BinaryType@2edb2f8b
+2022-08-30 12:11:06.073 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration Byte[] -> org.hibernate.type.WrappedMaterializedBlobType@79617c3d
+2022-08-30 12:11:06.073 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : HHH000270: Type registration [Byte[]] overrides previous : org.hibernate.type.WrapperBinaryType@3e38c472
+2022-08-30 12:11:06.073 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : Adding type registration [Ljava.lang.Byte; -> org.hibernate.type.WrappedMaterializedBlobType@79617c3d
+2022-08-30 12:11:06.073 DEBUG 13024 --- [    Test worker] org.hibernate.type.BasicTypeRegistry     : HHH000270: Type registration [[Ljava.lang.Byte;] overrides previous : org.hibernate.type.WrapperBinaryType@3e38c472
+2022-08-30 12:11:06.112 DEBUG 13024 --- [    Test worker] o.h.type.spi.TypeConfiguration$Scope     : Scoping TypeConfiguration [org.hibernate.type.spi.TypeConfiguration@152891f8] to MetadataBuildingContext [org.hibernate.boot.internal.MetadataBuildingContextRootImpl@1d2c253]
+2022-08-30 12:11:06.916 DEBUG 13024 --- [    Test worker] o.h.type.spi.TypeConfiguration$Scope     : Scoping TypeConfiguration [org.hibernate.type.spi.TypeConfiguration@152891f8] to SessionFactoryImpl [org.hibernate.internal.SessionFactoryImpl@41ddec69]
+Hibernate: 
+    
+    drop table board cascade constraints
+Hibernate: 
+    
+    drop table comments cascade constraints
+Hibernate: 
+    
+    drop table custom_dto_example cascade constraints
+Hibernate: 
+    
+    drop table custom_dto_sort_pages cascade constraints
+Hibernate: 
+    
+    drop table member cascade constraints
+Hibernate: 
+    
+    drop table scraping_entity cascade constraints
+Hibernate: 
+    
+    drop table selenium_dto_example cascade constraints
+Hibernate: 
+    
+    create table board (
+       seq number(19,0) generated as identity,
+        create_date date,
+        update_date date,
+        cnt number(19,0) default 0,
+        content varchar2(255 char) default 'no content' not null,
+        title varchar2(40 char) not null,
+        writer varchar2(40 char) not null,
+        id varchar2(40 char),
+        primary key (seq)
+    )
+Hibernate: 
+    
+    create table comments (
+       seq number(19,0) generated as identity,
+        create_date date,
+        update_date date,
+        comments_content varchar2(255 char),
+        board_title varchar2(40 char),
+        primary key (seq)
+    )
+Hibernate: 
+    
+    create table custom_dto_example (
+       input_id varchar2(255 char) not null,
+        input_title varchar2(255 char),
+        input_writer varchar2(255 char),
+        primary key (input_id)
+    )
+Hibernate: 
+    
+    create table custom_dto_sort_pages (
+       seq number(19,0) not null,
+        nextid varchar2(255 char),
+        next_subject varchar2(255 char),
+        previd varchar2(255 char),
+        prev_subject varchar2(255 char),
+        primary key (seq)
+    )
+Hibernate: 
+    
+    create table member (
+       seq number(19,0) generated as identity,
+        create_date date,
+        update_date date,
+        email varchar2(255 char),
+        id varchar2(40 char) not null,
+        password varchar2(255 char),
+        primary key (seq)
+    )
+Hibernate: 
+    
+    create table scraping_entity (
+       seq number(19,0) generated as identity,
+        city varchar2(255 char),
+        covid19_confirmed varchar2(255 char),
+        increase_num varchar2(255 char),
+        primary key (seq)
+    )
+Hibernate: 
+    
+    create table selenium_dto_example (
+       seq number(19,0) generated as identity,
+        data_content varchar2(255 char),
+        data_name varchar2(255 char),
+        primary key (seq)
+    )
+Hibernate: 
+    
+    alter table board 
+       add constraint UK_mph7qe4yv41dlsoap3i3nojto unique (title)
+Hibernate: 
+    
+    alter table member 
+       add constraint UK_jp8ds32yg1soswx2rkiagm768 unique (id)
+Hibernate: 
+    
+    alter table board 
+       add constraint FKgnbbmgg8w8usef2x3po2j9ue8 
+       foreign key (id) 
+       references member (id)
+Hibernate: 
+    
+    alter table comments 
+       add constraint FKq2t3u0478c3hkeghj5e7rik22 
+       foreign key (board_title) 
+       references board (title)
+2022-08-30 12:11:08.490  INFO 13024 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-08-30 12:11:08.507 TRACE 13024 --- [    Test worker] o.h.type.spi.TypeConfiguration$Scope     : Handling #sessionFactoryCreated from [org.hibernate.internal.SessionFactoryImpl@41ddec69] for TypeConfiguration
+2022-08-30 12:11:08.511  INFO 13024 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-08-30 12:11:11.326  WARN 13024 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-08-30 12:11:12.438  INFO 13024 --- [    Test worker] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-08-30 12:11:14.071  INFO 13024 --- [    Test worker] ectureSpring2CrudProjectApplicationTests : Started LectureSpring2CrudProjectApplicationTests in 15.837 seconds (JVM running for 18.286)
+2022-08-30 12:11:17.095  INFO 13024 --- [ null to remote] o.o.selenium.remote.ProtocolHandshake    : Detected dialect: W3C
+2022-08-30 12:11:17.341  WARN 13024 --- [    Test worker] o.o.selenium.devtools.CdpVersionFinder   : Unable to find an exact match for CDP version 104, so returning the closest version found: 101
+2022-08-30 12:11:17.341  INFO 13024 --- [    Test worker] o.o.selenium.devtools.CdpVersionFinder   : Found CDP implementation for version 104 of 101
+Hibernate: 
+    insert 
+    into
+        scraping_entity
+        (seq, city, covid19_confirmed, increase_num) 
+    values
+        (default, ?, ?, ?)
+2022-08-30 12:11:25.992 TRACE 13024 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [null]
+2022-08-30 12:11:25.994 TRACE 13024 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [null]
+2022-08-30 12:11:25.994 TRACE 13024 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [null]
+Hibernate: 
+    insert 
+    into
+        scraping_entity
+        (seq, city, covid19_confirmed, increase_num) 
+    values
+        (default, ?, ?, ?)
+2022-08-30 12:11:26.157 TRACE 13024 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [null]
+2022-08-30 12:11:26.157 TRACE 13024 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [null]
+2022-08-30 12:11:26.157 TRACE 13024 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [null]
+Hibernate: 
+    insert 
+    into
+        scraping_entity
+        (seq, city, covid19_confirmed, increase_num) 
+    values
+        (default, ?, ?, ?)
+2022-08-30 12:11:26.302 TRACE 13024 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [서울]
+2022-08-30 12:11:26.302 TRACE 13024 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [4,545,050]
+2022-08-30 12:11:26.303 TRACE 13024 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [(+20418)]
+Hibernate: 
+    insert 
+    into
+        scraping_entity
+        (seq, city, covid19_confirmed, increase_num) 
+    values
+        (default, ?, ?, ?)
+2022-08-30 12:11:26.452 TRACE 13024 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [부산]
+2022-08-30 12:11:26.453 TRACE 13024 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [1,393,146]
+2022-08-30 12:11:26.453 TRACE 13024 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [(+7813)]
+Hibernate: 
+    insert 
+    into
+        scraping_entity
+        (seq, city, covid19_confirmed, increase_num) 
+    values
+        (default, ?, ?, ?)
+2022-08-30 12:11:26.558 TRACE 13024 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [대구]
+2022-08-30 12:11:26.559 TRACE 13024 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [991,092]
+2022-08-30 12:11:26.559 TRACE 13024 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [(+6108)]
+Hibernate: 
+    insert 
+    into
+        scraping_entity
+        (seq, city, covid19_confirmed, increase_num) 
+    values
+        (default, ?, ?, ?)
+2022-08-30 12:11:26.714 TRACE 13024 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [인천]
+2022-08-30 12:11:26.714 TRACE 13024 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [1,332,407]
+2022-08-30 12:11:26.714 TRACE 13024 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [(+6477)]
+Hibernate: 
+    insert 
+    into
+        scraping_entity
+        (seq, city, covid19_confirmed, increase_num) 
+    values
+        (default, ?, ?, ?)
+2022-08-30 12:11:26.889 TRACE 13024 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [광주]
+2022-08-30 12:11:26.889 TRACE 13024 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [683,592]
+2022-08-30 12:11:26.889 TRACE 13024 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [(+2953)]
+Hibernate: 
+    insert 
+    into
+        scraping_entity
+        (seq, city, covid19_confirmed, increase_num) 
+    values
+        (default, ?, ?, ?)
+2022-08-30 12:11:26.999 TRACE 13024 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [대전]
+2022-08-30 12:11:27.000 TRACE 13024 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [667,216]
+2022-08-30 12:11:27.000 TRACE 13024 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [(+3884)]
+Hibernate: 
+    insert 
+    into
+        scraping_entity
+        (seq, city, covid19_confirmed, increase_num) 
+    values
+        (default, ?, ?, ?)
+2022-08-30 12:11:27.106 TRACE 13024 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [울산]
+2022-08-30 12:11:27.107 TRACE 13024 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [504,261]
+2022-08-30 12:11:27.107 TRACE 13024 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [(+2103)]
+Hibernate: 
+    insert 
+    into
+        scraping_entity
+        (seq, city, covid19_confirmed, increase_num) 
+    values
+        (default, ?, ?, ?)
+2022-08-30 12:11:27.254 TRACE 13024 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [세종]
+2022-08-30 12:11:27.254 TRACE 13024 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [179,728]
+2022-08-30 12:11:27.254 TRACE 13024 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [(+1067)]
+Hibernate: 
+    insert 
+    into
+        scraping_entity
+        (seq, city, covid19_confirmed, increase_num) 
+    values
+        (default, ?, ?, ?)
+2022-08-30 12:11:27.389 TRACE 13024 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [경기]
+2022-08-30 12:11:27.389 TRACE 13024 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [6,219,245]
+2022-08-30 12:11:27.389 TRACE 13024 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [(+30289)]
+Hibernate: 
+    insert 
+    into
+        scraping_entity
+        (seq, city, covid19_confirmed, increase_num) 
+    values
+        (default, ?, ?, ?)
+2022-08-30 12:11:27.537 TRACE 13024 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [강원]
+2022-08-30 12:11:27.537 TRACE 13024 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [674,728]
+2022-08-30 12:11:27.538 TRACE 13024 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [(+3192)]
+Hibernate: 
+    insert 
+    into
+        scraping_entity
+        (seq, city, covid19_confirmed, increase_num) 
+    values
+        (default, ?, ?, ?)
+2022-08-30 12:11:27.645 TRACE 13024 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [충북]
+2022-08-30 12:11:27.645 TRACE 13024 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [717,798]
+2022-08-30 12:11:27.645 TRACE 13024 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [(+3789)]
+Hibernate: 
+    insert 
+    into
+        scraping_entity
+        (seq, city, covid19_confirmed, increase_num) 
+    values
+        (default, ?, ?, ?)
+2022-08-30 12:11:27.791 TRACE 13024 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [충남]
+2022-08-30 12:11:27.791 TRACE 13024 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [926,522]
+2022-08-30 12:11:27.791 TRACE 13024 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [(+5304)]
+Hibernate: 
+    insert 
+    into
+        scraping_entity
+        (seq, city, covid19_confirmed, increase_num) 
+    values
+        (default, ?, ?, ?)
+2022-08-30 12:11:27.911 TRACE 13024 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [전북]
+2022-08-30 12:11:27.911 TRACE 13024 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [780,376]
+2022-08-30 12:11:27.911 TRACE 13024 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [(+3957)]
+Hibernate: 
+    insert 
+    into
+        scraping_entity
+        (seq, city, covid19_confirmed, increase_num) 
+    values
+        (default, ?, ?, ?)
+2022-08-30 12:11:28.021 TRACE 13024 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [전남]
+2022-08-30 12:11:28.021 TRACE 13024 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [769,878]
+2022-08-30 12:11:28.021 TRACE 13024 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [(+4523)]
+Hibernate: 
+    insert 
+    into
+        scraping_entity
+        (seq, city, covid19_confirmed, increase_num) 
+    values
+        (default, ?, ?, ?)
+2022-08-30 12:11:28.162 TRACE 13024 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [경북]
+2022-08-30 12:11:28.162 TRACE 13024 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [1,031,052]
+2022-08-30 12:11:28.162 TRACE 13024 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [(+4940)]
+Hibernate: 
+    insert 
+    into
+        scraping_entity
+        (seq, city, covid19_confirmed, increase_num) 
+    values
+        (default, ?, ?, ?)
+2022-08-30 12:11:28.270 TRACE 13024 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [경남]
+2022-08-30 12:11:28.270 TRACE 13024 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [1,394,061]
+2022-08-30 12:11:28.270 TRACE 13024 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [(+7762)]
+Hibernate: 
+    insert 
+    into
+        scraping_entity
+        (seq, city, covid19_confirmed, increase_num) 
+    values
+        (default, ?, ?, ?)
+2022-08-30 12:11:28.405 TRACE 13024 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [제주]
+2022-08-30 12:11:28.405 TRACE 13024 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [319,552]
+2022-08-30 12:11:28.405 TRACE 13024 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [(+1035)]
+Hibernate: 
+    insert 
+    into
+        scraping_entity
+        (seq, city, covid19_confirmed, increase_num) 
+    values
+        (default, ?, ?, ?)
+2022-08-30 12:11:28.512 TRACE 13024 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [검역]
+2022-08-30 12:11:28.513 TRACE 13024 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [12,775]
+2022-08-30 12:11:28.513 TRACE 13024 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [(+24)]
+]]></system-out>
+  <system-err><![CDATA[Starting ChromeDriver 104.0.5112.79 (3cf3e8c8a07d104b9e1260c910efb8f383285dc5-refs/branch-heads/5112@{#1307}) on port 56115
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+]]></system-err>
+</testsuite>
