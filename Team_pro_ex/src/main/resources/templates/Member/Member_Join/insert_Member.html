@@ -7,57 +7,67 @@
 <body>
 
 <div>회원 가입</div>
-<form th:action="@{/templates/Member/Member_Join/insert_Member}" method="post">
-    <div><p>아이디</p>
-        <input name="id" type="text" placeholder="ID">
+{{>layout/header}}
+<div id="posts_list">
+    <div class="container col-md-4">
+        <form action="/auth/joinProc" method="post" modelAttribute="userDto">
+            <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+            <div class="form-group">
+                <label>아이디</label>
+                <input type="text" name="id" value="{{#userDto}}{{userDto.username}}{{/userDto}}" class="form-control" placeholder="아이디를 입력해주세요"/>
+                {{#valid_id}} <span>{{valid_id}}</span> {{/valid_id}}
+            </div>
+            <div class="form-group">
+                <label>비밀번호</label>
+                <input type="password" name="password" value="{{#userDto}}{{userDto.password}}{{/userDto}}" class="form-control" placeholder="비밀번호를 입력해주세요"/>
+                {{#valid_password}} <span>{{valid_password}}</span> {{/valid_password}}
+            </div>
+            <div class="form-group">
+            <label>이름</label>
+                <input type="text" name="name" value="{{#userDto}}{{userDto.nickname}}{{/userDto}}" class="form-control" placeholder="닉네임을 입력해주세요"/>
+                {{#valid_name}} <span>{{valid_name}}</span> {{/valid_name}}
+            </div>
+            <div class="form-group">
+                <label>생년월일</label>
+                <input type="text" name="year" value="{{#userDto}}{{userDto.email}}{{/userDto}}" class="form-control" placeholder="이메일을 입력해주세요"/>
+                {{#valid_year}} <span>{{valid_year}}</span> {{/valid_year}}
+            </div>
+            <div class="form-group">
+                <label>핸드폰 번호</label>
+                <input type="text" name="phone_number" value="{{#userDto}}{{userDto.email}}{{/userDto}}" class="form-control" placeholder="이메일을 입력해주세요"/>
+                {{#valid_phone_number}} <span>{{valid_phone_number}}</span> {{/valid_phone_number}}
+            </div>
+            <div class="form-group">
+                <label>주소</label>
+                <input type="text" name="address" value="{{#userDto}}{{userDto.email}}{{/userDto}}" class="form-control" placeholder="이메일을 입력해주세요"/>
+                {{#valid_address}} <span>{{valid_address}}</span> {{/valid_address}}
+            </div>
+            <div class="form-group">
+                <label>애견, 애묘 종류</label>
+                <input type="text" name="pet_T" value="{{#userDto}}{{userDto.email}}{{/userDto}}" class="form-control" placeholder="이메일을 입력해주세요"/>
+                {{#valid_pet_T}} <span>{{valid_pet_T}}</span> {{/valid_pet_T}}
+            </div>
+            <div class="form-group">
+                <label>애견, 애묘 성별</label>
+                <input type="text" name="pet_S" value="{{#userDto}}{{userDto.email}}{{/userDto}}" class="form-control" placeholder="이메일을 입력해주세요"/>
+                {{#valid_pet_S}} <span>{{valid_pet_S}}</span> {{/valid_pet_S}}
+            </div>
+            <div class="form-group">
+                <label>애견, 애묘 출생</label>
+                <input type="text" name="pet_D" value="{{#userDto}}{{userDto.email}}{{/userDto}}" class="form-control" placeholder="이메일을 입력해주세요"/>
+                {{#valid_pet_D}} <span>{{valid_pet_D}}</span> {{/valid_pet_D}}
+            </div>
+            <div class="form-group">
+                <label>애견, 애묘 몸무게</label>
+                <input type="text" name="pet_W" value="{{#userDto}}{{userDto.email}}{{/userDto}}" class="form-control" placeholder="이메일을 입력해주세요"/>
+                {{#valid_pet_W}} <span>{{valid_pet_W}}</span> {{/valid_pet_W}}
+            </div>
+
+            <button class="btn btn-primary bi bi-person"> 가입</button>
+            <a href="/" role="button" class="btn btn-info bi bi-arrow-return-left"> 목록</a>
+        </form>
     </div>
-    <div><p>비밀번호</p>
-        <input name="password" type="text" placeholder="Password">
-    </div>
-    <div><p>비밀번호 재확인</p>
-        <input name="password" type="text" placeholder="비밀번호 재확인">
-    </div>
-    <div><p>이름</p>
-        <input name="name" type="text" placeholder="이름">
-    </div>
-    <div>
-        <p>생년월일</p>
-        <input name="year" type="text" placeholder="예)20220826">
-        <!--        <input type="text" placeholder="년(4자)"><select name="" id="">-->
-        <!--        <optionT value="1"></option>-->
-        <!--        <optionT value="2"></option>-->
-        <!--        <optionT value="3"></option>-->
-        <!--        <optionT value="4"></option>-->
-        <!--        <optionT value="5"></option>-->
-        <!--        <optionT value="6"></option>-->
-        <!--        <optionT value="7"></option>-->
-        <!--        <optionT value="8"></option>-->
-        <!--        <optionT value="9"></option>-->
-        <!--        <optionT value="10"></option>-->
-        <!--        <optionT value="11"></option>-->
-        <!--        <optionT value="12"></option>-->
-        <!--        <optionT value="13"></option>-->
-        <!--        </select><input type="text" placeholder="일">-->
-    </div>
-    <div><p>핸드폰 번호</p>
-        <input name = "phone_number" type="text" placeholder="-를 제외하고 입력해주세요.">
-    </div>
-    <div><p>주소</p>
-        <input name = "address" type="text" placeholder="주소">
-    </div>
-    <div><p>펫 종류</p>
-        <input name = "member_pet_T" type="text" placeholder="펫 종류">
-    </div>
-    <div><p>펫 성별</p>
-        <input name = "member_pet_S" type="text" placeholder="펫 성별">
-    </div>
-    <div><p>펫 출생</p>
-        <input name = "member_pet_D" type="text" placeholder="펫 출생 : 202208256">
-    </div>
-    <div><p>펫 몸무게</p>
-        <input name = "member_pet_W" type="text" placeholder="펫 몸무게">
-    </div>
-</form>
+</div>{{>layout/footer}}
 
 </body>
 </html>
