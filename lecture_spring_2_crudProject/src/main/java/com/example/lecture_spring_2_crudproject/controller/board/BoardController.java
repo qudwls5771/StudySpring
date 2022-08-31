@@ -217,7 +217,7 @@ public class BoardController {
         return "/board/getBoardList";
     }
 
-    //--------------------------------------------------------------
+    //-----------------------------------------------------------------
 
     //server에서 client로 이미지 전송
     //supringboot에서 URL주소를 통해 이미지를 받음. InputStream을 통해 파일을 http프로토콜에 전달하여 클라이언트에게 전송
@@ -234,8 +234,6 @@ public class BoardController {
         inputStream.close();
         //ResponseEntity를 통해 http프로토콜로 클라이언트에게 데이터 전송
     return new ResponseEntity<byte[]>(imgByteArr, HttpStatus.OK);
-
-
     }
 }
 
