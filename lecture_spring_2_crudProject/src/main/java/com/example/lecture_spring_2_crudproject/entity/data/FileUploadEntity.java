@@ -25,4 +25,8 @@ public class FileUploadEntity {
     private String name;
 
     private String originalFilename;
+
+    private String writer;
+
+    private Long boardSeq;
 }

@@ -4,14 +4,14 @@ import com.example.lecture_spring_2_crudproject.entity.account.Member;
 import com.example.lecture_spring_2_crudproject.entity.board.Board;
 import com.example.lecture_spring_2_crudproject.entity.board.Comments;
 import com.example.lecture_spring_2_crudproject.entity.customDto.CustomDtoSortPages;
-import com.example.lecture_spring_2_crudproject.repository.customRepository.CustomDtoExampleRepositoryPred;
+import com.example.lecture_spring_2_crudproject.entity.data.FileUploadEntity;
 
 import java.util.List;
 
 public interface BoardService {
     List<Board> getBoardList(Board board);
 
-    void insertBoard(Board board);
+    Long insertBoard(Board board);
 
     Board getBoard(Board board);
 
@@ -44,4 +44,10 @@ public interface BoardService {
     List<Comments> getAllComments(Comments comments);
 
     CustomDtoSortPages getPagesSortIndex(Board board);
+
+
+    Long insertFileUploadEntity(FileUploadEntity fileUploadEntity);
+
+    FileUploadEntity getFileUploadEntity(Long board_seq);
+
 }

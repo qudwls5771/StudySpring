@@ -23,6 +23,6 @@ public interface memberService {
     //회원 탈퇴를 클릭할 시 = 아이디, 탈퇴날짜, 가입상태를 제외한 모든 컬럼이 null값으로 변경
     void deleteUpdateMember(Member member);
 
-//    public Map<String, String> validateHandling(Errors errors);
+    public Map<String, String> member_Availability(Errors errors);
 
 }

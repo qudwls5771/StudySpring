@@ -4,9 +4,10 @@ import com.example.lecture_spring_2_crudproject.entity.account.Member;
 import com.example.lecture_spring_2_crudproject.entity.board.Board;
 import com.example.lecture_spring_2_crudproject.entity.board.Comments;
 import com.example.lecture_spring_2_crudproject.entity.customDto.CustomDtoSortPages;
-import com.example.lecture_spring_2_crudproject.repository.account.MemberRepository;
+import com.example.lecture_spring_2_crudproject.entity.data.FileUploadEntity;
 import com.example.lecture_spring_2_crudproject.repository.board.BoardRepository;
 import com.example.lecture_spring_2_crudproject.repository.board.CommentsRepository;
+import com.example.lecture_spring_2_crudproject.repository.board.FileUploadInfoRepository;
 import com.example.lecture_spring_2_crudproject.repository.customRepository.CustomDtoExampleRepositoryPred;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,12 +22,16 @@ public class BoardServiceImpl implements BoardService{
     private final CommentsRepository commentsRepository;
     private final CustomDtoExampleRepositoryPred customDtoExampleRepositoryPred;
 
+    private final FileUploadInfoRepository fileUploadInfoRepository;
+
     //순환참조 중단
     @Autowired
     protected BoardServiceImpl(BoardRepository boardRepo,
                                CommentsRepository commentsRepository,
-                               CustomDtoExampleRepositoryPred customDtoExampleRepositoryPred
+                               CustomDtoExampleRepositoryPred customDtoExampleRepositoryPred,
+                               FileUploadInfoRepository fileUploadInfoRepository
     ) {
+        this.fileUploadInfoRepository = fileUploadInfoRepository;
         this.customDtoExampleRepositoryPred = customDtoExampleRepositoryPred;
         this.commentsRepository = commentsRepository;
         this.boardRepo = boardRepo;
@@ -39,8 +44,9 @@ public class BoardServiceImpl implements BoardService{
     }
 
     @Override
-    public void insertBoard(Board board) {
-        boardRepo.save(board);
+    public Long insertBoard(Board board) {
+
+        return boardRepo.save(board).getSeq();
     }
 
     @Override
@@ -131,5 +137,16 @@ public class BoardServiceImpl implements BoardService{
         CustomDtoSortPages customDtoSortPages = customDtoExampleRepositoryPred.findByPages(board.getSeq());
         System.out.println(customDtoSortPages.getPREVID());
         return customDtoSortPages;
+    }
+
+    @Override
+    public Long insertFileUploadEntity(FileUploadEntity fileUploadEntity) {
+                                                        //.getId()를 쓰면 시퀀스 PK값을 리턴 받을 수 있다.
+            return fileUploadInfoRepository.save(fileUploadEntity).getId();
+    }
+
+    @Override
+    public FileUploadEntity getFileUploadEntity(Long board_seq) {
+        return fileUploadInfoRepository.findByBoardSeq(board_seq);
     }
 }
