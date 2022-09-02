@@ -38,15 +38,11 @@ public class memberController {
 
 
 
-
-
-
-
-
     //회원정보 수정
     @PostMapping("/Member_Update/update_Member")
     public String updateMember(Member member){
         System.out.println("------update--------");
+        System.out.println("--되는건가??--")
         memberService.updateMember(member);
         return "redirect:Member/Member_Update/update_Member";
     }
