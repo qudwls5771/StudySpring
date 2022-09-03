@@ -16,8 +16,8 @@ public interface MemberRepository extends JpaRepository<Member, String> {
     //데이터를 Null값으로 변경
     //날짜 테이블에 있는 가입날짜, 탈퇴날짜 수정은 차후에 하기로 한다.
     @Query(value = "update Member m set m.password = 'null', m.address = 'null'," +
-            " m.name = 'null', m.year = 'null', m.phone_number = 'null', m.pet_D = 'null', m.pet_S = 'null', " +
-            "m.pet_T = 'null', m.pet_W = 'null', m.join_M = 'N' where m.id = :memberID")
+            " m.name = 'null', m.year = 'null', m.phoneNumber = 'null', m.petD = 'null', m.petS = 'null', " +
+            "m.petT = 'null', m.petW = 'null', m.joinM = 'N' where m.id = :memberID")
     Member updateDelete(String memberID);
 
 

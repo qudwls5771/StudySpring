@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>(일반) 회원가입</title>
+</head>
+<body>
+
+<div>회원 가입</div>
+<form th:action="@{/Member/mJoin/Join}" method="post" modelAttribute="Member">
+    <div>
+        <input type="text" name="id" th:value="${Member.id}" placeholder="ID를 입력해주세요.">
+        <span th:text="${member_id}"></span>
+    </div>
+    <div>
+        <input type="password" name="password" placeholder="비밀번호">
+        <span th:text="${member_password}"></span>
+    </div>
+    <div>
+        <input type="text" name="name" th:value="${Member.name}" placeholder="이름을 입력해주세요.">
+        <span th:text="${member_name}"></span>
+    </div>
+    <div>
+        <input type="text" name="year" th:value="${Member.year}" placeholder="(회원)생년월일을 입력해주세요.">
+        <span th:text="${member_year}"></span>
+    </div>
+    <div>
+        <input type="text" name="phone_number" th:value="${Member.phoneNumber}" placeholder="핸드폰번호를 입력해주세요.">
+        <span th:text="${member_phoneNumber}"></span>
+    </div>
+    <div>
+        <input type="text" name="address" th:value="${Member.address}" placeholder="(회원)주소를 입력해주세요.">
+        <span th:text="${member_address}"></span>
+    </div>
+    <div>
+        <input type="text" name="pet_T" th:value="${Member.petT}" placeholder="애견,애묘의 종류 입력해주세요.">
+        <span th:text="${member_petT}"></span>
+    </div>
+    <div>
+        <input type="text" name="pet_S" th:value="${Member.petS}" placeholder="애견, 애묘의 성별을 입력해주세요.">
+        <span th:text="${member_petS}"></span>
+    </div>
+    <div>
+        <input type="text" name="pet_W" th:value="${Member.petW}" placeholder="애견, 애묘의 무게를 입력해주세요.">
+        <span th:text="${member_petW}"></span>
+    </div>
+    <button>회원가입</button>
+</form>
+
+
+</body>
+</html>

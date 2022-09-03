@@ -41,13 +41,13 @@ public class memberServiceImpl implements memberService{
         System.out.println(findMember.getPassword());
         System.out.println(findMember.getName());
         System.out.println(findMember.getAddress());
-        System.out.println(findMember.getPet_D());
-        System.out.println(findMember.getPet_S());
-        System.out.println(findMember.getPet_T());
-        System.out.println(findMember.getPet_W());
-        System.out.println(findMember.getJoin_M());
+        System.out.println(findMember.getPetD());
+        System.out.println(findMember.getPetS());
+        System.out.println(findMember.getPetT());
+        System.out.println(findMember.getPetW());
+        System.out.println(findMember.getJoinM());
         System.out.println(findMember.getYear());
-        System.out.println(findMember.getPhone_number());
+        System.out.println(findMember.getPhoneNumber());
         System.out.println("--------회원정보 수정---------");
         memberRepo.save(findMember);
     }

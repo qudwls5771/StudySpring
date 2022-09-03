@@ -47,7 +47,7 @@ public class Member extends member_BaseEntity {
     @Pattern(regexp = "(?=.*[0-9]).{11}", message = "핸드폰 번호는 예)010xxxxxxxx")
     @Column(name = "member_phone_number")
     @NotBlank(message = "핸드폰 번호를 적어주세요.")
-    private String phone_number; // 핸드폰 번호
+    private String phoneNumber; // 핸드폰 번호
 
     @Column(name = "member_address", length = 50)
     @NotBlank(message = "주소를 적어주세요.")
@@ -55,24 +55,24 @@ public class Member extends member_BaseEntity {
 
     @Column(name = "member_pet_T", length = 20)
     @NotBlank(message = "애견, 애묘의 종을 적어주세요.")
-    private String pet_T; //--펫 종류
+    private String petT; //--펫 종류
 
     @Column(name = "member_pet_S", length = 1)
     @NotBlank(message = "애견, 애묘의 성별을 적어주세요.")
-    private String pet_S; //--펫 성별
+    private String petS; //--펫 성별
 
     @Pattern(regexp = "(?=.*[0-9]).{8}", message = "애견,애묘의 출생일은 예)20220901")
     @Column(name = "member_pet_D")
     @NotBlank(message = "애견, 애묘의 출생년도를 적어주세요.")
-    private String pet_D; //-- 펫 출생
+    private String petD; //-- 펫 출생
 
     @Column(name = "member_pet_W", length = 10)
     @NotBlank(message = "애견, 애묘의 몸무게를 적어주세요.")
-    private Integer pet_W; //--펫 몸무게
+    private Integer petW; //--펫 몸무게
 
     @Column(name = "member_join_M", length = 1, nullable = false)
     @ColumnDefault("'Y'")
-    private String join_M; //--가입상태
+    private String joinM; //--가입상태
 
 
 
@@ -81,5 +81,7 @@ public class Member extends member_BaseEntity {
         //builder를 사용하면 좋은 점? null처리에 대해서 쉽다.
         //나 이외의 다른 팀원이 실행할 경우 나는 어느 부분에서 null이 생겨날지 느낄 수 있지만
         //다른 팀원들은 잘 알 수가 없기 떄문이다.
+
+
 
 }

@@ -24,9 +24,9 @@ public class memberController {
         this.memberService = memberservice;
     }
 
-    @GetMapping("/Member_Join/insert_Member")
+    @GetMapping("/mJoin/Join")
     public String insertMember(){
-        return "Member/Member_Join/insert_Member";
+        return "Member/mJoin/Join";
     }
     //회원 가입
 //    @PostMapping("/Member_Join/insert_Member")
@@ -35,15 +35,16 @@ public class memberController {
 //        memberService.insertMember(member);
 //       return "redirect:Member/Member_Join/insert_Member";
 //    }
-    @PostMapping("/Member_Join/insert_Member")
+    @PostMapping("/mJoin/Join")
     public String insertMember(@Valid Member member, Errors errors, Model model){
+        System.out.printf("---check---");
         //@Valid : 클라이언트 입력 데이터가 dto클래스로 캡슐화되어 넘어올 때, 유효성을 체크하라는 어노테이션
         //Member에서 작성한 어노테이션을 기준으로 유효성 체크
         //여기서 Errors객체는 Member의 필드 유효성 검사 오류에 대한 정보를 저장하고 노출한다.
         //errors.hasErrors() : 유효성 검사에 실패한 필드가 있는지 확인
         if(errors.hasErrors()){
             //회원가입 실패 시, 입력 데이터를 유지
-            model.addAttribute("member", member);
+            model.addAttribute("Member", member);
             //회원가입 실패 시, 회원가입 페이지에서 입력했던 정보들을 그대로 유지하기 위해 입력받았던 데이터를 그대로 할당합니다.
             //insertMember(Member member) 함수에 파라미터를 정의해준 이유입니다.
             //Validation 관점에서는 필요없는 부분이지만, UX 측면에서 구현해주는 것이 좋다.
@@ -54,7 +55,7 @@ public class memberController {
             for(String key : member_Availability.keySet()){
                 model.addAttribute(key, member_Availability.get(key));
             }
-            return "/Member/Member_Join/insert_Member";
+            return "/Member/mJoin/Join";
         }
         memberService.insertMember(member);
         return "redirect:/index";
