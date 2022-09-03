@@ -6,71 +6,48 @@
     <title>(일반) 회원가입</title>
 </head>
 <body>
-<script>
-    function idOverlap(){
 
-    }
-</script>
 <div>회원 가입</div>
+<form th:action="@{/Member/Member_Join/insert_Member}" method="post" modelAttribute="member">
+    <div>
+        <input type="text" name="id" th:value="${member.id}" placeholder="ID를 입력해주세요.">
+        <span th:text="${member_id}"></span>
+    </div>
+    <div>
+        <input type="password" name="password" placeholder="비밀번호">
+        <span th:text="${member_password}"></span>
+    </div>
+    <div>
+        <input type="text" name="name" th:value="${member.name}" placeholder="이름을 입력해주세요.">
+        <span th:text="${member_name}"></span>
+    </div>
+    <div>
+        <input type="text" name="year" th:value="${member.year}" placeholder="(회원)생년월일을 입력해주세요.">
+        <span th:text="${member_year}"></span>
+    </div>
+    <div>
+        <input type="text" name="phone_number" th:value="${member.phone_number}" placeholder="핸드폰번호를 입력해주세요.">
+        <span th:text="${member_phone_number}"></span>
+    </div>
+    <div>
+        <input type="text" name="address" th:value="${member.address}" placeholder="(회원)주소를 입력해주세요.">
+        <span th:text="${member_address}"></span>
+    </div>
+    <div>
+        <input type="text" name="pet_T" th:value="${member.pet_T}" placeholder="애견,애묘의 종류 입력해주세요.">
+        <span th:text="${member_pet_T}"></span>
+    </div>
+    <div>
+        <input type="text" name="pet_S" th:value="${member.pet_S}" placeholder="애견, 애묘의 성별을 입력해주세요.">
+        <span th:text="${member_pet_S}"></span>
+    </div>
+    <div>
+        <input type="text" name="pet_W" th:value="${member.pet_W}" placeholder="애견, 애묘의 무게를 입력해주세요.">
+        <span th:text="${member_pet_W}"></span>
+    </div>
+    <button>회원가입</button>
+</form>
 
-    <form th:action="@{/Member/MemberJoin/insert_Member}" method="post">
-        <div><p>아이디</p>
-            <input name="id" type="text" placeholder="ID">
-        </div>
-        <div><p>비밀번호</p>
-            <input name="password" type="text" placeholder="Password">
-        </div>
-        <div><p>비밀번호 재확인</p>
-            <input name="password" type="text" placeholder="비밀번호 재확인">
-        </div>
-        <div><p>이름</p>
-            <input name="name" type="text" placeholder="이름">
-        </div>
-        <div>
-            <p>생년월일</p>
-            <input name="year" type="text" placeholder="예)20220826">
-            <!--        <input type="text" placeholder="년(4자)"><select name="" id="">-->
-            <!--        <optionT value="1"></option>-->
-            <!--        <optionT value="2"></option>-->
-            <!--        <optionT value="3"></option>-->
-            <!--        <optionT value="4"></option>-->
-            <!--        <optionT value="5"></option>-->
-            <!--        <optionT value="6"></option>-->
-            <!--        <optionT value="7"></option>-->
-            <!--        <optionT value="8"></option>-->
-            <!--        <optionT value="9"></option>-->
-            <!--        <optionT value="10"></option>-->
-            <!--        <optionT value="11"></option>-->
-            <!--        <optionT value="12"></option>-->
-            <!--        <optionT value="13"></option>-->
-            <!--        </select><input type="text" placeholder="일">-->
-        </div>
-        <div><p>성별</p>
-            <input name = "phone_number" type="text" placeholder="남/여">
-        </div>
-            <div><p>핸드폰 번호</p>
-                <input name = "phone_number" type="text" placeholder="-를 제외하고 입력해주세요.">
-            </div>
-            <div><p>주소</p>
-                <input name = "address" type="text" placeholder="주소">
-            </div>
-
-                <div><p>펫 종류</p>
-                    <input name = "member_pet_T" type="text" placeholder="펫 종류">
-                </div>
-
-                    <div><p>펫 성별</p>
-                        <input name = "member_pet_S" type="text" placeholder="펫 성별">
-                    </div>
-
-                    <div></div>
-                    <div><p>펫 출생</p>
-                        <input name = "member_pet_D" type="text" placeholder="펫 출생 : 202208256">
-                    </div>
-                    <div><p>펫 몸무게</p>
-                        <input name = "member_pet_W" type="text" placeholder="펫 몸무게">
-                    </div>
-    </form>
 
 </body>
 </html>

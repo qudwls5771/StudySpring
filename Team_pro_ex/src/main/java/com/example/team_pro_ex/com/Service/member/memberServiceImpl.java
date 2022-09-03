@@ -71,8 +71,11 @@ public class memberServiceImpl implements memberService{
         //유효성 검사에 실패한 필드 목록을 받아 미리 정의된 메시지를 가져와 Map에 넣어준다.
         Map<String, String> availability_ID = new HashMap<>();
         /* 유효성 검사에 실패한 필드 목록을 받음 */
+        // errors.getFieldErrors() : 유효성 검사에 실패한 필드 목록을 가져옴
         for(FieldError error : errors.getFieldErrors()){
-            String member_availability_ID = String.format("members_%s", error.getField());
+            //유효성 검사에 실패한 필드명을 가져옵니다. : error.getField() / 키 : "members_%s"  = > mevers_dto필드명
+            String member_availability_ID = String.format("member_%s", error.getField());
+            //error.getDefaultMessage() : 유효성 검사에 실패한 필드에 정의된 메시지를 가져옵니다.
             availability_ID.put(member_availability_ID, error.getDefaultMessage());
         }
         return availability_ID;
