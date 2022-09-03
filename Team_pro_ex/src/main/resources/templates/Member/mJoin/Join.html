@@ -7,42 +7,42 @@
 <body>
 
 <div>회원 가입</div>
-<form th:action="@{/Member/mJoin/Join}" method="post" modelAttribute="Member">
+<form th:action="@{/Member/mJoin/Join}" method="post" modelAttribute="member">
     <div>
-        <input type="text" name="id" th:value="${Member.id}" placeholder="ID를 입력해주세요.">
-        <span th:text="${member_id}"></span>
+        <input type="text" name="id" th:value="${member.id}" placeholder="ID를 입력해주세요.">
+        <span th:text="${valid_id}"></span>
     </div>
     <div>
         <input type="password" name="password" placeholder="비밀번호">
-        <span th:text="${member_password}"></span>
+        <span th:text="${valid_password}"></span>
     </div>
     <div>
-        <input type="text" name="name" th:value="${Member.name}" placeholder="이름을 입력해주세요.">
-        <span th:text="${member_name}"></span>
+        <input type="text" name="name" th:value="${member.name}" placeholder="이름을 입력해주세요.">
+        <span th:text="${valid_name}"></span>
     </div>
     <div>
-        <input type="text" name="year" th:value="${Member.year}" placeholder="(회원)생년월일을 입력해주세요.">
-        <span th:text="${member_year}"></span>
+        <input type="text" name="year" th:value="${member.year}" placeholder="(회원)생년월일을 입력해주세요.">
+        <span th:text="${valid_year}"></span>
     </div>
     <div>
-        <input type="text" name="phone_number" th:value="${Member.phoneNumber}" placeholder="핸드폰번호를 입력해주세요.">
-        <span th:text="${member_phoneNumber}"></span>
+        <input type="text" name="phone_number" th:value="${member.phoneNumber}" placeholder="핸드폰번호를 입력해주세요.">
+        <span th:text="${valid_phoneNumber}"></span>
     </div>
     <div>
-        <input type="text" name="address" th:value="${Member.address}" placeholder="(회원)주소를 입력해주세요.">
-        <span th:text="${member_address}"></span>
+        <input type="text" name="address" th:value="${member.address}" placeholder="(회원)주소를 입력해주세요.">
+        <span th:text="${valid_address}"></span>
     </div>
     <div>
-        <input type="text" name="pet_T" th:value="${Member.petT}" placeholder="애견,애묘의 종류 입력해주세요.">
-        <span th:text="${member_petT}"></span>
+        <input type="text" name="pet_T" th:value="${member.petT}" placeholder="애견,애묘의 종류 입력해주세요.">
+        <span th:text="${valid_petT}"></span>
     </div>
     <div>
-        <input type="text" name="pet_S" th:value="${Member.petS}" placeholder="애견, 애묘의 성별을 입력해주세요.">
-        <span th:text="${member_petS}"></span>
+        <input type="text" name="pet_S" th:value="${member.petS}" placeholder="애견, 애묘의 성별을 입력해주세요.">
+        <span th:text="${valid_mpetS}"></span>
     </div>
     <div>
         <input type="text" name="pet_W" th:value="${Member.petW}" placeholder="애견, 애묘의 무게를 입력해주세요.">
-        <span th:text="${member_petW}"></span>
+        <span th:text="${valid_petW}"></span>
     </div>
     <button>회원가입</button>
 </form>

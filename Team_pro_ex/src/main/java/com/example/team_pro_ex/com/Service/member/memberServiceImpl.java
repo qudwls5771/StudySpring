@@ -74,7 +74,7 @@ public class memberServiceImpl implements memberService{
         // errors.getFieldErrors() : 유효성 검사에 실패한 필드 목록을 가져옴
         for(FieldError error : errors.getFieldErrors()){
             //유효성 검사에 실패한 필드명을 가져옵니다. : error.getField() / 키 : "members_%s"  = > mevers_dto필드명
-            String member_availability_ID = String.format("member_%s", error.getField());
+            String member_availability_ID = String.format("valid_%s", error.getField());
             //error.getDefaultMessage() : 유효성 검사에 실패한 필드에 정의된 메시지를 가져옵니다.
             availability_ID.put(member_availability_ID, error.getDefaultMessage());
         }

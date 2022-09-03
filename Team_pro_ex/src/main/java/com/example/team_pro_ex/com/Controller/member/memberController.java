@@ -44,7 +44,7 @@ public class memberController {
         //errors.hasErrors() : 유효성 검사에 실패한 필드가 있는지 확인
         if(errors.hasErrors()){
             //회원가입 실패 시, 입력 데이터를 유지
-            model.addAttribute("Member", member);
+            model.addAttribute("member", member);
             //회원가입 실패 시, 회원가입 페이지에서 입력했던 정보들을 그대로 유지하기 위해 입력받았던 데이터를 그대로 할당합니다.
             //insertMember(Member member) 함수에 파라미터를 정의해준 이유입니다.
             //Validation 관점에서는 필요없는 부분이지만, UX 측면에서 구현해주는 것이 좋다.
@@ -68,20 +68,20 @@ public class memberController {
 
 
     //회원정보 수정
-    @PostMapping("/Member_Update/update_Member")
+    @PostMapping("/mUpdate/Update")
     public String updateMember(Member member){
         System.out.println("------update--------");
         System.out.println("--되는건가??--");
         memberService.updateMember(member);
-        return "redirect:Member/Member_Update/update_Member";
+        return "redirect:Member/mUpdate/Update";
     }
 
     //회원을 삭제하는게 아니라 수정한다. ID, Name, Join_m 및 날짜 테이블의 join_O을 제외한 값 전부 Null
-    @PostMapping("/deleteUp_Member")
+    @PostMapping("/mDelete/upDelete")
     public String deleteUpdateMember(Member member){
         System.out.println("-------delete-------");
         memberService.deleteUpdateMember(member);
-        return "redirect:Member/Member_Up_Del/deletrUp_Member";
+        return "redirect:Member/mDelete/upDelete";
     }
 
 }
