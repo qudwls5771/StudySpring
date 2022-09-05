@@ -29,16 +29,18 @@ public class memberController {
         System.out.println("get mapping account !!");
         System.out.println(input_member.getName());
         System.out.println(input_member.getPetW());
-        Member member = new Member("","","","","","","","","", 0, "Y");
-        member.getPetD();
-        member.getPassword();
-        member.getName();
-        member.getPhoneNumber();
-        member.getAddress();
-        member.getPetT();
-        member.getPetS();
-        member.getPetD();
-        member.getPetW();
+        Member member = new Member(
+                input_member.getId(), //아이디
+                input_member.getPassword(), //비밀번호
+                input_member.getName(), //이름
+                input_member.getYear(), //(회원) 생년월일
+                input_member.getPhoneNumber(), // 핸드폰 번호
+                input_member.getAddress(), //주소
+                input_member.getPetT(), // 애견, 애묘 : 종류
+                input_member.getPetS(), // 애견, 애묘 : 성별
+                input_member.getPetD(), // 애견, 애묘 : 생년월일
+                input_member.getPetW(), // 애견, 애묘 : 몸무게
+                "Y");
         System.out.println("아이디 : "+ member.getId());
         System.out.println("비밀번호 : "+ member.getPassword());
         System.out.println("이름 : "+ member.getName());
