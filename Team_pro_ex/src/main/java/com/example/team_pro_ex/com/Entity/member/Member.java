@@ -31,52 +31,43 @@ public class Member extends member_BaseEntity {
     private String id;  // 아이디
 
     @Column(name = "member_password",length = 18)
-    @NotBlank(message = "비밀번호는 필수 입력 값입니다.")
     @Pattern(regexp = "(?=.*[0-9])(?=.*[a-zA-Z])(?=.*\\W)(?=\\S+$).{8,16}", message = "비밀번호는 8~16자 영문 대 소문자, 숫자를 포함한 특수문자를 사용하세요.")
     private String password; // 비밀번호
 
     @Column(name = "member_name")
-    @NotBlank(message = "이름을 입력해주세요.")
     private String name; // 이름
 
     @Pattern(regexp = "(?=.*[0-9]).{8}", message = "출생년도는 예)20220901")
     @Column(name = "member_year")
-    @NotBlank(message = "생년월일을 적어주세요.")
     private String year; // 펫주인 생년월일
 
     @Pattern(regexp = "(?=.*[0-9]).{11}", message = "핸드폰 번호는 예)010xxxxxxxx")
     @Column(name = "member_phone_number")
-    @NotBlank(message = "핸드폰 번호를 적어주세요.")
     private String phoneNumber; // 핸드폰 번호
 
     @Column(name = "member_address", length = 50)
-    @NotBlank(message = "주소를 적어주세요.")
     private String address; // 주소
 
     @Column(name = "member_pet_T", length = 20)
-    @NotBlank(message = "애견, 애묘의 종을 적어주세요.")
     private String petT; //--펫 종류
 
     @Column(name = "member_pet_S", length = 1)
-    @NotBlank(message = "애견, 애묘의 성별을 적어주세요.")
     private String petS; //--펫 성별
 
     @Pattern(regexp = "(?=.*[0-9]).{8}", message = "애견,애묘의 출생일은 예)20220901")
     @Column(name = "member_pet_D")
-    @NotBlank(message = "애견, 애묘의 출생년도를 적어주세요.")
     private String petD; //-- 펫 출생
 
     @Column(name = "member_pet_W", length = 10)
-    @NotBlank(message = "애견, 애묘의 몸무게를 적어주세요.")
     private Integer petW; //--펫 몸무게
 
-    @Column(name = "member_join_M", length = 1, nullable = false)
+    @Column(name = "member_join_M", length = 1)
     @ColumnDefault("'Y'")
     private String joinM; //--가입상태
 
 
 
-        //builder패턴을 쓰면 중요하다고 생각 되는 것들은 builder를 사용하여 관리를 하고
+    //builder패턴을 쓰면 중요하다고 생각 되는 것들은 builder를 사용하여 관리를 하고
         //그 외 요소들은 setter로 받는다.
         //builder를 사용하면 좋은 점? null처리에 대해서 쉽다.
         //나 이외의 다른 팀원이 실행할 경우 나는 어느 부분에서 null이 생겨날지 느낄 수 있지만

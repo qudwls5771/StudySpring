@@ -25,19 +25,39 @@ public class memberController {
     }
 
     @GetMapping("/mJoin/Join")
-    public String insertMember(){
+    public String insertMember(Member input_member, Model model){
+        System.out.println("get mapping account !!");
+        System.out.println(input_member.getName());
+        System.out.println(input_member.getPetW());
+        Member member = new Member("","","","","","","","","", 0, "Y");
+        member.getPetD();
+        member.getPassword();
+        member.getName();
+        member.getPhoneNumber();
+        member.getAddress();
+        member.getPetT();
+        member.getPetS();
+        member.getPetD();
+        member.getPetW();
+        System.out.println("아이디 : "+ member.getId());
+        System.out.println("비밀번호 : "+ member.getPassword());
+        System.out.println("이름 : "+ member.getName());
+        System.out.println("폰번 : "+ member.getPhoneNumber());
+        System.out.println("주소 : "+ member.getAddress());
+        System.out.println("펫 종류 :"+ member.getPetT());
+        System.out.println("펫 성별 : "+ member.getPetS());
+        System.out.println("펫 생년 : "+ member.getPetD());
+        System.out.println("펫 몸무게 :" +member.getPetW());
+        System.out.println("가입상태 : " +member.getJoinM());
+        model.addAttribute("member", member);
         return "Member/mJoin/Join";
     }
-    //회원 가입
-//    @PostMapping("/Member_Join/insert_Member")
-//    public String insertMember(Member member){
-//        System.out.println("------insert-------");
-//        memberService.insertMember(member);
-//       return "redirect:Member/Member_Join/insert_Member";
-//    }
+
+
     @PostMapping("/mJoin/Join")
     public String insertMember(@Valid Member member, Errors errors, Model model){
-        System.out.printf("---check---");
+        System.out.println("---check---");
+        System.out.println(member.getId());
         //@Valid : 클라이언트 입력 데이터가 dto클래스로 캡슐화되어 넘어올 때, 유효성을 체크하라는 어노테이션
         //Member에서 작성한 어노테이션을 기준으로 유효성 체크
         //여기서 Errors객체는 Member의 필드 유효성 검사 오류에 대한 정보를 저장하고 노출한다.
@@ -45,6 +65,7 @@ public class memberController {
         if(errors.hasErrors()){
             //회원가입 실패 시, 입력 데이터를 유지
             model.addAttribute("member", member);
+            System.out.println(member.getId());
             //회원가입 실패 시, 회원가입 페이지에서 입력했던 정보들을 그대로 유지하기 위해 입력받았던 데이터를 그대로 할당합니다.
             //insertMember(Member member) 함수에 파라미터를 정의해준 이유입니다.
             //Validation 관점에서는 필요없는 부분이지만, UX 측면에서 구현해주는 것이 좋다.
@@ -60,12 +81,6 @@ public class memberController {
         memberService.insertMember(member);
         return "redirect:/index";
     }
-
-
-
-
-
-
 
     //회원정보 수정
     @PostMapping("/mUpdate/Update")
