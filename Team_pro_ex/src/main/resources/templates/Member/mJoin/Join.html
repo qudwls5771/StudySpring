@@ -25,7 +25,7 @@
         <span th:text="${valid_year}"></span>
     </div>
     <div>
-        <input type="text" name="phone_number" th:value="${member.phoneNumber}" placeholder="핸드폰번호를 입력해주세요.">
+        <input type="text" name="phoneNumber" th:value="${member.phoneNumber}" placeholder="핸드폰번호를 입력해주세요.">
         <span th:text="${valid_phoneNumber}"></span>
     </div>
     <div>
@@ -41,14 +41,14 @@
         <span th:text="${valid_mpetS}"></span>
     </div>
     <div>
-        <input type="text" name="petS" th:value="${member.petD}" placeholder="애견, 애묘의 성별을 입력해주세요.">
+        <input type="text" name="petD" th:value="${member.petD}" placeholder="애견, 애묘의 생년월일을 입력해주세요.">
         <span th:text="${valid_petD}"></span>
     </div>
     <div>
         <input type="text" name="petW" th:value="${member.petW}" placeholder="애견, 애묘의 무게를 입력해주세요.">
         <span th:text="${valid_petW}"></span>
     </div>
-    <button>회원가입</button>
+    <input type="submit" value="회원등록">
 </form>
 
 

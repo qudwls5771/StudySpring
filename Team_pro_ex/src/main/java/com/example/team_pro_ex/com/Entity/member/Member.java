@@ -3,6 +3,8 @@ package com.example.team_pro_ex.com.Entity.member;
 import com.example.team_pro_ex.com.Entity.Base.member_BaseEntity;
 import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,6 +24,8 @@ import javax.validation.constraints.Pattern;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@DynamicInsert
+@DynamicUpdate
 public class Member extends member_BaseEntity {
 
     @Id
@@ -51,7 +55,7 @@ public class Member extends member_BaseEntity {
     @Column(name = "member_pet_T", length = 20)
     private String petT; //--펫 종류
 
-    @Column(name = "member_pet_S", length = 1)
+    @Column(name = "member_pet_S", length = 1) //
     private String petS; //--펫 성별
 
     @Pattern(regexp = "(?=.*[0-9]).{8}", message = "애견,애묘의 출생일은 예)20220901")
@@ -62,8 +66,7 @@ public class Member extends member_BaseEntity {
     private Integer petW; //--펫 몸무게
 
     @Column(name = "member_join_M", length = 1)
-    @ColumnDefault("'Y'")
-    private String joinM; //--가입상태
+    private String joinM = "Y"; //--가입상태
 
 
 

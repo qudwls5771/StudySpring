@@ -9,6 +9,7 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
 import java.util.Map;
@@ -25,22 +26,44 @@ public class memberController {
     }
 
     @GetMapping("/mJoin/Join")
-    public String insertMember(Member input_member, Model model){
+    public String insertMember(Member member, Model model){
         System.out.println("get mapping account !!");
-        System.out.println(input_member.getName());
-        System.out.println(input_member.getPetW());
-        Member member = new Member(
-                input_member.getId(), //아이디
-                input_member.getPassword(), //비밀번호
-                input_member.getName(), //이름
-                input_member.getYear(), //(회원) 생년월일
-                input_member.getPhoneNumber(), // 핸드폰 번호
-                input_member.getAddress(), //주소
-                input_member.getPetT(), // 애견, 애묘 : 종류
-                input_member.getPetS(), // 애견, 애묘 : 성별
-                input_member.getPetD(), // 애견, 애묘 : 생년월일
-                input_member.getPetW(), // 애견, 애묘 : 몸무게
-                "Y");
+        System.out.println("get방식으로 인한 Join페이지 = 우리가 처음 join페이지를 들어갈 떄는 null값이 뜰 수 밖에없다.");
+        System.out.println("왜냐!!?!? 값이 없으니까!");
+        System.out.println(member.getName());
+        System.out.println(member.getPetW());
+        Member member_1 = new Member(
+                member.getId(), //아이디
+                member.getPassword(), //비밀번호
+                member.getName(), //이름
+                member.getYear(), //(회원) 생년월일
+                member.getPhoneNumber(), // 핸드폰 번호
+                member.getAddress(), //주소
+                member.getPetT(), // 애견, 애묘 : 종류
+                member.getPetS(), // 애견, 애묘 : 성별
+                member.getPetD(), // 애견, 애묘 : 생년월일
+                member.getPetW(), // 애견, 애묘 : 몸무게
+                member.getJoinM());// Y는 현재 가입상태 => 모든 회원은 처음 가입할 떄 가입상태 Y로 시작을 한다. /
+                    // 탈퇴할 경우는 update로 N으로 수정된다.
+        System.out.println("아이디 : "+ member_1.getId());
+        System.out.println("비밀번호 : "+ member_1.getPassword());
+        System.out.println("이름 : "+ member_1.getName());
+        System.out.println("폰번 : "+ member_1.getPhoneNumber());
+        System.out.println("주소 : "+ member_1.getAddress());
+        System.out.println("펫 종류 :"+ member_1.getPetT());
+        System.out.println("펫 성별 : "+ member_1.getPetS());
+        System.out.println("펫 생년 : "+ member_1.getPetD());
+        System.out.println("펫 몸무게 :" +member_1.getPetW());
+        System.out.println("가입상태 : " +member_1.getJoinM());
+        model.addAttribute("member", member_1);
+        return "Member/mJoin/Join";
+    }
+
+
+    @PostMapping("/mJoin/Join")
+    public String insertMember(@Valid Member member, Errors errors, Model model){
+        System.out.println("---check---");
+        System.out.println("---PostMapping 실제로 여기서 값이 들어감---");
         System.out.println("아이디 : "+ member.getId());
         System.out.println("비밀번호 : "+ member.getPassword());
         System.out.println("이름 : "+ member.getName());
@@ -51,15 +74,6 @@ public class memberController {
         System.out.println("펫 생년 : "+ member.getPetD());
         System.out.println("펫 몸무게 :" +member.getPetW());
         System.out.println("가입상태 : " +member.getJoinM());
-        model.addAttribute("member", member);
-        return "Member/mJoin/Join";
-    }
-
-
-    @PostMapping("/mJoin/Join")
-    public String insertMember(@Valid Member member, Errors errors, Model model){
-        System.out.println("---check---");
-        System.out.println(member.getId());
         //@Valid : 클라이언트 입력 데이터가 dto클래스로 캡슐화되어 넘어올 때, 유효성을 체크하라는 어노테이션
         //Member에서 작성한 어노테이션을 기준으로 유효성 체크
         //여기서 Errors객체는 Member의 필드 유효성 검사 오류에 대한 정보를 저장하고 노출한다.
