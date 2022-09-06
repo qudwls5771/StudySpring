@@ -44,7 +44,7 @@ public class memberController {
                 member.getPetD(), // 애견, 애묘 : 생년월일
                 member.getPetW(), // 애견, 애묘 : 몸무게
                 member.getJoinM());// Y는 현재 가입상태 => 모든 회원은 처음 가입할 떄 가입상태 Y로 시작을 한다. /
-                    // 탈퇴할 경우는 update로 N으로 수정된다.
+        // 탈퇴할 경우는 update로 N으로 수정된다.
         System.out.println("아이디 : "+ member_1.getId());
         System.out.println("비밀번호 : "+ member_1.getPassword());
         System.out.println("이름 : "+ member_1.getName());
@@ -86,7 +86,7 @@ public class memberController {
             //insertMember(Member member) 함수에 파라미터를 정의해준 이유입니다.
             //Validation 관점에서는 필요없는 부분이지만, UX 측면에서 구현해주는 것이 좋다.
             //물론, thymeleaf에서도 코드가 들어가야 한다.
-            
+
             //유효성 통과 못한 필드와 메세지를 핸들링
             Map<String, String> member_Availability = memberService.member_Availability(errors);
             for(String key : member_Availability.keySet()){
