@@ -115,4 +115,6 @@ public class memberController {
         return "redirect:Member/mDelete/upDelete";
     }
 
+    
+    
 }
